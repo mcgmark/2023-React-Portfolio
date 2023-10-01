@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "title": "barrie honda powerhouse",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New responsive website design for business selling Honda motorcycles and etc.",
+      "thumbnail": "ph-website-thumb.jpg",
+      "full": "ph-website-full.png" 
+    },
+    {
+      "id": 2,
+      "title": "barrie honda powerhouse",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New responsive website design for business selling Honda motorcycles and etc.",
+      "thumbnail": "ph-website-thumb.jpg",
+      "full": "ph-website-thumb.jpg" 
+    },
+    {
+      "id": 3,
+      "title": "barrie honda powerhouse",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New responsive website design for business selling Honda motorcycles and etc.",
+      "thumbnail": "ph-website-thumb.jpg",
+      "full": "ph-website-thumb.jpg" 
+    },
+    {
+      "id": 4,
+      "title": "barrie honda powerhouse",
+      "category": "print",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New responsive website design for business selling Honda motorcycles and etc.",
+      "thumbnail": "ph-website-thumb.jpg",
+      "full": "ph-website-thumb.jpg" 
+    }
+]
