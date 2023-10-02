@@ -24,7 +24,7 @@ const Footer = () => {
     return (
         <FooterContainer>
             <FooterInnerContainer>
-            <NameLogo>Mark McGuigan</NameLogo>
+            <NameLogo>Mark McGuigan © 2024</NameLogo>
             </FooterInnerContainer>
         </FooterContainer>
     );

@@ -24,6 +24,7 @@ const Section = styled.section`
   min-height: 100vh;
   min-width: 100%;
   max-width: 90%;
+  overflow-y: hidden;
 `;
 
 const Top = styled.section`

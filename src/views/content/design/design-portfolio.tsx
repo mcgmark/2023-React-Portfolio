@@ -5,7 +5,10 @@ import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Item } from '../../assets/types/types';
 
-import backgroundImage from '../../assets/images/bg.svg';
+import backgroundImage1 from '../../assets/images/toprightbg.svg';
+import backgroundImage2 from '../../assets/images/bottomrightbg.svg';
+import backgroundImage3 from '../../assets/images/topleftbg.svg';
+import backgroundImage4 from '../../assets/images/bottomleftbg.svg';
 
 import Lightbox from '../../components/lightbox/lightbox';
 
@@ -19,8 +22,10 @@ type PortfolioFilterButtonProps = {
 }
 
 const PortfolioContainer = styled.section`
-    background: url(${backgroundImage}), var(--purple-bright);
-    background-size: cover;
+    background: url(${backgroundImage1}), url(${backgroundImage2}), url(${backgroundImage3}), url(${backgroundImage4}), var(--purple-bright);
+    background-repeat: no-repeat;
+    background-position: top left, bottom left, top right, bottom right;
+    background-size: auto;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -31,8 +36,8 @@ const PortfolioContainer = styled.section`
 const PortfolioInner = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 90%;
+    max-width: 2700px;
     padding: 120px 20px;
     gap: 30px;
 `;
@@ -117,17 +122,16 @@ const PortfolioItemsContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
 
   @media (min-width: 800px){
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-auto-flow: row; 
     grid-gap: 10px; 
   }
 
-  @media (min-width: 1200px){
-    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+  @media (min-width: 1800px){
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
 `;
 
@@ -191,6 +195,7 @@ const PortfolioItemText = styled.div`
     max-height: 100%;
     max-width: 100%;
     transition: all 0.2s linear;
+    backdrop-filter: blur(5px);
 
     ${PortfolioItem}:hover & {
         bottom: 0px;
@@ -267,17 +272,47 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxImageUrl, setLightboxImageUrl] = useState('');
     const [imageTitle, setImageTitle] = useState('');
+    const [currentLightboxIndex, setCurrentLightboxIndex] = useState(0);
 
     const portfolioRef = useRef(null);
 
+    const totalItems = data.length;
+    const totalDigitalItems = data.filter(item => item.category === "digital").length;
+    const totalPrintItems = data.filter(item => item.category === "print").length;
+
     useEffect(() => {
-        setFilteredData(data);
+        const sortedData = [...data];
+            sortedData.sort((a,b) => {
+                if (a.category === 'digital' && b.category === 'print') {
+                    return -1;
+                } else if (a.category === 'print' && b.category === 'digital'){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+        setFilteredData(sortedData);
     }, [data]);
 
-    const handleButtonClick = (category: string) => {
+    useEffect(() => {
+        setRenderedData([]);
+        setCurrentIndex(0);
+    }, [filteredData]);
+
+    const filterButtonClick = (category: string) => {
         setSelectedCategory(category);
         if (category === 'all') {
-            setFilteredData(data);
+            const sortedData = [...data];
+            sortedData.sort((a,b) => {
+                if (a.category === 'digital' && b.category === 'print') {
+                    return -1;
+                } else if (a.category === 'print' && b.category === 'digital'){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+            setFilteredData(sortedData);
         } else {
             const filteredItems = data.filter((item) => item.category === category);
             setFilteredData(filteredItems);
@@ -286,17 +321,12 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     };
 
     useEffect(() => {
-        setRenderedData([]);
-        setCurrentIndex(0);
-    }, [filteredData]);
-
-    useEffect(() => {
         if (isInViewport && currentIndex < filteredData.length) {
             const item = filteredData[currentIndex];
             const timer = setTimeout(() => {
                 setRenderedData((prevData) => [...prevData, item]);
                 setCurrentIndex((prevIndex) => prevIndex +1);
-            }, 250);
+            }, 25);
             return () => clearTimeout(timer);
         }
     }, [currentIndex, filteredData, isInViewport]);
@@ -305,7 +335,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
         const options = {
             root: null,
             rootMargin: '0px',
-            threshold: 1
+            threshold: 0.2
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -326,16 +356,46 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
         };
     }, [portfolioRef]);
 
-    const openLightbox = (imageTitle: string, imageUrl: string) => {
+    const openLightbox = (index: number) => {
+        const imageUrl = renderedData[index].full;
+        const imageTitle = renderedData[index].title;
         setLightboxImageUrl(`/assets/images/${imageUrl}`);
         setImageTitle(imageTitle);
+        setCurrentLightboxIndex(index);
         setLightboxOpen(true);    
     }
+
+    const handleNext = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+
+        const nextIndex = (currentLightboxIndex + 1) % renderedData.length;
+        setCurrentLightboxIndex(nextIndex);        
+
+        const imageUrl = renderedData[nextIndex].full;
+        const imageTitle = renderedData[nextIndex].title;
+
+        setLightboxImageUrl(`/assets/images/${imageUrl}`);
+        setImageTitle(imageTitle);
+    };
+      
+      const handlePrevious = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+
+        const previousIndex = (currentLightboxIndex - 1 + renderedData.length) % renderedData.length;
+        setCurrentLightboxIndex(previousIndex);
+
+        
+        const imageUrl = renderedData[previousIndex].full;
+        const imageTitle = renderedData[previousIndex].title;
+
+        setLightboxImageUrl(`/assets/images/${imageUrl}`);
+        setImageTitle(imageTitle);
+    };
 
     const closeLightbox = () => {
         setLightboxImageUrl('');
         setLightboxOpen(false);
-      };
+    };
 
     return(
         <PortfolioContainer>
@@ -346,24 +406,24 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
                     <FilterButtonsContainer>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'digital'}
-                                onClick={() => handleButtonClick('digital')}
-                            >digital</PortfolioFilterButton>
+                                onClick={() => filterButtonClick('digital')}
+                            >digital ({totalDigitalItems})</PortfolioFilterButton>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'print'}
-                                onClick={() => handleButtonClick('print')}
-                            >print</PortfolioFilterButton>
+                                onClick={() => filterButtonClick('print')}
+                            >print ({totalPrintItems})</PortfolioFilterButton>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'all'}
-                                onClick={() => handleButtonClick('all')}
-                            >all</PortfolioFilterButton>
+                                onClick={() => filterButtonClick('all')}
+                            >all ({totalItems})</PortfolioFilterButton>
                     </FilterButtonsContainer>
                </PortfolioHeadingContainer>
                <PortfolioItemsContainer ref={portfolioRef}>
-                    {renderedData.map((item: Item) => (
+                    {renderedData.map((item: Item, index) => (
                         <PortfolioItem
                         key={item.id}
                         style={{ backgroundImage: `url(/assets/images/${item.thumbnail})`}}
-                        onClick={() => openLightbox(item.title, item.full)}
+                        onClick={() => openLightbox(index)}
                         >
                             <PortfolioItemText>
                                 <PortfolioItemType>{item.type}</PortfolioItemType> 
@@ -378,7 +438,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
                 </PortfolioItemsContainer>
             </PortfolioInner>
             {lightboxOpen && (
-                <Lightbox imageTitle={imageTitle} imageUrl={lightboxImageUrl} onClose={closeLightbox}></Lightbox>
+                <Lightbox $imageTitle={imageTitle} $imageUrl={lightboxImageUrl} onNext={handleNext} onPrev={handlePrevious} onClose={closeLightbox}></Lightbox>
             )}
         </PortfolioContainer>
     );
