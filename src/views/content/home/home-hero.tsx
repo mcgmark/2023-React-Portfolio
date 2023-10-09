@@ -9,6 +9,7 @@ import starLarge from '../../assets/images/star-large.png';
 import starMedium from '../../assets/images/star-medium.png';
 import starSmall from '../../assets/images/star-small.png';
 
+
 interface ImageProps {
     top: string;
     left: string;
@@ -29,9 +30,9 @@ const RocketIMG = styled(animated.img)<ImageProps>`
     position: absolute;
 
     @media (min-width: 1000px){
-        top: 50px;
+        top: -10px;
         display: block;
-        right: -400px;
+        right: -300px;
     };
 
     @media (min-width: 1500px) {
@@ -99,7 +100,6 @@ const StarMediumIMG = styled(animated.img)<ImageProps>`
 
 
 // Star Small
-
 const StarSmallIMG = styled(animated.img)<ImageProps>`
     display: none;
     position: absolute;
@@ -110,7 +110,6 @@ const StarSmallIMG = styled(animated.img)<ImageProps>`
     }
 
 `;
-
 
 const HomeHeroCircle = styled(animated.div)<ImageProps>`
   display: none; 
@@ -126,7 +125,7 @@ const HomeHeroCircle = styled(animated.div)<ImageProps>`
   height: 648.76px;
   z-index: -1;
   justify-self: center;
-  box-shadow: 0px 0px 1000px rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 1000px rgb(157, 0, 255), 0px 0px 100px rgb(4, 255, 50);
 
   @media (min-width: 1500px) {
         display: block;
@@ -134,16 +133,13 @@ const HomeHeroCircle = styled(animated.div)<ImageProps>`
 `;
 
 const HomeHeroContainer = styled(animated.div)`
-grid-area: 'homehero';
-    width: 100%;
-    height: 100%;
     position: relative;
     z-index: 5;
 `;
 
 interface HomeHeroProps {
     onImagesLoaded: () => void;
-  }
+}
 
 const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     const [isImage1Loaded, setIsImage1Loaded] = useState(false);
@@ -165,7 +161,6 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     //     }
     //     // style={{ transform: y.to((y) => `translate3d(0, ${y}px, 0)`) }}
     // });
-
 
     const animatedProps = useSpring({
         from: {opacity: 0, transform: 'translateY(100px)'},

@@ -1,44 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import HomeText from '../content/home/home-text';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+import HomeHead from '../content/home/home-head';
 import DesignText from '../content/home/design/design-text';
 import DesignHero from '../content/home/design/design-hero';
 import DevText from '../content/home/dev/dev-text';
 import DevHero from '../content/home/dev/dev-hero';
-
-
-import HomeHero from '../content/home/home-hero';
-
 import Header from '../components/header/header';
+import Footer from '../components/footer/footer';
 
 import backgroundImage from '../assets/images/bg-image.svg';
 
 
 const Section = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background: url(${backgroundImage});
   background-color: var(--background-purple);
-  background-position: -100% -100%;
-  min-height: 100vh;
   min-width: 100%;
   max-width: 90%;
-  overflow-y: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 `;
 
 const Top = styled.section`
     display: grid;
     grid-template-rows: auto;
-    width: 90%;
-
+    align-items: start;
+    margin-top: 4rem;
+    
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr;
+        margin-top: 0rem;
     }
 
     @media (min-width: 1500px) {
-        margin-top: 5rem; 
-        width: 95%;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 1rem;
+    }
+    @media (min-width: 2000px) {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 8rem;
     }
 `;
 
@@ -46,16 +52,18 @@ const Bottom = styled.section`
     display: grid;
     grid-template-rows: auto;
     row-gap: 6rem;
+    margin-bottom: 100px;
     /* width: 90%; */
 
     @media (min-width: 1000px) {
-        margin-top: 500px;
-        row-gap: 25rem;
+        margin-top: 400px;
+        row-gap: 20vw;
         grid-template-columns: 1fr 1fr;
     }
 
     @media (min-width: 1500px) {
         margin-top: 300px;
+        row-gap: 9vw;
     }
 
 `;
@@ -66,40 +74,47 @@ const Inner = styled.section`
     background-position: -100% -100%;
     display: grid;
     grid-template-rows: auto;
-    justify-items: center;
-    min-height: 100vh;
-    min-width: 90%;
-    max-width: 90%;
+    height: fit-content;
+    width: 90%;
+    max-width: 2000px;
+`;
+
+const LoadingIcon = styled(FontAwesomeIcon)`
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    font-size: 3vw;
+    z-index: 1500;
+    animation: loadingRotate 2s infinite;
+    color: #fff;
+
+    @keyframes loadingRotate {
+        0% {
+            transform: rotate(0turn);
+        }
+        100% {
+            transform: rotate(-1turn);
+        }
+    }
 `;
 
 
 const Home = () => {
 
-    const [imagesLoaded, setImagesLoaded] = useState(false);
+    const [assetsLoaded, setAssetsLoaded] = useState(false)
 
-    const imagesLoadedCallback = () => {
-        setImagesLoaded(true);
+    const assetsLoadedCallback = () => {
+        setAssetsLoaded(true);
     }
-
-    useEffect(() => {
-        if (imagesLoaded) {   
-            console.log(imagesLoaded);
-        };
-    }, [imagesLoaded])
 
     return (
         <Section>
             <Inner>
-                   <Header />   
+                <Header />   
                 <Top>
-                { imagesLoaded ? (
-                <>
-                    <HomeText></HomeText>         
-                </>
-                ) : null } 
-                    <HomeHero onImagesLoaded={imagesLoadedCallback}></HomeHero>                   
+                    <HomeHead onAssetsLoaded={assetsLoadedCallback}></HomeHead>
                 </Top>
-                { imagesLoaded ? (
+                { assetsLoaded ? (
                 <>
                 <Bottom>
                     <DesignHero></DesignHero>
@@ -107,8 +122,9 @@ const Home = () => {
                     <DevText></DevText>
                     <DevHero></DevHero>
                 </Bottom>
-                </>
-                ) : null } 
+                <Footer></Footer>
+                </> 
+                ) : <LoadingIcon icon={faSpinner}/> }
             </Inner> 
         </Section>
     );

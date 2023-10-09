@@ -68,7 +68,7 @@ const HomeHero = () => {
     return(
         <DesignHeroContainer>
                 <PlanetImage top="-100px" left="-50px"></PlanetImage>
-                <RocketManImage top="-80px" left="-50px"></RocketManImage> 
+                <RocketManImage top="-180px" left="-50px"></RocketManImage> 
         </DesignHeroContainer>
     );
 }

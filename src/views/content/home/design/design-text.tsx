@@ -2,11 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom'; 
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-
 import spaceBackground from '../../../assets/images/space-bg.png';
-
 
 const DesignContentDiv = styled.div`
     position: relative;
@@ -17,7 +13,7 @@ const DesignContentDiv = styled.div`
     gap: 30px;
     justify-content: center;
     background: url(${spaceBackground});
-    background-color: rgba(29, 4, 56, 0.606);
+    background-color: rgba(29, 4, 56, 1);
     background-size: cover;
     width: 100%;
     padding: 2rem;
@@ -70,43 +66,40 @@ const Span = styled.span`
 `;
 
 const DesignParagraph = styled.p`
-    font-family: 'OpenSans';
+    font-family: 'Roboto-Regular';
     font-size: 1.25rem;
     line-height: 160%;
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-        line-height: 180%;
+        line-height: 170%;
     }
 `;
 
-const DesignButton = styled.button`
+const DesignButton = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Arial-MT-Bold';
-    font-size: 1.5rem;
-    color: #000;
-    width: 265px;
-    height: 55px;
-    border-radius: 3px;
-    border: 0px;
-    background-color: rgb(0, 247, 99);
+    font-size: 1.05rem;
+    color: #fff;
+    width: 50%;
+    max-width: 225px;
+    height: 50px;
+    border-radius: 130px 130px 130px 130px;
     align-self: start;
+    overflow: hidden;
     cursor: pointer;
-    transition: all 200ms ease-in-out;
-
+    transition: all 200ms ease;
+    border: 4px solid rgb(244, 255, 34);
+    background-color: rgba(0, 0, 0, 0.0);
+    
     &:hover {
-        box-shadow: 5px 5px 0px #fff;
+        transform: scale(103%);
     }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-   transition: all 200ms cubic-bezier(0.77, 0, 0.175, 1);     
-
-  ${DesignButton}:hover & {
-    transform: translateX(15px);
-  }  
-`;
-
-  
 const DesignText = () => {
 
     const navigate = useNavigate();
@@ -118,8 +111,8 @@ const DesignText = () => {
     return (
         <DesignContentDiv>
             <DesignHeading><Span>keep it simple, but not too simple.</Span></DesignHeading>
-            <DesignParagraph>I enjoy combining typography and graphics to create eye catching and informative marketing related design material. Web or Print I have experience designing everything from product sell sheets to cnc engravings.</DesignParagraph>
-            <DesignButton onClick={() => loadPortfolio('/design')}>VIEW DESIGN <StyledIcon icon={faArrowRight}></StyledIcon></DesignButton>
+            <DesignParagraph>I enjoy combining typography and graphics to create engaging and informative marketing materials. For web or print I have experience designing everything your business needs to promote itself.</DesignParagraph>
+            <DesignButton onClick={() => loadPortfolio('/design')}>VIEW DESIGN </DesignButton>
         </DesignContentDiv>
     );
 

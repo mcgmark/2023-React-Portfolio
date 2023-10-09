@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
+
+const FontFaceObserver = require('font-face-observer');
 
 
 const HomeContentDiv = styled.div`
@@ -32,19 +37,20 @@ const HomeHeading = styled.h1`
 `;
 
 const HomeParagraph = styled.p`
-    font-family: 'OpenSans';
+    font-family: 'Roboto-Thin';
     font-size: 1.25rem;
     line-height: 200%;
     letter-spacing: .05rem;
     
     @media (min-width: 1000px) {
-        width: 85%;
+        ont-size: 1.25rem;
+        width: 70%;
     }
 
     @media (min-width: 1230px) {
-        font-size: 1.25rem;
-        line-height: 250%;
-        width: 90%;
+        font-size: 1.5rem;
+        line-height: 150%;
+        width: 80%;
     }
 
     @media (min-width: 1500px) {
@@ -52,54 +58,28 @@ const HomeParagraph = styled.p`
     }
 `;
 
-// const HomeNameInput = styled.input`
-//     font-family: 'Arial-MT-Bold';
-//     font-size: 2rem;
-//     color: #ffd200;
-//     border: 0px;
-//     border-bottom: 4px solid #ffd200;
-//     padding-bottom: 20px;
-//     max-width: 400px;
-//     background-color: transparent;
-//     margin-top: 30px;
-//     outline: none;
-//     transition: all 500ms forwards;
+interface HomeTextProps {
+    onFontsLoaded: () => void;
+}
 
-//     &:active {
-//         outline: 4px solid #ffd200; 
-//     }
+const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
 
-//     &::placeholder {
-//         color: #ffd200;
-//     }
+    const [fontLoaded, setFontLoaded] = useState(false);
 
-//     &::before {
-//         content: f061;
-//     }
-// `;
+    useEffect(() => {
+        const observer = new FontFaceObserver('Arial-MT-Bold');
+        observer.check().then(() => {
+            setFontLoaded(true);
+            onFontsLoaded();
+        })
+    });
 
-
-const HomeText = () => {
-
-    // const[nameInputValue, setNameInputValue] = useState('');
-
-    // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     setNameInputValue(event.target.value);
-    // }
-
-    return (
+    return fontLoaded ? (
         <HomeContentDiv>
             <HomeHeading>Frontend<br /> Developer<br /> Designer<br /></HomeHeading>
-            <HomeParagraph>Over the last few years I have been gaining knowledge and experience in many aspects of web development. From design to coding I am able to create websites from start to finish.</HomeParagraph>
-            {/* <HomeNameInput 
-                type="text"
-                value={nameInputValue}
-                onChange={handleChange}
-                placeholder= 'TAP TO SIGN IN'
-            ></HomeNameInput> */}
+            <HomeParagraph>I have experience doing everything from graphic design to web development. Take a look at my portfolio and contact me to discuss your next project.</HomeParagraph>
         </HomeContentDiv>
-    );
-
+    ): null;
 };
 
 

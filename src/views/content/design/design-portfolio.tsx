@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-import { Item } from '../../assets/types/types';
+import { DesignItem } from '../../assets/types/types';
 
-import backgroundImage1 from '../../assets/images/toprightbg.svg';
-import backgroundImage2 from '../../assets/images/bottomrightbg.svg';
-import backgroundImage3 from '../../assets/images/topleftbg.svg';
-import backgroundImage4 from '../../assets/images/bottomleftbg.svg';
+import topRightBG from '../../assets/images/toprightbg.svg';
+import bottomRightBG from '../../assets/images/bottomrightbg.svg';
+import topLeftBG from '../../assets/images/topleftbg.svg';
+import bottomLeftBG from '../../assets/images/bottomleftbg.svg';
 
 import Lightbox from '../../components/lightbox/lightbox';
 
 type Props = {
-    data: Item[];
+    data: DesignItem[];
 }
 
 type PortfolioFilterButtonProps = {
@@ -22,15 +22,22 @@ type PortfolioFilterButtonProps = {
 }
 
 const PortfolioContainer = styled.section`
-    background: url(${backgroundImage1}), url(${backgroundImage2}), url(${backgroundImage3}), url(${backgroundImage4}), var(--purple-bright);
+    background: url(${topRightBG}), url(${bottomRightBG}), var(--purple-bright);
+    background-position: top left, bottom left;
     background-repeat: no-repeat;
-    background-position: top left, bottom left, top right, bottom right;
     background-size: auto;
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (min-width: 1900px) {
+        background: url(${topRightBG}), url(${bottomRightBG}), url(${topLeftBG}), url(${bottomLeftBG}), var(--purple-bright);
+        background-position: top left, bottom left, top right, bottom right;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
 `;
 
 const PortfolioInner = styled.section`
@@ -89,7 +96,8 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         border-radius: 21px;
         background-color: rgb(42, 42, 43);
         border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
-        width: 245px;
+        width: 62vw;
+        max-width: 300px;
         height: 51px;
         font-family: 'Rubik';
         font-weight: bold;
@@ -99,23 +107,27 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         text-transform: uppercase;
         cursor: pointer;
         transition: all .3s ease;
-        animation: ${({ $selected }) => ($selected ? 'pulse 0.3s 1' : 'none')};   
+        animation: ${({ $selected }) => $selected ? 'pulse 0.3s 1' : 'none'};   
+
+        @media (min-width: 800px){
+            width: 22vw;
+        }
         
         &:hover {
             background-color: ${({ $selected }) => $selected ? 'rgb(42, 42, 43)' : 'rgb(59, 59, 60)'};
         }
 
-            @keyframes pulse {
-                0% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
-                }
-                100% {
-                    transform: scale(1);
-                }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
             }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 `;
 
 const PortfolioItemsContainer = styled.section`
@@ -141,7 +153,8 @@ const PortfolioItem = styled.div`
     width: 80%;
     overflow: hidden;
     opacity: 0;
-    padding-bottom: calc(60%); 
+    aspect-ratio: 16/9;
+    /* padding-bottom: calc(55%);  */
     margin-bottom: 10px;
     background-color: #f0f0f0;
     background-size: 160%;
@@ -150,7 +163,16 @@ const PortfolioItem = styled.div`
     border: 2px solid rgb(255, 255, 255);
     transition: all 300ms ease-in-out;
     cursor: pointer;
-    animation: PortfolioItemScale 0.3s 1 forwards ease-in-out;
+    animation: PortfolioItemScale 0.1s 1 forwards ease-in-out;
+
+    @media (min-width: 580px) {
+        background-size: 113%;
+        width: 100%;
+
+        &:hover {
+            background-size: 135%; 
+        }
+    }
 
     @keyframes PortfolioItemScale {
         0% {
@@ -164,20 +186,6 @@ const PortfolioItem = styled.div`
             opacity: 100;
         }
     }
-
-    &:hover {
-        background-size: 165%; 
-        border: 2px solid rgb(255, 217, 0);
-    }
-
-    @media (min-width: 580px) {
-        background-size: 130%;
-        width: 100%;
-
-        &:hover {
-        background-size: 135%; 
-    }
-    }
 `;
 
 const PortfolioItemText = styled.div`
@@ -187,30 +195,21 @@ const PortfolioItemText = styled.div`
     align-items: center;
     position: absolute;
     box-sizing: border-box;
-    bottom: -100%;
-    padding: 20px;
-    background: rgba(27, 8, 37, 0.9);
-    height: 100%;
+    bottom: -35%;
+    padding: 15px 5px;
+    height: 60%;
     width: 100%;
     max-height: 100%;
     max-width: 100%;
-    transition: all 0.2s linear;
-    backdrop-filter: blur(5px);
+    transition: all 0.15s linear;
+
 
     ${PortfolioItem}:hover & {
         bottom: 0px;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(27, 8, 37, 0.9);
     }  
-
-    /* &::before {
-        content: '';
-        position: absolute;
-        top: -40px;
-        left: 3%;
-        border-width: 20px;
-        border-style: solid;
-        border-color: transparent transparent rgb(255, 217, 0) transparent;
-        
-    } */
 
     @media (max-width: 600px) {
         display: none;
@@ -223,6 +222,11 @@ const PortfolioItemDescription = styled.p`
     text-align: center;
     margin: 0rem 2px;
     text-transform: capitalize;
+    opacity: 0;
+
+    ${PortfolioItem}:hover & {
+        opacity: 1
+    }  
 `;
 
 const PortfolioItemType = styled.p`
@@ -234,7 +238,7 @@ const PortfolioItemType = styled.p`
     letter-spacing: 2px;
     color: #ffffff;
     border-radius: 30px;
-    background-color: rgb(57, 57, 57);
+    background-color: var(--purple-bright);
     padding: 5px 45px;
 `;
 
@@ -265,10 +269,9 @@ const PortfolioItemLoadIcon = styled(FontAwesomeIcon)`
 const DesignPortfolio: React.FC<Props> = ({ data }) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [filteredData, setFilteredData] = useState<Item[]>([]);
-    const [renderedData, setRenderedData] = useState<Item[]>([]);
+    const [filteredData, setFilteredData] = useState<DesignItem[]>([]);
+    const [renderedData, setRenderedData] = useState<DesignItem[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isInViewport, setIsInViewport] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxImageUrl, setLightboxImageUrl] = useState('');
     const [imageTitle, setImageTitle] = useState('');
@@ -321,7 +324,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     };
 
     useEffect(() => {
-        if (isInViewport && currentIndex < filteredData.length) {
+        if (currentIndex < filteredData.length) {
             const item = filteredData[currentIndex];
             const timer = setTimeout(() => {
                 setRenderedData((prevData) => [...prevData, item]);
@@ -329,32 +332,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
             }, 25);
             return () => clearTimeout(timer);
         }
-    }, [currentIndex, filteredData, isInViewport]);
-
-    useEffect(() => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.2
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            const [entry] = entries;
-            setIsInViewport(entry.isIntersecting);
-        }, options);
-
-        const currentPortfolioRef = portfolioRef.current;
-
-        if (currentPortfolioRef) {
-            observer.observe(currentPortfolioRef);
-        };
-
-        return () => {
-            if (currentPortfolioRef) {
-                observer.unobserve(currentPortfolioRef);
-            }
-        };
-    }, [portfolioRef]);
+    }, [currentIndex, filteredData]);
 
     const openLightbox = (index: number) => {
         const imageUrl = renderedData[index].full;
@@ -402,7 +380,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
             <PortfolioInner>
                 <PortfolioHeadingContainer>
                     <PortfolioHeading>Digital <span style={{position: 'relative', color:'rgb(255, 217, 0)', fontSize: '90%', bottom: '8px'}}>+</span> Print</PortfolioHeading>
-                    <PortfolioIntro>I have experience doing design work that is displayed on screens and printed on different types of materials.</PortfolioIntro>
+                    <PortfolioIntro>I have experience designing for web and print, here is a few examples.</PortfolioIntro>
                     <FilterButtonsContainer>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'digital'}
@@ -419,7 +397,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
                     </FilterButtonsContainer>
                </PortfolioHeadingContainer>
                <PortfolioItemsContainer ref={portfolioRef}>
-                    {renderedData.map((item: Item, index) => (
+                    {renderedData.map((item: DesignItem, index) => (
                         <PortfolioItem
                         key={item.id}
                         style={{ backgroundImage: `url(/assets/images/${item.thumbnail})`}}

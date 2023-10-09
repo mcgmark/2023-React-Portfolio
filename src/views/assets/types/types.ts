@@ -1,4 +1,4 @@
-export type Item = {
+export type DesignItem = {
     id: number;
     title: string;
     type: string;
@@ -7,4 +7,13 @@ export type Item = {
     description: string;
     thumbnail: string;
     full: string;
+};
+
+export type DevItem = {
+    id: number;
+    title: string;
+    type: string;
+    tech: string[];
+    description: string;
+    link: string;
 };

@@ -19,33 +19,42 @@ type MenuIconStyleProps = {
     $showMenu: boolean;
 }
 
-const MenuContainer = styled.nav`
-    position: relative;
-    height: 75px;
+type MenuContainerProps = {
+    $isScrolled: boolean;
+}
+
+const MenuContainer = styled.nav<MenuContainerProps>`
+    position: fixed;
+    left: 0;
+    height: ${(props) => (props.$isScrolled ? '50px' : '80px')};
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--purple-bright);
-    padding: 0px 1rem 0px 1rem;
+    background-color: ${(props) => (props.$isScrolled ? 'rgba(74, 12, 137, 0.95)' : 'rgba(74, 12, 137, 0.1)')};
     z-index: 101;
+    border-bottom: ${(props) => (props.$isScrolled ? '1px solid #4d4d4d84' : '4px solid rgba(255, 255, 255, 0.025)')};
+    backdrop-filter: blur(407deg);
+    box-shadow: 0px 10px 70px rgba(20, 2, 25, 0.66);
+    transition: all 0.2s ease;
 `;
 
 const MenuContainerInner = styled.div`
     width: 90%;
-    max-width: 1650px;
-    min-height: 100%;
+    max-width: 2000px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 `;
 
-const NameLogo = styled.span`
+const NameLogo = styled.span<MenuContainerProps>`
+    justify-self: start;
     font-family: Rubik;
-    font-size: 1.75rem;
+    font-size: ${(props) => (props.$isScrolled ? '1rem' : '1.25rem')};
     text-transform: uppercase;
     cursor: pointer;
+    transition: all .2s ease;
 `;
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
@@ -67,7 +76,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ $showmenu }) => {
     return (
         <MobileMenuContainer $showmenu={$showmenu}>
             <MobileMenuContent>
-                
             </MobileMenuContent>
         </MobileMenuContainer>
     );
@@ -99,6 +107,7 @@ const MenuIcon: React.FC<MenuIconProps> = ({ $showMenu, onClick }) => {
 const Menu = () => {
     const [showMenu, setShowMenu] = useState(false);
     const navigate = useNavigate();
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const goHome = (route: string) => {
         navigate(route);
@@ -117,11 +126,26 @@ const Menu = () => {
         }
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 70) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
-            <MenuContainer>
+            <MenuContainer $isScrolled={isScrolled}>
                 <MenuContainerInner>
-                    <NameLogo onClick={() => goHome('/')}>Mark McGuigan</NameLogo>
+                    <NameLogo onClick={() => goHome('/')} $isScrolled={isScrolled} >Mark McGuigan</NameLogo>
                     <MenuIcon $showMenu={showMenu} onClick={menuButtonClick} />
                 </MenuContainerInner>
             </MenuContainer>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +22,10 @@ type LightboxImageProps = {
     src: string;
     onClick?: (e: React.MouseEvent<HTMLImageElement>) => void;
 };
+
+type LightboxImageContainerProps = {
+    ref?: React.Ref<HTMLDivElement>;
+}
 
 const LightboxModal = styled.div`
     position: fixed;
@@ -53,29 +57,26 @@ const LightboxModal = styled.div`
 
 const LightboxHeaderContent = styled.div<LightboxHeaderProps>`
     position: absolute;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 5px;
-    align-items: center;
-    box-sizing: border-box;
+    height: 50px;
     top: 0;
     width: 100%;
-    height: 60px;
-    border-bottom: 1px solid #333;
-    background-color: rgba(255, 255, 255, 0.95);
-    font-size: 20px;
-    line-height: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 5px;
+    background-color: rgba(233, 233, 233, 0.95);
 
-    @media (min-width: 500px) {
-        padding: 25px 25px;
+    @media (min-width: 600px) {
+        padding: 0px 0px 0px 20px;
     }
 `;
 
 const LightboxHeaderTitle = styled.p`
-    font-size: 15px;
-    font-family: 'Roboto-Regular';
+    font-family: 'Arial-MT-Bold';
+    font-size: 12px;
     text-transform: uppercase;
-    color: #333;
+    color: #6b00b2;
 `;
 
 const LightboxHeader: React.FC<LightboxHeaderProps> = ({ $imageTitle, onClick, children }) => {
@@ -89,11 +90,11 @@ const LightboxHeader: React.FC<LightboxHeaderProps> = ({ $imageTitle, onClick, c
     );
 }
 
-const LightboxImageContainer = styled.div`
+const LightboxImageContainer = styled.div<LightboxImageContainerProps>`
     box-sizing: border-box;
     overflow-y: auto;
     max-width: 100%;
-    margin-top: 70px;
+    margin-top: 55px;
     margin-bottom: 10px;
     border: 0px solid #333;
     
@@ -120,23 +121,28 @@ const LightboxImage = styled.img<LightboxImageProps>`
 `;
 
 const ButtonsContainer = styled.div`
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
 `;
 
 const LightboxAwesomeIcon = styled(FontAwesomeIcon)`
-    font-size: 50px;
+    font-size: 40px;
     cursor: pointer;
     z-index: 1500;
-    color: rgb(157, 0, 255);
-    &:hover {
-        color: rgb(109, 1, 176);
-    }
 `;
 
+const LightboxButton = styled.div`
+    display: flex;
+    padding: 5px;
+    color: var(--purple-bright);
 
-const PrevNextButton = styled.div`
-    border-radius: 60px;
+    &:nth-of-type(3)  {
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: var(--purple-bright);
+        color: #fff;     
+    }
 `;
 
 const LoadingIcon = styled(FontAwesomeIcon)`
@@ -162,6 +168,8 @@ const Lightbox: React.FC<LightboxProps> = ({ $imageTitle, $imageUrl, onClose, on
 
     const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+    const lightboxRef = useRef<HTMLDivElement | null>(null);
+
     const image = new Image();
     image.src = $imageUrl;
     image.onload = () => setIsImageLoaded(true);
@@ -177,6 +185,12 @@ const Lightbox: React.FC<LightboxProps> = ({ $imageTitle, $imageUrl, onClose, on
         onClose();
     }
 
+    const scrollToTop = () => {
+        if (lightboxRef.current) {
+          lightboxRef.current.scrollTop = 0;
+        }
+      };
+
 
     const imageClick = (e: React.MouseEvent<HTMLImageElement>) => {
         e.stopPropagation();
@@ -190,13 +204,13 @@ const Lightbox: React.FC<LightboxProps> = ({ $imageTitle, $imageUrl, onClose, on
         <LightboxModal onClick={closeLightbox}>
             <LightboxHeader $imageTitle={$imageTitle} onClick={headerClick}>
                 <ButtonsContainer>
-                    <PrevNextButton onClick={onPrev}><LightboxAwesomeIcon icon={faArrowLeft} /></PrevNextButton>
-                    <PrevNextButton onClick={onNext}><LightboxAwesomeIcon icon={faArrowRight} /></PrevNextButton>
-                    <LightboxAwesomeIcon icon={faTimes} onClick={closeLightbox}/>
+                    <LightboxButton onClick={(e) => {scrollToTop(); onPrev(e);}}><LightboxAwesomeIcon icon={faArrowLeft} /></LightboxButton>
+                    <LightboxButton onClick={(e) => {scrollToTop(); onNext(e);}}><LightboxAwesomeIcon icon={faArrowRight} /></LightboxButton>
+                    <LightboxButton onClick={closeLightbox}><LightboxAwesomeIcon icon={faTimes} /></LightboxButton>
                 </ButtonsContainer>
             </LightboxHeader>
             {isImageLoaded ? (
-                <LightboxImageContainer>
+                <LightboxImageContainer ref={lightboxRef}>
                     <LightboxImage 
                         onClick={imageClick}
                         src={$imageUrl}

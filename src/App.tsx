@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 import Home from './views/routes/home';
 import Design from './views/routes/design';
+import Dev from './views/routes/dev';
 
 
 const AppContainerDiv = styled.div`
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/design" element={<Design />} />
+          <Route path="/dev" element={<Dev />} />
         </Routes>
       </AppContainerDiv>
     </BrowserRouter>

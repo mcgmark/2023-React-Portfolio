@@ -1,0 +1,322 @@
+[
+    {
+      "id": 1,
+      "title": "Business Website Design",
+      "category": "digital",
+      "type": "website Design",
+      "software": "photoshop",
+      "description": "Responsive website design for automotive business",
+      "thumbnail": "ph-website-thumb.jpg",
+      "full": "ph-website-full.png" 
+    },
+    {
+      "id": 2,
+      "title": "Business Website Design",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "Responsive website design for automotive business",
+      "thumbnail": "bh-website-thumb.jpg",
+      "full": "bh-website-full.png" 
+    },
+    {
+      "id": 3,
+      "title": "Website landing page design",
+      "category": "digital",
+      "type": "website design",
+      "software": "indesign",
+      "description": "New website design for landscaping service",
+      "thumbnail": "jg-website-thumb.jpg",
+      "full": "jg-website-full.png" 
+    },
+    {
+      "id": 4,
+      "title": "Website design for automotive dealership",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New website design for local automotive dealership",
+      "thumbnail": "bj-website-thumb.jpg",
+      "full": "bj-website-full.png" 
+    },
+    {
+      "id": 5,
+      "title": "Website application design",
+      "category": "digital",
+      "type": "website design",
+      "software": "Figma",
+      "description": "Website application design",
+      "thumbnail": "gr-website-thumb.jpg",
+      "full": "gr-website-full.png" 
+    },
+    {
+      "id": 6,
+      "title": "Website design",
+      "category": "digital",
+      "type": "website design",
+      "software": "inDesign",
+      "description": "Website design",
+      "thumbnail": "oh-website-thumb.jpg",
+      "full": "oh-website-full.png" 
+    },
+    {
+      "id": 7,
+      "title": "Website landing page design",
+      "category": "digital",
+      "type": "website design",
+      "software": "indesign",
+      "description": "Simple website design for book",
+      "thumbnail": "it-website-thumb.jpg",
+      "full": "it-website-full.png" 
+    },
+    {
+      "id": 8,
+      "title": "Business Website Design",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "Website design landing page",
+      "thumbnail": "mc-website-thumb.jpg",
+      "full": "mc-website-full.png" 
+    },
+    {
+      "id": 9,
+      "title": "Website application design",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "Website application design",
+      "thumbnail": "sp-website1-thumb.jpg",
+      "full": "sp-website1-full.png" 
+    },
+    {
+      "id": 10,
+      "title": "Mobile application design",
+      "category": "digital",
+      "type": "app design",
+      "software": "photoshop",
+      "description": "Mobile application design",
+      "thumbnail": "sp-website-thumb.jpg",
+      "full": "sp-website-full.png" 
+    },
+    {
+      "id": 11,
+      "title": "Website landing page design",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New website design for business",
+      "thumbnail": "bm-website-thumb.jpg",
+      "full": "bm-website-full.png" 
+    },
+    {
+      "id": 12,
+      "title": "Website design for business",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New website design for hobby store",
+      "thumbnail": "hh-website-thumb.jpg",
+      "full": "hh-website-full.png" 
+    },
+    {
+      "id": 13,
+      "title": "Website landing page design",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New website design for nanny service",
+      "thumbnail": "nn-website-thumb.jpg",
+      "full": "nn-website-full.png" 
+    },
+    {
+      "id": 14,
+      "title": "Website landing page design",
+      "category": "digital",
+      "type": "website design",
+      "software": "photoshop",
+      "description": "New website design for motor distributor",
+      "thumbnail": "un-website-thumb.jpg",
+      "full": "un-website-full.png" 
+    },
+    {
+      "id": 15,
+      "title": "Mailout flyer for automotive business",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided 11x17 tri-fold mailout flyer to 50,000 homes",
+      "thumbnail": "bh-flyer4-thumb.jpg",
+      "full": "bh-flyer4-full.png" 
+    },
+    {
+      "id": 16,
+      "title": "Mailout flyer for automotive business",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided 11x17 tri-fold mailout flyer to 50,000 homes",
+      "thumbnail": "bh-flyer5-thumb.jpg",
+      "full": "bh-flyer5-full.png" 
+    },
+    {
+      "id": 17,
+      "title": "Mailout flyer for automotive business",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided 11x17 tri-fold mailout flyer to 50,000 homes",
+      "thumbnail": "bh-flyer3-thumb.jpg",
+      "full": "bh-flyer3-full.png" 
+    },
+    {
+      "id": 18,
+      "title": "Mailout flyer for automotive business",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided 11x17 tri-fold mailout flyer to 50,000 homes",
+      "thumbnail": "bh-flyer1-thumb.jpg",
+      "full": "bh-flyer1-full.png" 
+    },
+    {
+      "id": 19,
+      "title": "Mailout flyer for automotive business",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided 11x17 tri-fold mailout flyer to 50,000 homes",
+      "thumbnail": "bh-flyer2-thumb.jpg",
+      "full": "bh-flyer2-full.png" 
+    },
+    {
+      "id": 20,
+      "title": "Magazine ad design for industry publication",
+      "category": "print",
+      "type": "magazine ad",
+      "software": "indesign",
+      "description": "Magazine ad design for industry publication",
+      "thumbnail": "bm-ad-thumb.jpg",
+      "full": "bm-ad-full.png" 
+    },
+    {
+      "id": 21,
+      "title": "Magazine ad design for industry publication",
+      "category": "print",
+      "type": "magazine ad",
+      "software": "indesign",
+      "description": "Magazine ad design for industry publication",
+      "thumbnail": "bm-ad1-thumb.jpg",
+      "full": "bm-ad1-full.png" 
+    },
+    {
+      "id": 22,
+      "title": "In-store poster to promote store event",
+      "category": "print",
+      "type": "poster",
+      "software": "indesign",
+      "description": "In-store poster to promote store event",
+      "thumbnail": "ph-poster1-thumb.jpg",
+      "full": "ph-poster1-full.png" 
+    },
+    {
+      "id": 23,
+      "title": "In-store poster to promote store event",
+      "category": "print",
+      "type": "poster",
+      "software": "indesign",
+      "description": "In-store poster to promote store event",
+      "thumbnail": "ph-poster2-thumb.jpg",
+      "full": "ph-poster2-full.png" 
+    },
+    {
+      "id": 24,
+      "title": "Insert Flyer for Automotive business",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided flyer to promote new product",
+      "thumbnail": "ph-300r-thumb.jpg",
+      "full": "ph-300r-full.png" 
+    },
+    {
+      "id": 25,
+      "title": "Handout flyer to promote at special event",
+      "category": "print",
+      "type": "flyer",
+      "software": "indesign",
+      "description": "Two sided flyer to promote specials at motorcycle show",
+      "thumbnail": "ph-rallyb-thumb.jpg",
+      "full": "ph-rallyb-full.png" 
+    },
+    {
+    "id": 26,
+    "title": "New product printed display sellsheet",
+    "category": "print",
+    "type": "flyer",
+    "software": "indesign",
+    "description": "New product printed display sellsheet",
+    "thumbnail": "ph-sellsheet1-thumb.jpg",
+    "full": "ph-sellsheet1-full.png" 
+    },
+    {
+      "id": 27,
+      "title": "Newspaper ad for automotive dealership",
+      "category": "print",
+      "type": "newspaper ad",
+      "software": "indesign",
+      "description": "Newspaper ad for monthly promotions",
+      "thumbnail": "ph-news2-thumb.jpg",
+      "full": "ph-news2-full.png" 
+    },
+    {
+      "id": 28,
+      "title": "Magazine ad for automotive dealership",
+      "category": "print",
+      "type": "magazine ad",
+      "software": "indesign",
+      "description": "Magazine ad to promote business",
+      "thumbnail": "ph-news3-thumb.jpg",
+      "full": "ph-news3-full.png" 
+    },
+    {
+      "id": 29,
+      "title": "Newspaper ad for automotive dealership",
+      "category": "print",
+      "type": "newspaper ad",
+      "software": "indesign",
+      "description": "Newspaper ad for promotions",
+      "thumbnail": "ph-news4-thumb.jpg",
+      "full": "ph-news4-full.png" 
+    },
+    {
+      "id": 30,
+      "title": "Newspaper ad for automotive dealership",
+      "category": "print",
+      "type": "newspaper ad",
+      "software": "indesign",
+      "description": "Newspaper ad for promotions",
+      "thumbnail": "ph-news5-thumb.jpg",
+      "full": "ph-news5-full.png" 
+    },
+    {
+      "id": 31,
+      "title": "Magazine ad for automotive business",
+      "category": "print",
+      "type": "magazine ad",
+      "software": "indesign",
+      "description": "Half page magazine ad to promote winning local award",
+      "thumbnail": "bh-award-thumb.jpg",
+      "full": "bh-award-full.png" 
+    },
+    {
+      "id": 32,
+      "title": "Newspaper ad for automotive dealership",
+      "category": "print",
+      "type": "newspaper ad",
+      "software": "indesign",
+      "description": "Newspaper ad for monthly promotions",
+      "thumbnail": "ph-news1-thumb.jpg",
+      "full": "ph-news1-full.png" 
+    }
+]

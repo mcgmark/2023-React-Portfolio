@@ -1,17 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
-export type Item = {
+
+type Item = {
     id: number; 
     title: string;
 };
 
-
-type Props = {
-    data: Item[];
+type CloudItemProps = {
+    $isAnimated: boolean;
+    style: React.CSSProperties;
 }
 
-const data = 
+const data: Item[] = 
 [
     {
     "id": 11,
@@ -57,80 +58,74 @@ const data =
 ]
 
 const Section = styled.section`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-
-    @media (min-width: 1300px) {
-        flex-direction: column;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    height: fit-content;
+    row-gap: 25px;
+    max-width: fit-content;
+    @media (min-width: 1000px) {
+        display: grid;
     }
 `;
 
-const CloudItem = styled.span`
-        display: none;
+const CloudItem = styled.span<CloudItemProps>`
+        display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 21px;
-        background-color: var(--purple-bright);
-        width: 12vw;
-        max-width: 250px;
-        min-width: 180px;
+        border: 8px solid var(--purple-bright);
+        width: 16vw;
+        max-width: 300px;
+        min-width: 100px;
         height: 45px;
-        font-family: 'Rubik';
-        font-weight: bold;
+        font-family: 'Acumin-thin';
         font-size: 1.3rem;
-        color: #ffffff;
+        color: #fff;;
         text-transform: uppercase;
-        
-        &:hover {
-            animation: cloudpulse .3s 1;    
+        animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse .5s ease-in-out' : 'none' };
+        transition: all 2s;
 
-            @keyframes cloudpulse {
-                0% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.15);
-                    background-color: #512089;
-                }
-                100% {
-                    transform: scale(1);
-                }
+        @keyframes cloudpulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+                border: 5px solid rgb(255, 217, 0);
+            }
+            100% {
+                transform: scale(1);
             }
         }
-
-        @media (min-width: 800px) {
-            display: flex;
-        }
-`;
-
-const CloudItemRow = styled.div`
-    display: flex;
-    gap: 40px;
-
-    &:nth-of-type(even) {
-        margin-left: 40px;
-    }
 `;
 
 const DesignCloud = () => {
 
-    const pairs = [];
+    const [animatedChildIndex, setAnimatedChildIndex] = useState(0);
 
-    for (let i = 0; i < data.length; i += 2) {
-      const pair = data.slice(i, i + 2);
-      pairs.push(pair);
-    }
+    useEffect(() => {
+        // Function to randomly select a child component for animation
+        const randomlyAnimateChild = () => {
+          const randomIndex = Math.floor(Math.random() * 10); // Assuming you have 10 child components
+          setAnimatedChildIndex(randomIndex);
+        };
+    
+        const timer = setInterval(randomlyAnimateChild, 1250); // Adjust the timer interval as needed (e.g., every 3 seconds)
+    
+        return () => clearInterval(timer);
+      }, []);
 
     return (
         <Section>
-            {pairs.map((pair, outerIndex) => (
-                <CloudItemRow className="row" key={outerIndex + "a"}>
-                {pair.map((item, innerIndex) => (
-                    <CloudItem key={outerIndex + "-" + innerIndex + "b"}>{item.title}</CloudItem>
-                ))}
-                </CloudItemRow>
+            {data.map((item, index) => (
+                    <CloudItem 
+                        key={index} 
+                        $isAnimated={index === animatedChildIndex} 
+                        style={(index % 4 === 0 || index % 4 === 1) ? { marginLeft: '40px' } : {}}
+                    >{item.title}
+                    </CloudItem>
             ))}
         </Section>
     );

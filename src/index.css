@@ -5,11 +5,6 @@
 }
 
 @font-face {
-  font-family: 'Roboto-Condensed-Light';
-  src: url('../public/assets/fonts/Roboto-Condensed-Light.woff') format('woff');
-}
-
-@font-face {
   font-family: 'Roboto-Regular';
   src: url('../public/assets/fonts/roboto-regular.woff') format('woff');
 }
@@ -35,13 +30,14 @@
 }
 
 :root {
-  --background-purple: #1d0438;
-  --purple-bright: #41186f;
+  --background-purple: #1a062d;
+  --purple-bright: #4b0c89;
 }
 
 body {
   color: #fff;
   margin: 0px;
+  min-height: 100vh;
 }
 
 @keyframes background {

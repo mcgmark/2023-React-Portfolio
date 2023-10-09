@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Section = styled.section`
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     z-index: 1;
 `;
 
@@ -20,7 +20,7 @@ const IntroText = styled.h1`
     position: relative;
     font-family: 'Acumin-thin';
     text-transform: uppercase;
-    font-size: 11vw;
+    font-size: 2.5rem;
     font-weight: 100;
     width: fit-content;
     z-index: 1;
@@ -39,8 +39,16 @@ const IntroText = styled.h1`
         z-index: -1;
     }
 
-    @media (min-width: 1300px) {
-        font-size: 6rem;
+    @media (min-width: 500px) {
+        font-size: 11vw;
+
+        &::before {
+            bottom: 20px;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        font-size: 6vw;
 
         &::before {
             bottom: 20px;
@@ -48,15 +56,16 @@ const IntroText = styled.h1`
     }
 
     @media (min-width: 1800px) {
-        font-size: 7rem;
+        font-size: 5vw;
     }
 `;
 
 const Text = styled.p`
-    font-family: 'OpenSans';
-    font-size: 1.15rem;
+    font-family: 'Roboto-Thin';
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: 240%;
+    line-height: 150%;
+    letter-spacing: .03rem;
     color: #e6e6e6;
 `;
 
@@ -69,7 +78,7 @@ const Intro = () => {
                 <IntroText>simple, but not</IntroText>
                 <IntroText>too simple.</IntroText>
             </div>
-            <Text>I enjoy combining typography and graphics to create eye catching and informative marketing related design. Digital or print I have experience designing everything from mailout flyers, mass e-mails, product sell sheets, websites, app UX, and sub-division cnc engraved stone signs</Text>
+            <Text>I enjoy combining typography and images to create engaging and informative marketing related design materials. Digital & Print I have experience designing everything from flyers, newspaper ads, t-shirts, websites, app UX, cnc engraved stone signage. </Text>
         </Section>
     );
 }

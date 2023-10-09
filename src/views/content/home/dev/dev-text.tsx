@@ -15,7 +15,7 @@ const DevContentDiv = styled.div`
     gap: 30px;
     justify-content: center;
     background: url(${spaceBackground});
-    background-color: rgba(29, 4, 56, 0.606);
+    background-color: rgba(29, 4, 56, 1);
     background-size: cover;
     width: 100%;
     padding: 2rem;
@@ -77,36 +77,33 @@ const DevParagraph = styled.p`
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-        line-height: 180%;
+        line-height: 170%;
     }
 `;
 
-const DevButton = styled.button`
+const DevButton = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Arial-MT-Bold';
-    font-size: 1.5rem;
-    color: #000;
-    width: 265px;
-    height: 55px;
-    border-radius: 3px;
-    border: 0px;
-    background-color: rgb(0, 247, 99);
+    font-size: 1.05rem;
+    color: #ffffff;
+    width: 50%;
+    max-width: 225px;
+    height: 50px;
+    border-radius: 130px 130px 130px 130px;
     align-self: start;
+    overflow: hidden;
     cursor: pointer;
-    transition: all 200ms ease-in-out;
+    transition: all 200ms ease;
+    border: 4px solid rgb(34, 255, 104);
+    background-color: rgba(0, 0, 0, 0.043);
 
     &:hover {
-        box-shadow: 5px 5px 0px #fff;
+        transform: scale(103%);
     }
 `;
-
-const StyledIcon = styled(FontAwesomeIcon)`
-  transition: all 200ms cubic-bezier(0.77, 0, 0.175, 1);     
-
-  ${DevButton}:hover & {
-    transform: translateX(15px);
-  }  
-`;
-
   
 const DevText = () => {
 
@@ -118,9 +115,9 @@ const DevText = () => {
 
     return (
         <DevContentDiv>
-            <DevHeading><Span>html, javascript, node, react, git, oh my...</Span></DevHeading>
-            <DevParagraph>Websites today are complicated applications with many parts. I’ve invested the time to build a solid understanding of these different technologies, frameworks, packages, modules, API and more... </DevParagraph>
-            <DevButton onClick={() => loadPortfolio('/dev')}>VIEW DEV <StyledIcon icon={faArrowRight}></StyledIcon></DevButton>
+            <DevHeading><Span>javascript, html, react, sql, php, git, oh my...</Span></DevHeading>
+            <DevParagraph>Today simple websites are complicated applications with many parts. I've taken the time to build a solid understanding of different aspects of web development from frameworks to libraries and beyond. </DevParagraph>
+            <DevButton onClick={() => loadPortfolio('/dev')}>VIEW DEV</DevButton>
         </DevContentDiv>
     );
 
