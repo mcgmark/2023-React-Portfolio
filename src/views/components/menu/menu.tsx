@@ -32,7 +32,7 @@ const MenuContainer = styled.nav<MenuContainerProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => (props.$isScrolled ? 'rgba(74, 12, 137, 0.95)' : 'rgba(74, 12, 137, 0.1)')};
+    background-color: ${(props) => (props.$isScrolled ? 'rgba(74, 12, 137, 0.95)' : 'rgba(74, 12, 137, 0.4)')};
     z-index: 101;
     border-bottom: ${(props) => (props.$isScrolled ? '1px solid #4d4d4d84' : '4px solid rgba(255, 255, 255, 0.025)')};
     backdrop-filter: blur(407deg);

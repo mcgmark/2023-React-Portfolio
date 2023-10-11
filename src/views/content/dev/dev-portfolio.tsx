@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import { DevItem } from '../../assets/types/types';
 
@@ -32,24 +32,22 @@ const PortfolioInner = styled.section`
 
 const PortfolioItem = styled.div`
     box-sizing: border-box;
-    background: rgb(57,32,77);
-    background: linear-gradient(152deg, #242424c0 5%, rgba(17, 17, 17, 0.188) 42%, rgba(34, 34, 34, 0.4) 100%);
-    border-top: 3px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.242);
     transition: all 100ms ease-in-out;
     cursor: pointer;
     border-radius: 25px;
     padding: 10px;
+    border: 6px solid #5922895f;
+    background-color: #130719;
+    box-shadow: 0px 0px 300px rgba(0, 0, 0, 0.2);
 
     @media (min-width: 1000px){
         padding: 30px;
     }
 
-    &:hover {
+    /* &:hover {
         background: linear-gradient(152deg, #33124ec0 5%, rgba(17, 17, 17, 0.188) 42%, rgba(68, 66, 66, 0.4) 100%);
         box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
-    }
+    } */
 `;
 
 const PortfolioItemText = styled.div`
@@ -61,64 +59,67 @@ const PortfolioItemText = styled.div`
 
 const PortfolioItemTitle = styled.h3`
     font-family: 'Arial-MT-Bold';
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-transform: capitalize;
-    color: rgb(240, 206, 14);
+    color: #ededed;
 `;
 
 const PortfolioItemDescription = styled.p`
-    font-family: 'OpenSans';
-    font-size: 1rem;
+    font-family: 'Acumin-thin';
+    font-size: 1.15rem;
     max-width: 1400px;
-    line-height: 180%;
+    line-height: 140%;
     letter-spacing: .03rem;
-    color: #ebebeb;
+    color: #f2f2f2;
+    text-align: justified;
 `;
 
 const PortfolioItemType = styled.p`
     font-family: 'Arial-MT-Bold';
-    font-size: 1rem;
+    font-size: 1.05rem;
     text-transform: uppercase;
     color: #696969;
-    border-bottom: 1px solid #333;
-    padding-bottom: 25px;
+    /* border-bottom: 1px solid #333; */
 `;
 
 const PortfolioTechList = styled.ul`
     display:flex;
-    gap: 10px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
     list-style: none;
-    font-family: 'Roboto-Regular';
-    font-size: 1rem;
+    font-family: 'Arial-MT-Bold';
+    font-size: .8rem;
     text-transform: uppercase;
     color: #ffffff;
     padding: 0px;
     margin: 0px;
-
 `;
 
 const ListItem = styled.li`
-    background-color: var(--purple-bright);
-    padding: 2px 20px;
+    flex-grow: 1;
+    background-color: #2b0147;
+    padding: 10px 15px;
     border-radius: 25px;
+    text-align: center;
 `;
 
 const StyledItemButton = styled.button`
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: 'Arial-MT-Bold';
-  width: fit-content;
-  background-color: rgb(255, 217, 0);
-  color: #3f0561;
-  padding: 10px 20px;
+  color: #ffffff;
+  padding: 15px 30px;
   border: none;
-  border-radius: 30px;
+  background: #3b0164;
   cursor: pointer;
   text-transform: uppercase;
   margin-bottom: 10px;
+  width: fit-content;
+    letter-spacing: 0.1rem;
+    border-radius: 10px;
 
   &:hover {
-    color: rgb(255, 217, 0);
+    color: #fff;
     background-color: var(--purple-bright);
   }
 `;
@@ -138,7 +139,7 @@ const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl }) => {
     return (
         <StyledItemButton onClick={handleOpenURL}>
             VIEW Live
-            <StyledIcon icon={faArrowRight} />
+            <StyledIcon icon={faChevronRight} />
         </StyledItemButton>
     );
 };
@@ -148,7 +149,7 @@ const DevPortfolio: React.FC<Props> = ({ data }) => {
     return(
         <PortfolioContainer>
             <PortfolioInner>
-               <Masonry columns={{xs: 1, sm: 1, md: 1, lg: 3}} spacing={5}>
+               <Masonry columns={{xs: 1, sm: 1, md: 1, lg: 2, xl: 3}} spacing={2}>
                {data.map((item: DevItem) => (
                         <PortfolioItem key={item.id}>
                             <PortfolioItemText>

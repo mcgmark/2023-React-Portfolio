@@ -1,0 +1,330 @@
+/* Global Style Begin */
+
+html {
+    background-image: url("../images/golf-bg.jpg");
+    background-size: cover !important;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: 'Lato';
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    padding: 0px;
+    margin-top: .5% !important; 
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Style End */
+
+/* Magazine Cover Styles Begin */
+
+div#cover-container {  /* Site container sized to adjust to viewport */
+    height: 96vh;
+    width: 72vh;
+    display: flex;   /* Use flex to organize layout */
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    border: 10px solid #f5f5f5;
+    box-shadow: 0 0 0 2000px #00000095;  /* Create dark layer over background outside of container */
+}
+
+/* Golfer Image Overlay Start */
+
+div#golfer-container {  
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   bottom: -10%;
+   left: 4%;
+   z-index: 0; /* Set Z-Index for layering effect */
+}
+
+#golfer-container img { 
+    height: 97%;
+}
+
+/* Golfer Image Overlay End */
+
+/* Top Block Text Start */
+
+#top-block {    /* Magazine logo area */
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5%;
+    z-index: -1; /* set z-index to below golfer image */
+}
+
+#top-block h2 {
+    font-size: 1.15vw;
+    align-self: flex-end;
+    margin-right: 1.50%;
+    position: relative;
+    top: -4%;
+}
+
+#issue-date {
+    align-self: flex-start;
+    font-size: 1vw;
+    margin-top: 1%;
+}
+
+/* Logo Start */
+
+#logo-container {
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+}
+
+.logo-letters {  /* Each letters in it's own DIV to have more control over letter spacing */
+    font-family: 'Kameron', serif;
+    font-size: 26.8vh;
+    line-height: .7em;
+    margin-top: 8%;
+    display: inline;
+    text-shadow: 2px 2px 45px #00000050;
+}
+
+.logo-letters:nth-child(2) { /* target "O" */
+    position: relative;
+    left: 5%;
+ }
+
+ .logo-letters:nth-child(3) { /* target "L" */
+    position: relative;
+    left: 10%;
+ }
+
+/* Logo End */
+
+/* Top Block Text End */
+
+/* Middle Block Text Start */
+
+#middle-block-container {   /* Middle content split into two column using grid */
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 42% 58%;
+}
+
+/* Middle Block LEFT Start */
+
+#middle-left-container {
+    display: flex;       /* Flex to easily organize content */
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 8%;
+    margin-bottom: 11%;
+    z-index: 1; /* Set z-index to be higher than golfer image */
+}
+
+/* Middle LEFT Text Start */
+
+.middle-left-text {  /* Paragraph content on left side */
+    transform: skew(0deg, -10deg);  /* Skew text to look like it's on an angle */
+    padding: 0 15% 0 0; /* Right side padding to easily control width of text content */
+    margin-bottom: 10%; 
+}
+
+.middle-left-text p {
+    font-family: 'Barlow Condensed', Sans-Serif;
+    font-size: 2.20vh;
+    font-weight: 400;
+    line-height: .9em;
+    text-align: left;
+    text-transform: capitalize;
+    border-bottom: 2px dashed #ffffff;
+    text-shadow: 2px 2px 3px #1b094d;
+    padding-bottom: 9%;
+}
+
+.middle-left-text span {
+    font-weight: 600;
+    color: #00aeff;
+}
+
+.middle-left-text img {
+    display: block;
+    width: 17%;
+    height: 17%; 
+    margin-bottom: 1.5%;
+    position: relative;
+    left: -6%;
+    transform: skew(0deg, 5deg);
+}
+
+/* Middle LEFT Text End */
+
+/* Middle LEFT Driver Bottom Start */
+
+#middle-left-bottom {   /* Driver Buy's Guide contemnt */
+    width: 16vh;
+    height: 16vh;
+    font-weight: 600;
+    background: #0059ff url("../images/golf-ball-pattern.jpg");  /* set golf ball as div background */
+    background-size: cover;
+    border-radius: 100%;  /* Make div circle shape */
+    display: grid; /* split the div into two columns for easy layout control */
+    grid-template-columns: 50% 50%;
+}
+
+#middle-left-bottom p {
+    font-family: 'Barlow Condensed', Sans-Serif;
+    font-size: 3.7vh;
+    font-weight: 400;
+    line-height: .8em;
+    text-transform: uppercase;
+    color: #fd5000;
+    text-shadow: 2px 2px 0px #f7f7f7ee;
+    transform: skew(0deg, -5deg);
+    position: relative;
+    top: 14%;
+    left: 1%;
+}
+
+#middle-left-bottom span {
+    font-weight: 800;
+}
+
+
+#middle-left-bottom img { /* Golf club image */
+    height: 21%;
+    width: 21%;
+    position: absolute;
+    left: 12%;
+    transform: rotate(25deg);
+}
+
+/* Middle LEFT Driver Bottom End */
+
+/* Middle Block LEFT end */
+
+/* Middle Block RIGHT start */
+
+#middle-right-container {  /* Right side of middle content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 5%;
+}
+
+/* Middle RIGHT 1 Start */
+
+#middle-right-one {
+    font-family: 'Arvo', Serif;
+    font-size: 13vh;
+    line-height: .8em;
+    text-transform: uppercase;
+    letter-spacing: -.06em;
+    z-index: -1; /* Set z-index to be lower than golfer image */
+    text-shadow: 2px 2px 15px #00000070;
+}
+/* Middle RIGHT 1 End */
+
+/* Middle RIGHT 2 Start */
+
+#middle-right-two {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2.2vh;
+    text-transform: uppercase;
+    margin-top: 3%;
+    text-shadow: 2px 2px 3px #000000;
+}
+
+/* Middle RIGHT 2 End */
+
+/* Middle RIGHT 3 Start */
+
+#middle-right-three {
+    font-family: 'Kadwa', sans-serif;
+    font-size: 1.25vh;
+    color: #124f94;
+    margin-top: .7%
+}
+
+/* Middle RIGHT 3 End */
+
+/* Middle RIGHT 4 Start */
+
+#middle-right-four {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    margin-top: 4%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.7vh;
+    text-transform: uppercase;
+    line-height: .9em;
+    text-shadow: 2px 2px 3px #000000;
+}
+
+#middle-right-four span {
+    color: #e5ff00;
+    font-weight: 600; 
+}
+
+#middle-right-four div {
+    padding: 15% 15%;
+    border-right: 2px dashed #ffffffa4;
+}
+
+#middle-right-four div:last-of-type {
+    border-right: 0
+}
+
+.horizontal-divider {
+    width: 13vw;
+    height: 1.25%;
+    border-bottom: 2px dashed #eeeeeea4;
+}
+
+/* Middle RIGHT 4 end */
+
+/* Middle Block RIGHT end */
+
+/* Middle Block Text End */
+
+/* Footer Block Text Start */
+
+#footer-bar {
+    width: 100%;
+    text-align: center;
+    background-color: #2b3849; 
+    z-index: 1; /* Set z-index to be higher than golfer image */
+}
+
+#footer-bar p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.85vh;
+    font-weight: 200;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 1%;
+}
+
+#footer-bar p span {
+    font-weight: 600;
+    color: #0bf0e4;
+    text-shadow: 2px 2px 25px #000000;
+}
+
+/* Footer Block Text end */

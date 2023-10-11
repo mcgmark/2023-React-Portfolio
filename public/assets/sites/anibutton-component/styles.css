@@ -1,0 +1,143 @@
+:root {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: #fff;
+}
+
+main, .switch, .switch-body-on, .switch-body-off {   /* Align Elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 100vw; /* Make container 100% height and width of view */
+    height: 100vh;
+    background-color: #eeeded;
+}
+
+.switch-body div p {
+    display: none;
+}
+
+.switch-container {
+    position: relative;
+    width: 450px;
+    height: 200px;
+}
+
+/* Class to animate icon rotation */
+.rotate {
+    animation-name: rotateOn;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.68, 0.55, 0.265, 1.05);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/* TOP SLIDE */
+.switch {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 50%; /* width is half of container */
+    height: 91%;
+    border-radius: 50px;
+    border: 6px solid #b3b3b3;
+    background-color: #fff;   
+    transition: left 250ms, box-shadow 100ms 50ms;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 1.25);
+}
+
+.switch:hover {
+    cursor: pointer;
+    /* animation: flicker 100ms  infinite; */
+}
+
+
+.switch-container.off .switch {
+    left: 0;
+    box-shadow: 7px 0px 0px rgba(51, 51, 51, 0.599), 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.switch-container.on .switch {
+    left: 50%;
+    box-shadow: -7px 0px 0px rgba(51, 51, 51, 0.599), 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.switch-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .3;
+    border-radius: 40px;
+    width: 96%;
+    height: 94%;
+    background: rgb(179,179,179);
+    background: linear-gradient(0deg, rgb(201, 201, 201) 4%, rgb(231, 231, 231) 7%, rgb(150, 150, 150) 34%, rgba(255,255,255,1) 87%, rgba(238,238,238,1) 95%, rgb(185, 185, 185) 99%);
+}
+
+.switch-inner:active {
+    background: #cccccc;
+}
+
+i {
+    color:#ffffff;
+    font-size: 7rem !important;
+    filter: drop-shadow(3px 0px 5px rgba(0, 0, 0, 0.45));
+    position: absolute;
+}
+
+/* SWITCH BOTTOM */
+.switch-body {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 91%;
+    border-radius: 50px;
+    border: 6px solid #b3b3b3;
+    transition: all 1000ms;
+}
+
+.switch-body-on, .switch-body-off {
+    height: 100%;
+    width: 50%;
+    font-size: 5rem;
+    font-weight: bold;
+    transition: color 750ms;
+}
+
+.switch-container.on .switch-body {
+    background-color: #085a00;
+    box-shadow: inset 0px 0px 100px #000, 0px 7px 0px #666666, 0px 0px 2000px #0c8e00;
+
+}
+
+.switch-container.off .switch-body {
+    background-color: #a00000;
+    box-shadow: inset 0px 0px 100px #000, 0px 7px 0px #666666, 0px 0px 2000px #c90000;
+}
+
+.switch-container.on .switch-body div p {
+    color: #02bb00;
+    transition: color 750ms;
+}
+
+.switch-container.off .switch-body div p {
+    color: #ea0202;
+    transition: color 750ms;
+}
+
+/* Keyframe Animation to rotate Icon */
+@keyframes rotateOn {
+    100% {
+        transform: rotate(720deg);
+    }
+}

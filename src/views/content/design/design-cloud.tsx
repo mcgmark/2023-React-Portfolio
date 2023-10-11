@@ -76,7 +76,7 @@ const CloudItem = styled.span<CloudItemProps>`
         align-items: center;
         border-radius: 21px;
         border: 8px solid var(--purple-bright);
-        width: 16vw;
+        width: 15vw;
         max-width: 300px;
         min-width: 100px;
         height: 45px;

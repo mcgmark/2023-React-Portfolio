@@ -1,0 +1,1376 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+:root {
+  --textblack: hwb(0 25% 75%);
+  --textgreen: rgb(4, 63, 49);
+  --textwhite: rgb(255, 255, 255);
+  --bg: rgb(242, 239, 226);
+  --bgsection: rgb(32, 51, 47);
+  --maxwidth: 1500px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: var(--textblack);
+  background-color: var(--bg);
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button:hover {
+  background-color: #fff !important;
+  color: var(--textgreen) !important;
+  font-weight: 700 !important;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+li {
+  padding-right: 20px;
+  display: inline-block;
+}
+
+li:last-of-type {
+  padding-right: 0px;
+}
+
+#site-container {
+  display: grid;
+  row-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-auto-flow: 1fr 2fr 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+header #welcome-ticker ul,
+header #logo-nav ul,
+#picture-grid,
+#counter>div:first-of-type,
+#about-us,
+#services,
+#services>section>article,
+#call-to-action>div,
+footer>div {
+  max-width: var(--maxwidth);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header #welcome-ticker,
+#about-us>div:first-child,
+#about-us>article#about>h2,
+#about-us>div>h3,
+#services>div>h2,
+#services>section:nth-of-type(2)>h2,
+#services>section>article>h3,
+#reviews>div>div>div>i,
+#reviews>div:nth-child(1)>h2,
+#reviews>div>div>article>ul>li {
+  color: var(--textgreen);
+}
+
+header,
+header div#mobile-quick-links,
+#call-to-action,
+#call-to-action>div>aside>form>div>button,
+footer>div>div>div>form>div>button {
+  background-color: var(--bgsection);
+}
+
+/* Header Start */
+
+header {
+  grid-area: header;
+}
+
+header #welcome-ticker {
+  background-color: var(--bg);
+  text-align: center;
+  font-weight: 300;
+  display: none;
+}
+
+header #welcome-ticker ul {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+header #welcome-ticker ul li:nth-of-type(2) {
+  display: none;
+}
+
+#welcome-ticker span {
+  font-weight: 700;
+}
+
+header #logo-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+header img {
+  width: 140px;
+}
+
+header #logo-nav li:nth-child(1),
+header #logo-nav li:nth-child(2),
+header #logo-nav li:nth-child(4),
+header #logo-nav li:nth-child(5) {
+  display: none;
+}
+
+header #logo-nav ul,
+header #logo-nav li {
+  padding: 0px;
+}
+
+@media screen and (min-width: 800px) {
+
+  header #logo-nav li:nth-child(1),
+  header #logo-nav li:nth-child(2),
+  header #logo-nav li:nth-child(4),
+  header #logo-nav li:nth-child(5),
+  header #welcome-ticker {
+    display: block;
+  }
+
+  header div#mobile-quick-links {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  header #welcome-ticker ul li:nth-of-type(2) {
+    display: block;
+  }
+}
+
+/* Header Styles End */
+
+/* Main Styles Start */
+
+main {
+  grid-area: main;
+  display: grid;
+  /* row-gap: 50px; */
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "picture-grid"
+    "counter"
+    "about-us"
+    "call-to-action"
+    "reviews";
+}
+
+/* Main Styles End */
+
+/* Picture Grid Styles Start */
+
+#picture-grid {
+  grid-area: picture-grid;
+  width: 100%;
+  height: 500px;
+  display: grid;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#picture-grid div {
+  background-position: center;
+  background-size: cover;
+}
+
+#picture-grid div:nth-of-type(1) {
+  background-image: url("../img/garden-1.jpg");
+  /* Photo Credit : https://www.veranda.com/outdoor-garden/a32381715/how-to-create-a-living-wall/ */
+  background-position: bottom;
+  grid-column: 1 / 5;
+}
+
+#picture-grid div:nth-of-type(2) {
+  background-image: url("../img/garden-2.jpg");
+  /* Photo Credit : https://www.hivelylandscapes.com/2017/07/container-gardening-tips/ */
+  grid-column: 5 / 13;
+}
+
+#picture-grid div:nth-of-type(3) {
+  background-image: url("../img/garden-3.jpg");
+  /* Photo Credit : https://foyr.com/learn/best-home-garden-ideas/ */
+  grid-column: 1 / 8;
+}
+
+#picture-grid div:nth-of-type(4) {
+  background-image: url("../img/garden-4.jpg");
+  /* Photo Credit : https://foyr.com/learn/best-home-garden-ideas/ */
+  grid-column: 8 / 13;
+}
+
+#picture-grid div:nth-of-type(5) {
+  background-image: url("../img/garden-5.jpg");
+  /* Photo Credit : https://co.pinterest.com/pin/528680443763845344/ */
+  background-position: center;
+  grid-column: 1 / 4;
+}
+
+#picture-grid div:nth-of-type(6) {
+  background-image: url("../img/garden-9.jpg");
+  /* Photo Credit : https://www.homedepot.com/c/ai/front-yard-landscaping-ideas/9ba683603be9fa5395fab9015f6785cf */
+  background-position: bottom;
+  grid-column: 4 / 13;
+}
+
+#picture-grid div:nth-of-type(7) {
+  background-image: url("../img/garden-6.jpg");
+  /* Photo Credit : https://www.daviddomoney.com/grow-up-vertical-gardening-for-small-spaces/ */
+  display: none;
+}
+
+#picture-grid div:nth-of-type(8) {
+  background-image: url("../img/garden-8.jpg");
+  /* Photo Credit : https://www.homedepot.com/c/ai/front-yard-landscaping-ideas/9ba683603be9fa5395fab9015f6785cf */
+  display: none;
+}
+
+#picture-grid div:nth-of-type(9) {
+  /* Photo Credit : https://www.homedepot.com/c/ai/front-yard-landscaping-ideas/9ba683603be9fa5395fab9015f6785cf */
+  background-image: url("../img/garden-7.jpg");
+  display: none;
+}
+
+#picture-grid div:nth-of-type(10) {
+  /* Photo Credit : https://www.homedepot.com/c/ai/front-yard-landscaping-ideas/9ba683603be9fa5395fab9015f6785cf */
+  background-image: url("../img/garden-10.jpg");
+  display: none;
+}
+
+#picture-grid div:nth-of-type(11) {
+  /* Photo Credit : https://www.homedepot.com/c/ai/front-yard-landscaping-ideas/9ba683603be9fa5395fab9015f6785cf */
+  background-image: url("../img/garden-11.jpg");
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+
+  #picture-grid {
+    height: calc(100vh - 250px);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #picture-grid div:nth-of-type(1),
+  #picture-grid div:nth-of-type(2),
+  #picture-grid div:nth-of-type(3),
+  #picture-grid div:nth-of-type(4),
+  #picture-grid div:nth-of-type(5),
+  #picture-grid div:nth-of-type(6),
+  #picture-grid div:nth-of-type(7),
+  #picture-grid div:nth-of-type(8),
+  #picture-grid div:nth-of-type(9),
+  #picture-grid div:nth-of-type(10),
+  #picture-grid div:nth-of-type(11) {
+    grid-column: auto;
+    display: block;
+  }
+
+  #picture-grid div:nth-of-type(6) {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 2;
+    background-position: bottom;
+  }
+}
+
+/* Picture Grid Styles Start */
+
+/* Counter Start */
+#counter {
+  grid-area: counter;
+  height: 150px;
+  color: var(--textwhite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(180deg, rgba(32, 51, 47, 0.8) 100%, rgba(32, 51, 47, 0)), url('../img/section-bg.jpg');
+  background-size: cover;
+}
+
+#counter>div:first-of-type {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+
+#counter>div>section {
+  text-align: center;
+  padding: 0px 20px;
+}
+
+#counter>div>section:first-of-type {
+  padding-left: 0px;
+  border: 0px;
+}
+
+#counter>div>section:nth-of-type(2) {
+  display: none;
+}
+
+#counter>div>section:nth-of-type(3) {
+  display: none;
+}
+
+#counter>div>section:last-of-type {
+  padding-right: 0px;
+  display: none;
+}
+
+#counter>div>section>h2 {
+  font-family: 'Oswald', 'Roboto', sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  margin: 0px;
+}
+
+#counter>div>section>p {
+  font-weight: 100;
+  font-size: 1em;
+  margin: 0px;
+  white-space: nowrap;
+}
+
+#counter span {
+  border-left: 1px solid white;
+}
+
+#counter span:nth-of-type(1),
+#counter span:nth-of-type(2),
+#counter span:nth-of-type(3) {
+  display: none;
+}
+
+@media screen and (min-width: 300px) {
+
+  #counter>div>section:nth-of-type(1),
+  #counter span:nth-of-type(1),
+  #counter>div>section:nth-of-type(4) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  #counter span:nth-of-type(1) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+  #counter>div>section:nth-of-type(2),
+  #counter span:nth-of-type(2) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #counter {
+    height: 220px;
+  }
+
+  #counter>div>section {
+    text-align: center;
+    padding: 20px 40px;
+  }
+
+  #counter>div>section>h2 {
+    font-size: 3.75em;
+  }
+
+  #counter>div>section>p {
+    font-size: 1.25em;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  #counter>div>section:first-of-type {
+    padding-left: 0px;
+  }
+
+  #counter>div>section:first-of-type,
+  #counter>div>section:nth-of-type(3),
+  #counter span:nth-of-type(3),
+  #counter>div>section:last-of-type {
+    display: block;
+  }
+
+  #counter>div>section:last-of-type {
+    padding-right: 0px;
+  }
+}
+
+/* Counter End */
+
+/* About Us Section Start */
+#about-us {
+  grid-area: about-us;
+  padding-right: 3%;
+  padding-left: 3%;
+  display: grid;
+  row-gap: 40px;
+  column-gap: 40px;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "second second"
+    "third third"
+    "fourth fourth"
+    "services services";
+}
+
+#about-us>div:first-child {
+  grid-area: header;
+  margin-top: 30px;
+  align-self: center;
+  text-align: center;
+}
+
+#about-us>div:first-child>h1 {
+  font-size: 5em;
+  text-shadow: 2px 2px 0px rgba(106, 106, 106, 0.637);
+}
+
+#about-us>div:first-child>h1>span:nth-of-type(1) {
+  /* Design */
+  font-family: 'Roboto Slab', 'Times New Roman', Times, serif;
+  font-size: 95%;
+  letter-spacing: -.04em;
+}
+
+#about-us>div:first-child>h1>span:nth-of-type(2) {
+  /* Build */
+  font-family: 'Yellowtail', sans-serif;
+  padding-right: .1em;
+  font-size: 105%;
+  font-weight: 300;
+}
+
+#about-us>div:first-child>h1>span:nth-of-type(3) {
+  /* Maintain */
+  letter-spacing: -.06em;
+  font-size: 95%;
+}
+
+#about-us>div:first-child>p {
+  font-size: 1.5em;
+  font-weight: 100;
+  margin: 0px;
+}
+
+#about-us>div>p>span {
+  font-weight: 600;
+}
+
+#about-us>article#about {
+  grid-area: second;
+  padding: 20px;
+}
+
+#about-us>article#about>h2 {
+  font-size: 2em;
+  margin: 0px;
+}
+
+#about-us>article#about>p {
+  color: rgb(0, 0, 0);
+  line-height: 1.5em;
+  font-size: 1.25em;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+#about-us>div:nth-child(3),
+#about-us>div:nth-child(4) {
+  padding: 20px 20px 20px 20px;
+  position: relative;
+}
+
+#about-us>div:nth-child(3),
+#about-us>div:nth-child(4),
+#about-us>article#about {
+  border: 5px solid var(--bg);
+  background-color: rgba(179, 192, 184, 0.05);
+  box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.1), inset 0px 0px 30px rgba(51, 51, 51, 0.1);
+}
+
+#about-us>div:nth-child(3) {
+  grid-area: third;
+}
+
+#about-us>div:nth-child(4) {
+  grid-area: fourth;
+}
+
+#about-us>div>h3 {
+  font-weight: 600;
+  font-size: 1.6em;
+  margin-bottom: 0px;
+}
+
+#about-us>div:nth-child(3)>p,
+#about-us>div:nth-child(4)>p {
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+@media screen and (min-width: 550px) {
+  #about-us {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header header"
+      "second second"
+      "third fourth"
+      "services services";
+  }
+
+  #about-us>article#about {
+    padding: 50px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #about-us>div:first-child>h1 {
+    font-size: 5.5em;
+    text-shadow: 1px 1px 0px rgba(149, 149, 149, 0.637);
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+
+  #about-us {
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-areas:
+      "header header"
+      "second third"
+      "second fourth"
+      "services services";
+  }
+}
+
+/* About Us Section End */
+
+/* Our Services Section Start */
+#services {
+  grid-area: services;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#services img {
+  box-shadow: 0px 0px 50px rgba(43, 43, 43, 0.367);
+}
+
+#services>section:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+#services>section:nth-of-type(2) {
+  justify-content: center;
+}
+
+#services>div:first-child,
+#services>section:nth-of-type(2) {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 5em;
+}
+
+#services>div>h2,
+#services>section:nth-of-type(2)>h2 {
+  font-size: 2.5em;
+  font-weight: 300;
+  margin: 0px;
+}
+
+#services>section:nth-of-type(2)>h2>span {
+  font-weight: 700;
+}
+
+#services>div:first-child>p,
+#services>section:nth-of-type(2)>p {
+  font-size: 1.5em;
+  color: var(--textblack);
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+#services>section>article {
+  width: 90%;
+  flex-basis: 400px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#services>section>article>h3 {
+  font-size: 1.55em;
+  font-weight: 400;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+#services>section>article>p {
+  font-weight: 300;
+}
+
+#services>section>article>img {
+  width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  #services>section:nth-of-type(1) {
+    grid-template-columns: repeat(2, minmax(350px, 400px));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  #services>section:nth-of-type(1) {
+    grid-template-columns: repeat(3, minmax(350px, 400px));
+  }
+}
+
+/* Our Services Section End */
+
+/* Call To Action Section Start */
+
+#call-to-action {
+  grid-area: call-to-action;
+  background-image: url('../img/shovel-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55%;
+}
+
+#call-to-action>div {
+  max-width: calc(var(--maxwidth) - 200px);
+  padding: 0px 40px;
+  display: grid;
+  column-gap: 80px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "text text"
+    "form form";
+}
+
+#call-to-action>div>section {
+  width: 100%;
+  padding: 20px;
+  grid-area: text;
+}
+
+#call-to-action>div>section>h2 {
+  font-size: 3em;
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  line-height: 1.3em;
+}
+
+#call-to-action>div>section>h2>span {
+  color: rgb(255, 225, 0);
+  font-weight: 700;
+}
+
+#call-to-action>div>section>p {
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 100;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+#call-to-action>div>aside {
+  grid-area: form;
+  width: 100%;
+  text-align: center;
+}
+
+#call-to-action>div>aside>form>div>button,
+footer>div>div>div>form>div>button {
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 100;
+  width: 100%;
+  padding: 15px 0px 15px 0px;
+}
+
+#call-to-action>div>aside>form>div>#name,
+#call-to-action>div>aside>form>div>#pnumber,
+footer>div>div>div>form>div>#email {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #fff;
+  font-size: 1.2em;
+  font-weight: 300;
+  text-align: center;
+}
+
+#call-to-action>div>aside>p {
+  color: #fff;
+  font-weight: 100;
+}
+
+@media screen and (min-width: 800px) {
+  #call-to-action>div {
+    grid-template-areas:
+      "text form"
+      "text form";
+  }
+
+  #call-to-action>div>section {
+    padding: 50px;
+  }
+
+  #call-to-action>div>aside {
+    align-self: center;
+    padding: 60px 30px 40px 0px;
+  }
+}
+
+/* Call To Action Section End */
+
+/* Reviews Section Start */
+
+#reviews {
+  grid-area: reviews;
+}
+
+#reviews>div>div>div>i {
+  font-size: 13em;
+}
+
+#reviews>div:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 140px;
+}
+
+#reviews>div:nth-child(1) {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#reviews>div:nth-child(1)>h2 {
+  font-size: 3.5em;
+  font-weight: 100;
+  margin: 0px;
+}
+
+#reviews>div:nth-child(1)>p {
+  font-size: 1.5em;
+  color: var(--textblack);
+  font-weight: 100;
+  margin: 0px;
+}
+
+#reviews>div>div>article {
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.15);
+  text-align: center;
+  border-radius: 25px;
+  padding: 0px 30px 0px 30px;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid var(--bg);
+  position: relative;
+  margin-top: 100px;
+}
+
+#reviews>div>div>article>div {
+  width: 110px;
+  height: 110px;
+  position: relative;
+  margin-top: -50px;
+  align-self: center;
+  background-image: url('../img/customer-1.jpg');
+  /* Photo Credit: https://www.pikist.com/free-photo-xlram */
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.3);
+  border: 5px solid var(--bg);
+}
+
+#reviews>div>div>article>p {
+  font-size: 1.15em;
+  font-weight: 100;
+}
+
+#reviews>div>div>article>p>span {
+  font-size: .7em;
+}
+
+#reviews>div>div>article>ul {
+  list-style: none;
+  padding: 0px;
+  width: 100%;
+}
+
+#reviews>div>div>article>ul>li {
+  display: inline;
+  list-style-position: outside;
+}
+
+#reviews>div:nth-of-type(2)>div:nth-child(1) {
+  display: block;
+}
+
+#reviews>div:nth-of-type(2)>div:nth-child(2) {
+  display: none;
+}
+
+#reviews>div:nth-of-type(2)>div:nth-child(3) {
+  display: none;
+}
+
+#reviews>div:nth-of-type(2)>div:nth-child(4) {
+  display: none;
+}
+
+#reviews>div:nth-of-type(2)>div:nth-child(5) {
+  display: none;
+}
+
+@media screen and (min-width: 650px) {
+  #reviews>div:nth-of-type(2)>div:nth-child(2) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #reviews>div:nth-of-type(2)>div:nth-child(3) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #reviews>div:nth-of-type(2)>div:nth-child(4) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  #reviews>div:nth-of-type(2)>div:nth-child(5) {
+    display: block;
+  }
+}
+
+
+/* Reviews Section End */
+
+/* Footer Styles Start */
+footer {
+  background-color: var(--bgsection);
+  display: flex;
+  justify-content: center;
+  padding: 50px 10px 20px 10px;
+}
+
+footer>div {
+  width: 80%;
+  align-items: center;
+}
+
+footer>div>div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "menu menu"
+    "location location"
+    "form form"
+    "footer footer";
+}
+
+footer>div>div>div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  grid-area: location;
+}
+
+footer>div>div>div:nth-child(2) {
+  display: none;
+  grid-area: menu;
+}
+
+footer>div>div>div:nth-child(3) {
+  grid-area: form;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+footer>div>div>div:nth-child(4) {
+  grid-area: footer;
+  width: 100%;
+}
+
+footer>div>div>div>img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+footer>div>div>div>nav>ul {
+  color: #fff;
+  font-size: 1.25em;
+}
+
+footer>div>div>div>nav>ul>li {
+  text-transform: uppercase;
+}
+
+footer>div>div>div>h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+footer>div>div>div>p {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+
+footer>div>div>div:last-of-type>p {
+  font-size: 1em;
+}
+
+footer>div>div>div>form>div>#email,
+footer>div>div>div>form>div>button {
+  width: 300px;
+}
+
+@media screen and (min-width: 1000px) {
+  footer>div>div {
+    grid-template-areas:
+      "location menu"
+      "location form"
+      "footer footer";
+  }
+
+  footer>div>div>div:nth-child(2) {
+    display: block;
+  }
+
+  footer>div>div>div>form>div>#email,
+  footer>div>div>div>form>div>button {
+    width: 400px;
+  }
+
+  footer>div>div>div:nth-child(1) {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* Footer Styles End */
+
+
+/* Mobile Menu Start */
+
+#mobile-quick-links {
+  display: flex;
+}
+
+#mobile-quick-links div {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 10px;
+  border-bottom: 4px solid rgb(0, 127, 59);
+  border-right: 1px solid rgb(0, 127, 59);
+}
+
+#mobile-quick-links div:last-child {
+  border-right: 0px;
+}
+
+#mobile-quick-links p {
+  margin: 0px;
+  color: #fff;
+  font-size: .8em;
+}
+
+#mobile-quick-links i {
+  font-size: 1.9em;
+  padding: 3px;
+  color: rgb(0, 127, 59);
+}
+
+#mobile-menu {
+  height: 0px;
+  z-index: 200;
+  background-color: #1d3126;
+  overflow: hidden;
+  transition: all .2s ease-out;
+}
+
+.show {
+  height: 300px !important;
+}
+
+.rotate {
+  rotate: 90deg;
+}
+
+#mobile-menu-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#mobile-menu-items .button {
+  border-bottom: 5px solid rgb(0, 127, 59);
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+#mobile-menu-items .button:last-of-type {
+  border-bottom: 0px;
+}
+
+#mobile-menu div:first-of-type {
+  display: flex;
+  text-align: center;
+  display: flex;
+
+}
+
+#mobile-menu>div:first-of-type p {
+  color: rgb(255, 255, 255);
+  flex: 1;
+  font-size: .7em;
+  margin: 6px;
+}
+
+/* Mobile Menu End */
+
+/* Custom Styles End */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

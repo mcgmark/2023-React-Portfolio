@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+body { 
+	margin: 0; 
+	padding: 0; 
+	height: 97vh;
+	 font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	background: linear-gradient(to bottom, rgba(255, 0, 247, 0.685) 0%, rgba(68, 68, 68, 0.15) 100%), radial-gradient(at top center, rgba(222, 39, 235, 0.4) 0%, rgba(212, 0, 255, 0.4) 120%) #2c2c2c;
+ 	background-blend-mode: multiply,multiply;
+}
+
+div.container { 
+	width: 80%; 
+	max-width: 1167px;
+	margin: auto; 
+}
+
+ul {
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+}
+
+h1 {
+	font-size: 3rem;
+	color: #eee;	
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+span {
+	font-weight: 200;
+}
+
+/* TAB BUTTONS NAVIGATION */
+
+ul.tabNavigation {
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+    list-style: none;
+	padding: 0px;
+}
+
+ul.tabNavigation li {
+	display: flex;
+   	margin: 0px;
+	margin-bottom: 15px;
+   	margin-right: 15px;
+    perspective: 800px;
+}
+
+ul.tabNavigation li a:last-of-type {
+	margin-bottom: 0px;
+}
+
+ul.tabNavigation li a {
+	height: 100px;
+	width: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+    color: #b5b5b5;
+    text-decoration: none;
+	border: 1px solid #2e2e2e;
+	border-bottom: 5px solid #2e2c87;
+	background-color: #181818;
+	
+	/* ANIMATION */
+	transition: all 500ms; /* Initialize transitions for all style changes and animate over 500ms */
+}
+
+ul.tabNavigation li a:first-of-type {
+	margin-top: 0px;
+}
+
+/* Animate button glow on hover */
+ul.tabNavigation li a:hover {
+	border-bottom: 5px solid #5653ff;
+	color: #fff;
+
+	/* ANIMATION */
+	animation: hoverGlow 500ms forwards;  /* Call the hoverGlow animation on hover, run it for 500ms, and keep the new css styles */
+}
+
+/* Animate button glow on hover */
+ul.tabNavigation li a:active {
+	background-color: #5653ff !important;
+}
+
+/* When link is clicked this class is applied to that <a> changing it's style and trigering the buttonFlip animation */
+ul.tabNavigation li a.selected {
+    border-bottom: 5px solid #5653ff;
+	color: #fff;
+	background-color: #2b2b2b;
+	
+	/* ANIMATION */
+	animation: buttonFlip 1500ms ease-in-out alternate forwards; /* Call the buttonFlip animation when .slected class is applied, run it for 1500ms, use slow in and slow out for realistic animationn effect, and keep the new css styles */
+}
+	
+ul.tabNavigation li a:focus {
+	outline: 0;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1200px) {
+	ul.tabNavigation {
+		flex-direction: column;
+	}
+	ul.tabNavigation li a {
+		height: 100px;
+		width: 250px;
+	}
+}
+
+
+
+/* TABS */
+
+div.tabs {
+	display: flex;
+	flex-direction: column;
+	perspective: 800px; /* Set perspective to use rotate3d to give 3d effect */
+}
+
+div.tabs > div {
+	position: relative;
+	width: 100%;
+	margin-bottom: 5rem;
+}
+
+div.tabs > div > div {
+	position: absolute;
+	z-index:-100;
+	top: 0px;
+	left: 0px;
+	width: 90%;
+	min-width: 690px;
+	min-height: 800px;
+	border: 1px solid #353535;
+	box-shadow: inset 0px 0px 1000px #1b1b1b;
+	box-shadow:  0px 0px 100px #ff65f22a;
+	background: rgb(43,43,43);
+	background: linear-gradient(180deg, rgba(43,43,43,1) 0%, rgb(19, 19, 19) 100%);
+}
+
+div.tabs > div > div > h2 {
+	width: 80%;
+	margin: auto auto;
+	border-bottom: 3px solid #fff;
+	padding-bottom: 25px;
+	margin-top: 5rem;
+	margin-bottom: 25px;
+	font-size: 3rem;
+}
+
+div.tabs > div > div > p {
+	margin: auto auto;
+	width: 80%;
+	font-weight: 300;
+	font-size: 1.25rem;
+	line-height: 175%;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1200px) {
+	div.tabs {
+		flex-direction: row;
+	}
+}
+
+
+
+
+/* KEYFRAME ANIMATIONS */
+
+/* Rotate button in 3d space */
+/* Use transform + rotate3d to give the button a 3d effect when rotating */
+@keyframes buttonFlip {
+	0%{
+		transform: rotate3d(0, 0, 0, 0deg);	 
+		box-shadow: 0px 0px 30px #5653ff;
+	}
+
+	50% {
+		transform: rotate3d(1, 0, 0, 360deg);
+		box-shadow: 0px 0px 0px #5653ff;
+	}
+	
+	100%{
+		transform: rotate3d(1, 0, 0, 360deg);
+		box-shadow: 0px 0px 0px #5653ff6f;
+	}
+}
+
+/* Animate button hover light up glow effect the button should appear brighter colored */
+@keyframes hoverGlow {
+	0%{
+		box-shadow: 0px 0px 0px #5653ff;
+		background-color: #181818;
+	}
+
+	50% {
+		box-shadow: 0px 0px 70px #5653ff;
+	}
+	
+	100%{
+		box-shadow: 0px 0px 50px #5653ff;
+		background-color: #2b2b2b;
+	}
+}

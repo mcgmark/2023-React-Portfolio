@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project 2 - Interface Design - Web Store Interface Recreation CSS/HTML</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon_120.png">
+  <meta name="description"
+    content="Assignment to create a product details page for an e-commerce site using HTML and CSS">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- add google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- add jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <!-- add css file -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- add scripts file -->
+  <script src="js/scripts.js" defer></script>
+</head>
+<body>
+  <!-- header start -->
+  <header>
+    <div id="header-top-background">
+      <div id="header-top">
+        <!-- shrink width of content -->
+        <div>
+          <!-- header customer service links -->
+          <ul>
+            <li><a href="#">free shipping available!</a></li>
+            <li><a href="#">triangle rewards</a></li>
+            <li><a href="#">sign up for Our Mailing List To Get $15 Off!</a></li>
+            <li><a href="#">Find your true fit</a></li>
+          </ul>
+        </div>
+        <!-- login/register button -->
+        <div>
+          <a href="#">Sign In</a>
+          <a href="#">Register</a>
+        </div>
+      </div>
+    </div>
+    <!-- header top end -->
+    <div id="header-main-background">
+      <div id="header-main">
+        <div id="menuToggle">
+          <input id="burger-toggle" type="checkbox" />
+          <label for="burger-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        <div class="logo">
+          <a href="index.html"><img src="img/marks-logo.png" alt="Mark's Logo"></a>
+        </div>
+        <div id="header-main-tools">
+          <div class="choose-location-btn">
+            <a href="#">choose a store</a>
+          </div>
+          <div id="search-box">
+            <form>
+              <input type="text" id="search" name="search" placeholder="I'M LOOKING FOR...">
+              <div class="header-search-button">
+                <input type="submit" id="search-submit" name="search-submit">
+              </div>
+            </form>
+          </div>
+          <div id="header-shoppingcart-button">
+            <a href="#"><span class="shopping-cart-total">0</span> <span>item(s)</span></a>
+          </div>
+        </div>
+      </div>
+      <!-- header navigation start -->
+      <div id="header-navigation">
+        <ul>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">women</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">clothing</a></li>
+                  <li><a href="#">t-shirts</a></li>
+                  <li><a href="#">tops</a></li>
+                  <li><a href="#">jeans</a></li>
+                  <li><a href="#">pants</a></li>
+                  <li><a href="#">jackets</a></li>
+                  <li><a href="#">shorts & skorts</a></li>
+                  <li><a href="#">crops & capris</a></li>
+                  <li><a href="#">dresses, skirts & rompers</a></li>
+                  <li><a href="#">swimwear</a></li>
+                  <li><a href="#">leggings & joggers</a></li>
+                  <li><a href="#">sweaters & cardigans</a></li>
+                  <li><a href="#">hoodies & sweatshirts</a></li>
+                  <li><a href="#">pajamas & sleepwear</a></li>
+                  <li><a href="#">plus size</a></li>
+                  <li><a href="#">scrubs</a></li>
+                  <li><a href="#">workwear</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">socks & underwear</a></li>
+                  <li><a href="#">socks</a></li>
+                  <li><a href="#">bras & camisoles</a></li>
+                  <li><a href="#">panties</a></li>
+                  <li><a href="#">shapewear</a></li>
+                  <li><a href="#">thermal underwear</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">shoes</a></li>
+                  <li><a href="#">casual shoes & slip-ons</a></li>
+                  <li><a href="#">casual boots</a></li>
+                  <li><a href="#">sneakers</a></li>
+                  <li><a href="#">hiking shoes & boots</a></li>
+                  <li><a href="#">running & walking shoes</a></li>
+                  <li><a href="#">sandals & flip flops</a></li>
+                  <li><a href="#">flats</a></li>
+                  <li><a href="#">rubber and rain boots</a></li>
+                  <li><a href="#">winter boots</a></li>
+                  <li><a href="#">slippers</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">accessories</a></li>
+                  <li><a href="#">face masks & sanitizer</a></li>
+                  <li><a href="#">hats & caps</a></li>
+                  <li><a href="#">toques & beanies</a></li>
+                  <li><a href="#">scarves</a></li>
+                  <li><a href="#">gloves & mittens</a></li>
+                  <li><a href="#">bags and purses</a></li>
+                  <li><a href="#">shoe accessories</a></li>
+                  <li><a href="#">shawls & ruanas</a></li>
+                  <li><a href="#">hair accessories</a></li>
+                  <li><a href="#">bandanas & neck tubes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">other</a></li>
+                  <li><a href="#">tick & mosquito repellent collection</a></li>
+                  <li><a href="#">new arrivals</a></li>
+                  <li><a href="#">online exclusives</a></li>
+                  <li><a href="#">jeans guide</a></li>
+                  <li><a href="#">gift guide</a></li>
+                  <li><a href="#">innovations</a></li>
+                  <li><a href="#">brands</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">men</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">clothing</a></li>
+                  <li><a href="#">t-shirts</a></li>
+                  <li><a href="#">tops & casual shirts</a></li>
+                  <li><a href="#">shirts</a></li>
+                  <li><a href="#">jeans</a></li>
+                  <li><a href="#">pants</a></li>
+                  <li><a href="#">jackets</a></li>
+                  <li><a href="#">shorts & swimwear</a></li>
+                  <li><a href="#">activewear</a></li>
+                  <li><a href="#">sweatpants</a></li>
+                  <li><a href="#">sweaters & cardigans</a></li>
+                  <li><a href="#">hoodies & sweatshirts</a></li>
+                  <li><a href="#">pajamas & loungewear</a></li>
+                  <li><a href="#">big & tall</a></li>
+                  <li><a href="#">workwear</a></li>
+                  <li><a href="#">scrubs</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">socks & underwear</a></li>
+                  <li><a href="#">socks</a></li>
+                  <li><a href="#">baselayers & undershirts</a></li>
+                  <li><a href="#">boxers & briefs</a></li>
+                  <li><a href="#">thermal underwear</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">shoes</a></li>
+                  <li><a href="#">casual shoes & slip-ons</a></li>
+                  <li><a href="#">casual boots</a></li>
+                  <li><a href="#">sneakers</a></li>
+                  <li><a href="#">hiking shoes & boots</a></li>
+                  <li><a href="#">running & walking shoes</a></li>
+                  <li><a href="#">sandals & slides</a></li>
+                  <li><a href="#">rubber & rain boots</a></li>
+                  <li><a href="#">winter boots</a></li>
+                  <li><a href="#">dress shoes</a></li>
+                  <li><a href="#">slippers</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">accessories</a></li>
+                  <li><a href="#">face masks & sanitizer</a></li>
+                  <li><a href="#">hats & caps</a></li>
+                  <li><a href="#">bags & backpacks</a></li>
+                  <li><a href="#">wallets</a></li>
+                  <li><a href="#">ties</a></li>
+                  <li><a href="#">belts & suspenders</a></li>
+                  <li><a href="#">gloves & mitts</a></li>
+                  <li><a href="#">shoe accessories</a></li>
+                  <li><a href="#">novelty & beanies</a></li>
+                  <li><a href="#">scarves</a></li>
+                  <li><a href="#">bandanas & neck tubes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">other</a></li>
+                  <li><a href="#">tick & mosquito repellent collection</a></li>
+                  <li><a href="#">new arrivals</a></li>
+                  <li><a href="#">online exclusives</a></li>
+                  <li><a href="#">jeans guide</a></li>
+                  <li><a href="#">gift guide</a></li>
+                  <li><a href="#">innovations</a></li>
+                  <li><a href="#">brands</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">shoes</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">men's shoes</a></li>
+                  <li><a href="#">casual shoes & slip-ons</a></li>
+                  <li><a href="#">casual boots</a></li>
+                  <li><a href="#">sneakers</a></li>
+                  <li><a href="#">hiking shoes & boots</a></li>
+                  <li><a href="#">running & walking shoes</a></li>
+                  <li><a href="#">sandals & slides</a></li>
+                  <li><a href="#">rubber & rain boots</a></li>
+                  <li><a href="#">winter boots</a></li>
+                  <li><a href="#">dress shoes</a></li>
+                  <li><a href="#">slippers</a></li>
+                  <li><a href="#">men's work boots & shoes</a></li>
+                  <li><a href="#">shoe accessories</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">women's shoes</a></li>
+                  <li><a href="#">casual shoes & slip-ons</a></li>
+                  <li><a href="#">casual boots</a></li>
+                  <li><a href="#">sneakers</a></li>
+                  <li><a href="#">hiking shoes & boots</a></li>
+                  <li><a href="#">running & walking shoes</a></li>
+                  <li><a href="#">sandals & flip flops</a></li>
+                  <li><a href="#">flats</a></li>
+                  <li><a href="#">rubber & rain boots</a></li>
+                  <li><a href="#">winter boots</a></li>
+                  <li><a href="#">slippers</a></li>
+                  <li><a href="#">women's work boots and shoes</a></li>
+                  <li><a href="#">shoe accessories</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">other</a></li>
+                  <li><a href="#">new arrivals</a></li>
+                  <li><a href="#">online exclusives</a></li>
+                  <li><a href="#">gift card</a></li>
+                  <li><a href="#">innovations</a></li>
+                  <li><a href="#">brands</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">kids</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">baby 0-24 months</a></li>
+                  <li><a href="#">onesies & overalls</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">toddler 2T-4T</a></li>
+                  <li><a href="#">overalls & one-piece</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">girls</a></li>
+                  <li><a href="#">tops</a></li>
+                  <li><a href="#">jeans</a></li>
+                  <li><a href="#">pants & shorts</a></li>
+                  <li><a href="#">overalls</a></li>
+                  <li><a href="#">jackets</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">boys</a></li>
+                  <li><a href="#">tops</a></li>
+                  <li><a href="#">jeans</a></li>
+                  <li><a href="#">pants & shorts</a></li>
+                  <li><a href="#">overalls</a></li>
+                  <li><a href="#">jackets</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">shoes & accessories</a></li>
+                  <li><a href="#">girls boots & shoes</a></li>
+                  <li><a href="#">boys boots & shoes</a></li>
+                  <li><a href="#">accessories</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">workwear</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">men's workwear</a></li>
+                  <li><a href="#">work jackets</a></li>
+                  <li><a href="#">work pants & shorts</a></li>
+                  <li><a href="#">work tops</a></li>
+                  <li><a href="#">work vests</a></li>
+                  <li><a href="#">thermal underwear</a></li>
+                  <li><a href="#">scrubs</a></li>
+                  <li><a href="#">overalls & coveralls</a></li>
+                  <li><a href="#">rainwear</a></li>
+                  <li><a href="#">hi-visibility</a></li>
+                  <li><a href="#">flame resistant</a></li>
+                  <li><a href="#">work socks</a></li>
+                  <li><a href="#">work boots & safety shoes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">women's workwear</a></li>
+                  <li><a href="#">scrubs</a></li>
+                  <li><a href="#">work jackets & vests</a></li>
+                  <li><a href="#">work pants</a></li>
+                  <li><a href="#">work tops</a></li>
+                  <li><a href="#">thermal underwear</a></li>
+                  <li><a href="#">overalls</a></li>
+                  <li><a href="#">work boots & safety shoes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">women's workwear</a></li>
+                  <li><a href="#">scrubs</a></li>
+                  <li><a href="#">work jackets & vests</a></li>
+                  <li><a href="#">work pants</a></li>
+                  <li><a href="#">work tops</a></li>
+                  <li><a href="#">thermal underwear</a></li>
+                  <li><a href="#">overalls</a></li>
+                  <li><a href="#">work boots & safety shoes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">accessories</a></li>
+                  <li><a href="#">work gloves</a></li>
+                  <li><a href="#">headwear</a></li>
+                  <li><a href="#">shoe accessories</a></li>
+                  <li><a href="#">eye & hearing protection</a></li>
+                  <li><a href="#">braces & support</a></li>
+                  <li><a href="#">bags & water bottles</a></li>
+                  <li><a href="#">gadgets</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">other</a></li>
+                  <li><a href="#">gift card</a></li>
+                  <li><a href="#">online exclusives</a></li>
+                  <li><a href="#">the work shop</a></li>
+                  <li><a href="#">innovations</a></li>
+                  <li><a href="#">brands</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">work boots & shoes</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">men's work boots & shoes</a></li>
+                  <li><a href="#">work boots</a></li>
+                  <li><a href="#">rubber work boots</a></li>
+                  <li><a href="#">winter work boots</a></li>
+                  <li><a href="#">safety shoes</a></li>
+                  <li><a href="#">anti-slip shoes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">women's work boots & shoes</a></li>
+                  <li><a href="#">work boots</a></li>
+                  <li><a href="#">rubber work boots</a></li>
+                  <li><a href="#">winter work boots</a></li>
+                  <li><a href="#">safety shoes</a></li>
+                  <li><a href="#">anti-slip shoes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">shoe accessories</a></li>
+                  <li><a href="#">laces</a></li>
+                  <li><a href="#">insoles</a></li>
+                  <li><a href="#">shoe care</a></li>
+                  <li><a href="#">winter shoe accessories</a></li>
+                  <li><a href="#">online exclusives</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation">
+            <a href="#" class="main-navigation">sale</a>
+            <div class="fw-dropdown">
+              <div class="fw-dropdown-inner">
+                <ul>
+                  <li><a href="#">sale</a></li>
+                  <li><a href="#">men's apparel</a></li>
+                  <li><a href="#">men's casual shoes</a></li>
+                  <li><a href="#">men's safety shoes</a></li>
+                  <li><a href="#">men's workwear</a></li>
+                  <li><a href="#">women's apparel</a></li>
+                  <li><a href="#">women's casual shoes</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">clearance</a></li>
+                  <li><a href="#">men's apparel</a></li>
+                  <li><a href="#">men's casual shoes</a></li>
+                  <li><a href="#">men's safety shoes</a></li>
+                  <li><a href="#">men's workwear</a></li>
+                  <li><a href="#">women's apparel</a></li>
+                  <li><a href="#">women's casual shoes</a></li>
+                  <li><a href="#">women's safety shoes</a></li>
+                  <li><a href="#">women's scrubs</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="main-navigation"><a href="#" class="main-navigation">new arrivals</a></li>
+          <li class="main-navigation"><a href="#" class="main-navigation">online exclusives</a></li>
+          <li class="main-navigation"><a href="#" class="main-navigation">top picks</a></li>
+          <li class="main-navigation"><a href="#" class="main-navigation">spring shop</a></li>
+        </ul>
+      </div>
+      <!-- header navigation end -->
+      <!-- Mobile navigation start -->
+      <div id="header-navigation-mobile">
+        <ul>
+          <li>
+            <!-- login/register button -->
+            <div>
+              <a href="#">Sign In</a>
+              <a href="#">Register</a>
+            </div>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">women</a>
+            <ul>
+              <li><a href="#">clothing</a></li>
+              <li><a href="#">socks & underwear</a></li>
+              <li><a href="#">shoes</a></li>
+              <li><a href="#">accessories</a></li>
+              <li><a href="#">other</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">men</a>
+            <ul>
+              <li><a href="#">clothing</a></li>
+              <li><a href="#">socks & underwear</a></li>
+              <li><a href="#">shoes</a></li>
+              <li><a href="#">accessories</a></li>
+              <li><a href="#">other</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">shoes</a>
+            <ul>
+              <li><a href="#">men's shoes</a></li>
+              <li><a href="#">women's shoes</a></li>
+              <li><a href="#">other</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">kids</a>
+            <ul>
+              <li><a href="#">baby 0-24 months</a></li>
+              <li><a href="#">toddler 2T-4T</a></li>
+              <li><a href="#">girls</a></li>
+              <li><a href="#">boys</a></li>
+              <li><a href="#">shoes & accessories</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">workwear</a>
+            <ul>
+              <li><a href="#">men's workwear</a></li>
+              <li><a href="#">women's workwear</a></li>
+              <li><a href="#">women's workwear</a></li>
+              <li><a href="#">accessories</a></li>
+              <li><a href="#">other</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">work boots & shoes</a>
+            <ul>
+              <li><a href="#">men's work boots & shoes</a></li>
+              <li><a href="#">women's work boots & shoes</a></li>
+              <li><a href="#">shoe accessories</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation">
+            <a href="#" class="mobile-navigation plus">sale</a>
+            <ul>
+              <li><a href="#">sale</a></li>
+              <li><a href="#">clearance</a></li>
+            </ul>
+          </li>
+          <li class="mobile-navigation"><a href="#" class="mobile-navigation-navigation">new arrivals</a></li>
+          <li class="mobile-navigation"><a href="#" class="mobile-navigation-navigation">online exclusives</a></li>
+          <li class="mobile-navigation"><a href="#" class="mobile-navigation-navigation">top picks</a></li>
+          <li class="mobile-navigation"><a href="#" class="mobile-navigation-navigation">spring shop</a></li>
+        </ul>
+      </div>
+      <!-- header navigation end -->
+      <div id="pencil-banner">
+        <a href="#">Free shipping on orders over $99 before taxes.</a>
+      </div>
+    </div>
+    <!-- header main end -->
+  </header>
+  <!-- header end -->
+  <main>
+    <div id="main-content-container">
+      <section>
+        <div id="breadcrumb">
+          <a href="#">HOME</a>/<a href="#">MEN</a>/<a href="#">CLOTHING</a>/<a href="#">SHIRTS</a>/<a href="#">CASUAL
+            SHIRTS</a>
+        </div>
+      </section>
+      <!-- Item Details with Image Section Start -->
+      <section id="item-image-details">
+        <div id="item-image">
+          <img src="img/item-large.png" alt="Item Image">
+        </div>
+        <div id="item-details">
+          <p>windriver</p>
+          <h1>Men's Basic Stretch Cotton Flannel Long Sleeve Modern Fit Shirt</h1>
+          <div>
+            <div id="star-rating"></div>
+            <p id="rating">4.3 (30) Write a review</p>
+          </div>
+          <div id="item-image-mobile">
+            <img src="./img/item-large.png" alt="product image">
+          </div>
+          <p>$44.99</p>
+          <p><a href="#description">view description</a></p>
+          <div class="divider"></div>
+          <!-- Item Order Form Start -->
+          <form action="#" method="post">
+            <div id="item-colors">
+              <div>
+                <span>colour:</span>black plaid
+              </div>
+              <div>
+                <img src="img/black-plaid.png" alt="Black Plaid Color"><img src="img/green-plaid.png"
+                  alt="Green Plaid Color"><img src="img/blue-plaid.png" alt="Blue Plaid Color"><img
+                  src="img/red-plaid.png" alt="Red Plaid Color">
+              </div>
+            </div>
+            <div class="sizes">
+              <div>
+                <span>size:</span>xl
+              </div>
+              <div>
+                <input type="radio" id="small" name="sizes"><label for="small">S</label>
+                <input type="radio" id="medium" name="sizes"><label for="medium">M</label>
+                <input type="radio" id="large" name="sizes"><label for="large">L</label>
+                <input type="radio" id="xlarge" name="sizes"><label for="xlarge">XL</label>
+                <input type="radio" id="xxlarge" name="sizes"><label for="xxlarge">2XL</label>
+              </div>
+            </div>
+            <div class="sizes">
+              <div>
+                <span>length:</span>Tall
+              </div>
+              <div>
+                <input type="radio" id="tall" name="length"><label for="tall">TALL</label>
+                <input type="radio" id="regular" name="length"><label for="regular">REGULAR</label>
+              </div>
+            </div>
+            <div id="quantity">
+              <div>
+                <span>QTY:</span>
+              </div>
+              <div>
+                <div>-</div>
+                <div>2</div>
+                <div>+</div>
+              </div>
+            </div>
+            <button type="submit">ADD TO CART</button>
+            <p id="submit-button-text">This item typically arrives within 5 business days. Free Shipping on orders over
+              $99</p>
+          </form>
+          <!-- Item Order Form end -->
+        </div>
+      </div>
+      </section>
+    <!-- Product Suggestions Section Start -->
+    <section class="product-suggestions">
+      <div class="section-head">
+        <h2>picked just for you</h2>
+      </div>
+      <div class="product-suggestions-container">
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product1.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$33.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product2.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$24.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product3.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$57.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product4.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$22.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product5.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$34.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Product Suggestions Section End -->
+    <!-- Product Descriptiopn Section Start -->
+    <section id="product-description">
+      <div id="product-description-container">
+        <div id="description">
+          <h3>description</h3>
+          <p>
+            We call it basic because there’s a place in every guy’s wardrobe for our WindRiver flannel shirt. But
+            there’s really nothing basic about this one. This quality-made plaid shirt comes in naturally-breathable
+            stretch cotton and a trim modern fit. Practically speaking, you can button it up and wear it loose over your
+            waistband, or open at the front, over a tee or a turtleneck. How’s that for basic?
+          </p>
+        </div>
+        <div id="features">
+          <h3>features</h3>
+          <ul>
+            <li>98% cotton and 2% spandex</li>
+            <li>modern fit
+            <span>Trim across the shoulders, body and sleeves</span></li>
+            <li>point collar</li>
+            <li>conventional placket</li>
+            <li>buttoned chest pockets</li>
+            <li>back yoke</li>
+            <li>long sleeve with buttoned cuffs</li>
+            <li>care instructions
+            <span>Easy care - Machine wash, no bleach, delicate cycle. Tumble dry low</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Product Descriptiopn Section End -->
+    <!-- Product Suggestion What Other's Bought Start -->
+    <section class="product-suggestions">
+      <div class="section-head">
+        <h2>Others also bought</h2>
+      </div>
+      <div class="product-suggestions-container">
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product2.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$59.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product1.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$29.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product3.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$39.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product4.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$19.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+        <div class="suggested-product">
+          <div class="product-image">
+            <img src="img/product4.png" alt="product image">
+          </div>
+          <div class="product-description">
+            <p>$39.99</p>
+            <p>windriver</p>
+            <p>men's western stretch flannel long sleeve modern fit shirt</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Product Suggestion What Other's Bought End -->
+    <!-- Customer Images Spotlight Start -->
+    <section id="customer-spotlight">
+      <div id="customer-spotlight-container">
+        <h4>#allthingssimple</h4>
+        <p>Find your photos</p>
+        <a href="#">View Gallery</a>
+        <div id="customer-images">
+          <div>
+            <img src="img/customer-1.png" alt="customer image">
+          </div>
+          <div>
+            <img src="img/customer-2.png" alt="customer image">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Customer Images Spotlight End -->
+    <!-- Reviews Section Start -->
+    <section id="product-reviews">
+      <h5>Review Highlights</h5>
+      <div id="product-reviews-highlight-container">
+        <div id="product-reviews-highlight-container-pros">
+          <p class="pro-con-heading">Pros</p>
+          <div>
+            <p><span>Comfort</span> 11 reviews</p>
+            <p>"Great fit and very comfortable in this cooler weather." (Full Review)</p>
+          </div>
+          <div class="review">
+            <p><span>Satisfaction</span> 10 reviews</p>
+            <p>"I am quite pleased... of course the sleeves are long but perfect when cuff is rolled... I do have mad long arms tho." (Full Review)</p>
+          </div>
+          <div>
+            <p><span>Quality</span> 5 reviews</p>
+            <p>"These shirts are well priced and very good quality." (Full Review)</p>
+          </div>
+        </div>
+        <div id="product-reviews-highlight-container-cons">
+          <p class="pro-con-heading">Cons</p>
+          <div>
+            <p>Suitable Cons could not be generated at this time.</p>
+          </div>
+          <div class="all-reviews-link">
+            <a href="#">see all reviews ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="review-item">
+        <div class="review-item-container">
+        <div class="review-item-inner">
+          <div>
+            <span>Brad Ullner</span>
+            <span>24 days ago</span>
+            <span>men's basic stretch cotton flannel</span>
+          </div>
+          <p>Great shirt! I recent bought three of these and I have had a great experience.</p>
+          <div>
+            <span>pros:</span>
+            <span>durable, comfortable</span>
+            <span>Fit:</span>
+            <span>true to size</span>
+          </div>
+          <div>
+            <span>Is this review written as part of a contest/promotion</span>
+            <span>no</span>
+          </div>
+          <div>
+            <span>helpful?</span>
+            <a href="#">Yes·0</a>
+            <a href="#">No·0</a>
+            <a href="#">Report</a>
+          </div>
+        </div>
+        <div class="review-ratings">
+          <p>comfort</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>quality of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>value of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="review-item">
+        <div class="review-item-container">
+        <div class="review-item-inner">
+          <div>
+            <span>Brad Ullner</span>
+            <span>24 days ago</span>
+            <span>men's basic stretch cotton flannel</span>
+          </div>
+          <p>Great shirt! I recent bought three of these and I have had a great experience.</p>
+          <div>
+            <span>pros:</span>
+            <span>durable, comfortable</span>
+            <span>Fit:</span>
+            <span>true to size</span>
+          </div>
+          <div>
+            <span>Is this review written as part of a contest/promotion</span>
+            <span>no</span>
+          </div>
+          <div>
+            <span>helpful?</span>
+            <a href="#">Yes·0</a>
+            <a href="#">No·0</a>
+            <a href="#">Report</a>
+          </div>
+        </div>
+        <div class="review-ratings">
+          <p>comfort</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>quality of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>value of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="review-item">
+        <div class="review-item-container">
+        <div class="review-item-inner">
+          <div>
+            <span>Brad Ullner</span>
+            <span>24 days ago</span>
+            <span>men's basic stretch cotton flannel</span>
+          </div>
+          <p>Great shirt! I recent bought three of these and I have had a great experience.</p>
+          <div>
+            <span>pros:</span>
+            <span>durable, comfortable</span>
+            <span>Fit:</span>
+            <span>true to size</span>
+          </div>
+          <div>
+            <span>Is this review written as part of a contest/promotion</span>
+            <span>no</span>
+          </div>
+          <div>
+            <span>helpful?</span>
+            <a href="#">Yes·0</a>
+            <a href="#">No·0</a>
+            <a href="#">Report</a>
+          </div>
+        </div>
+        <div class="review-ratings">
+          <p>comfort</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>quality of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>value of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="review-item">
+        <div class="review-item-container">
+        <div class="review-item-inner">
+          <div>
+            <span>Brad Ullner</span>
+            <span>24 days ago</span>
+            <span>men's basic stretch cotton flannel</span>
+          </div>
+          <p>Great shirt! I recent bought three of these and I have had a great experience.</p>
+          <div>
+            <span>pros:</span>
+            <span>durable, comfortable</span>
+            <span>Fit:</span>
+            <span>true to size</span>
+          </div>
+          <div>
+            <span>Is this review written as part of a contest/promotion</span>
+            <span>no</span>
+          </div>
+          <div>
+            <span>helpful?</span>
+            <a href="#">Yes·0</a>
+            <a href="#">No·0</a>
+            <a href="#">Report</a>
+          </div>
+        </div>
+        <div class="review-ratings">
+          <p>comfort</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>quality of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+          <p>value of product</p>
+          <ul>
+            <li></li><li></li><li></li><li></li><li></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div id="review-more-button">
+        <a href="#">Load More</a>
+      </div>
+    </section>
+    <!-- Reviews Section End -->
+  </main>
+  <footer>
+    <div id="footer-top">
+      <p>join our community! get $15 off your first purchase of $50 or more*</p>
+      <a href="#">SIGN UP ></a>
+    </div>
+    <div id="footer-main">
+      <div id="footer-main-inner">
+        <ul>
+          <li>follow us</li>
+          <li><a href="#">facebook</a></li>
+          <li><a href="#">twitter</a></li>
+          <li><a href="#">instagram</a></li>
+          <li><a href="#">youtube</a></li>
+        </ul>
+        <ul>
+          <li>shop</li>
+          <li><a href="#">men's</a></li>
+          <li><a href="#">women's</a></li>
+          <li><a href="#">workwear</a></li>
+          <li><a href="#">shoes</a></li>
+          <li><a href="#">brands</a></li>
+          <li><a href="#">gift card</a></li>
+          <li><a href="#">weekly offers</a></li>
+          <li><a href="#">flyer</a></li>
+        </ul>
+        <ul>
+          <li>company information</li>
+          <li><a href="#">about mark's & l'Equipeur</a></li>
+          <li><a href="#">careers</a></li>
+          <li><a href="#">sitemap</a></li>
+          <li><a href="#">ethical sourcing program</a></li>
+          <li><a href="#">terms of use</a></li>
+          <li><a href="#">privacy policy</a></li>
+          <li><a href="#">become an affiliate</a></li>
+          <li><a href="#">mark's innovations</a></li>
+          <li><a href="#">jumpstart</a></li>
+        </ul>
+        <ul>
+          <li>customer service</li>
+          <li><a href="#">contact us</a></li>
+          <li><a href="#">find a store</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">gift card balance</a></li>
+          <li><a href="#">customer service accessibility policy</a></li>
+          <li><a href="#">multi-year accessibility policy</a></li>
+        </ul>
+        <ul>
+          <li>shipping and returns</li>
+          <li><a href="#">shipping and returns policy</a></li>
+          <li><a href="#">delivery</a></li>
+        </ul>
+        <ul>
+          <li>corporate</li>
+          <li><a href="#">canadian tire</a></li>
+          <li><a href="#">helly hansen</a></li>
+          <li><a href="#">trio hockey</a></li>
+          <li><a href="#">part source</a></li>
+          <li><a href="#">atmosphere</a></li>
+          <li><a href="#">pro hockey life</a></li>
+          <li><a href="#">sport chek</a></li>
+          <li><a href="#">sports experts</a></li>
+          <li><a href="#">triangle rewards</a></li>
+          <li><a href="#">mark's commercial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer-bottom">
+      <div id="footer-bottom-inner">
+        <p>all prices listed in canadian dollars</p>
+        <p>2021 mark's work wearhouse all rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
