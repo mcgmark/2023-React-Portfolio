@@ -116,7 +116,7 @@ const DevText = () => {
     return (
         <DevContentDiv>
             <DevHeading><Span>javascript, html, react, sql, php, git, oh my...</Span></DevHeading>
-            <DevParagraph>Today simple websites are complicated applications with many parts. I've taken the time to build a solid understanding of different aspects of web development from frameworks to libraries and beyond. </DevParagraph>
+            <DevParagraph>Today simple websites are complicated applications with many peices. I've been working the last two years to build on my knowledge and experience building the frontend of applications and some backend. </DevParagraph>
             <DevButton onClick={() => loadPortfolio('/dev')}>VIEW DEV</DevButton>
         </DevContentDiv>
     );

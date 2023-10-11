@@ -36,12 +36,11 @@ const PortfolioItem = styled.div`
     cursor: pointer;
     border-radius: 25px;
     padding: 10px;
-    border: 6px solid #5922895f;
-    background-color: #130719;
-    box-shadow: 0px 0px 300px rgba(0, 0, 0, 0.2);
+    border: 6px solid var(--purple-bright);
+    background-color: #171319;
 
     @media (min-width: 1000px){
-        padding: 30px;
+        padding: 50px 20px;
     }
 
     /* &:hover {
@@ -61,17 +60,18 @@ const PortfolioItemTitle = styled.h3`
     font-family: 'Arial-MT-Bold';
     font-size: 2.5rem;
     text-transform: capitalize;
-    color: #ededed;
+    color: #f4f4f4;
 `;
 
 const PortfolioItemDescription = styled.p`
-    font-family: 'Acumin-thin';
-    font-size: 1.15rem;
+    font-family: 'Roboto-thin';
+    font-size: 1.25rem;
     max-width: 1400px;
-    line-height: 140%;
-    letter-spacing: .03rem;
-    color: #f2f2f2;
+    line-height: 180%;
+    letter-spacing: .01rem;
+    color: #ffffff;
     text-align: justified;
+    margin: 30px 0px;
 `;
 
 const PortfolioItemType = styled.p`
@@ -89,7 +89,7 @@ const PortfolioTechList = styled.ul`
     gap: 10px;
     list-style: none;
     font-family: 'Arial-MT-Bold';
-    font-size: .8rem;
+    font-size: 1rem;
     text-transform: uppercase;
     color: #ffffff;
     padding: 0px;
@@ -99,27 +99,30 @@ const PortfolioTechList = styled.ul`
 const ListItem = styled.li`
     flex-grow: 1;
     background-color: #2b0147;
-    padding: 10px 15px;
+    border: 2px solid var(--purple-bright);
+    padding: 5px 10px;
     border-radius: 25px;
     text-align: center;
 `;
 
 const StyledItemButton = styled.button`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: 'Arial-MT-Bold';
   color: #ffffff;
-  padding: 15px 30px;
+  padding: 15px 10px;
   border: none;
-  background: #3b0164;
+  background: #2f024f;
   cursor: pointer;
   text-transform: uppercase;
   margin-bottom: 10px;
-  width: fit-content;
+  width: 100%;
     letter-spacing: 0.1rem;
     border-radius: 10px;
+    border: 2px solid var(--purple-bright);
 
   &:hover {
     color: #fff;
+    border: 2px solid #fff;
     background-color: var(--purple-bright);
   }
 `;
@@ -139,7 +142,7 @@ const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl }) => {
     return (
         <StyledItemButton onClick={handleOpenURL}>
             VIEW Live
-            <StyledIcon icon={faChevronRight} />
+            {/* <StyledIcon icon={faChevronRight} /> */}
         </StyledItemButton>
     );
 };
@@ -149,7 +152,7 @@ const DevPortfolio: React.FC<Props> = ({ data }) => {
     return(
         <PortfolioContainer>
             <PortfolioInner>
-               <Masonry columns={{xs: 1, sm: 1, md: 1, lg: 2, xl: 3}} spacing={2}>
+               <Masonry columns={{xs: 1, sm: 1, md: 1, lg: 2, xl: 3}} spacing={4}>
                {data.map((item: DevItem) => (
                         <PortfolioItem key={item.id}>
                             <PortfolioItemText>

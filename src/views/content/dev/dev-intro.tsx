@@ -15,7 +15,7 @@ const Section = styled.section`
     padding: 5vw 50vw;
     width: 100%;
     overflow-x: hidden;
-    padding: 180px;
+    padding: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,7 @@ const IntroText = styled.h1`
     z-index: 1;
     color: #dbdbdb;
     line-height: 140%;
-    text-shadow: 5px 5px 0px #0c0110;
+    text-shadow: 2px 2px 0px #1c022f;
 
     @media (min-width: 1400px) {
         font-size: 3.5rem;
@@ -61,7 +61,7 @@ const Text = styled.p`
     font-family: 'Roboto-thin';
     font-size: 1.5rem;
     font-weight: 400;
-    line-height: 200%;
+    line-height: 180%;
     color: #e6e6e6;
 
     @media (min-width: 1200px) {
