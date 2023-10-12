@@ -49,20 +49,18 @@ const DevHeading = styled.h1`
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-    font-family: 'Arial-MT-Bold';
-    font-size: 3.25rem;
-    line-height: 165%;
-    letter-spacing: .05rem;
+        font-size: 3.25rem;
+        line-height: 165%;
+        letter-spacing: .05rem;
     }
 
     @media (min-width: 1500px) {
-    position: absolute;
-    top: 10%;
-    left: -10%;
-    font-family: 'Arial-MT-Bold';
-    font-size: 4rem;
-    line-height: 165%;
-    letter-spacing: .05rem;
+        position: absolute;
+        top: 10%;
+        left: -10%;
+        font-size: 4rem;
+        line-height: 165%;
+        letter-spacing: .05rem;
     }
 `;
 const Span = styled.span`
@@ -71,7 +69,7 @@ const Span = styled.span`
 `;
 
 const DevParagraph = styled.p`
-    font-family: 'OpenSans';
+    font-family: 'Acumin-Book';
     font-size: 1.25rem;
     line-height: 160%;
     letter-spacing: .05rem;
@@ -99,6 +97,7 @@ const DevButton = styled.div`
     transition: all 200ms ease;
     border: 4px solid rgb(34, 255, 104);
     background-color: rgba(0, 0, 0, 0.043);
+    backdrop-filter: blur(3px);
 
     &:hover {
         transform: scale(103%);

@@ -5,21 +5,19 @@ import backgroundImage from '../../assets/images/bg-image-light.svg';
 
 
 const Section = styled.section`
-   background: url(${backgroundImage});
-   background-color: var(--purple-bright);
-   background-attachment: fixed;
-   background-position: center center;
-    z-index: 1;
-    /* max-width: 2000px; */
-    margin-top: 150px;
-    padding: 5vw 50vw;
+    background: url(${backgroundImage});
+    background-color: var(--purple-bright);
+    background-attachment: fixed;
+    background-position: center center;
     width: 100%;
+    min-height: 750px;
+    height: 100%;
     overflow-x: hidden;
-    padding: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
+    justify-content: space-between;
+    gap: 50px;
 `;
 
 const SectionInner = styled.div`
@@ -28,25 +26,29 @@ const SectionInner = styled.div`
     gap: 20px;
     max-width: 2000px;
     width: 90%;
-    overflow-x: hidden;
+   
+`;
+
+const HeaderSpacer = styled.div`
+    width: 100%;
+    height: 100px;
 `;
 
 const Breadcrumb = styled.span`
     font-family: 'Rubik';
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
 `;
 
 const IntroText = styled.h1`
-    font-family: 'Arial-MT-Bold';
+    font-family: 'Roboto-Black';
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2.85rem;
     font-weight: 100;
     width: fit-content;
     z-index: 1;
-    color: #dbdbdb;
+    color: #ffffff;
     line-height: 140%;
-    text-shadow: 2px 2px 0px #1c022f;
 
     @media (min-width: 1400px) {
         font-size: 3.5rem;
@@ -74,11 +76,13 @@ const Text = styled.p`
 const Intro = () => {
     return(
         <Section>
+            <HeaderSpacer></HeaderSpacer>
             <SectionInner>
             <Breadcrumb>Frontend Development</Breadcrumb>
-            <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(255, 217, 0)'}}>oh my...</span></IntroText>
+            <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(255, 238, 0)'}}>oh my...</span></IntroText>
             <Text>Today simple websites are complicated applications with many peices. I've been working the last two years to build on my knowledge and experience building the frontend of applications and some backend. I can build websites and many types of web applications from start to finish. </Text>
             </SectionInner>
+            <HeaderSpacer></HeaderSpacer>
         </Section>
     );
 }

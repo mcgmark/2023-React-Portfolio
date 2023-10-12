@@ -41,16 +41,14 @@ const HeaderSection = styled.header`
 
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr; 
-        column-gap: 3rem;
-    }
-
-    @media (min-width: 1200px) {
         column-gap: 5rem;
     }
 
     @media (min-width: 2000px) {
-        column-gap: 15rem;
+        column-gap: 17rem;
     }
+
+
 `;
 
 // const SubHeader = styled.section`

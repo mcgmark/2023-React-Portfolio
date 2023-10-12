@@ -1,7 +1,7 @@
 [
       {
       "id": 1,
-      "title": "React Portfolio Website",
+      "title": "ReactJS Portfolio Website",
       "type": "Application",
       "tech": [
         "CSS", "html5", "react", "json", "typescript"  
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "title": "MEAN crud Dashboard Tool",
+      "title": "M.E.A.N. Data Dashboard Tool",
       "type": "Application",
       "tech": [
         "CSS", "html5", "mean", "angular", "api", "mongodb", "nodejs", "express", "chartsJS", "backend", "frontend", "json", "typescript"  
@@ -21,7 +21,7 @@
     },
     {
       "id": 3,
-      "title": "Express Poll application with live updates",
+      "title": "ExpressJS Poll app with live updates",
       "type": "Application",
       "tech": [
         "javascript", "express API", "handlebars", "socketIO", "mongo", "css", "html5", "passport", "nodejs", "frontend", "backend", "json", "RESTful" 
@@ -51,7 +51,7 @@
     },
     {
       "id": 6,
-      "title": "Bootstrap Responsive Website Layout",
+      "title": "Bootstrap Responsive Website for Book promotion",
       "type": "website",
       "tech": [
         "bootstrap", "html5", "frontend"
@@ -61,7 +61,7 @@
     },
     {
       "id": 7,
-      "title": "Responsive Grid Website Layout",
+      "title": "Responsive Grid Layout for landscaping business",
       "type": "website",
       "tech": [
         "css", "html5", "frontend" 
@@ -71,7 +71,7 @@
     },
     {
       "id": 8,
-      "title": "Responsive Website Layout Recreation",
+      "title": "Responsive Website Recreation for Apparel store",
       "type": "website",
       "tech": [
         "css", "html5", "frontend" 
@@ -81,7 +81,7 @@
     },
     {
       "id": 9,
-      "title": "Responsive Website Layout",
+      "title": "Responsive Layout for candybar promotion",
       "type": "website",
       "tech": [
         "CSS", "html5", "frontend" 
@@ -98,6 +98,16 @@
       ],
       "description": "Responsive website layout. This is a Georgian College class assignment.",
       "link": "/assets/sites/poppins-site"
+    },
+    {
+      "id": 15,
+      "title": "Intersection Observer Menu",
+      "type": "component",
+      "tech": [
+        "javascript", "html5", "css", "frontend" 
+      ],
+      "description": "Website design used to demonstate the intersection observer being used to animate a table of contents menu for a website. This is a Georgian College class assignment.",
+      "link": "/assets/sites/observermenu-component"
     },
     {
       "id": 11,
@@ -138,15 +148,5 @@
       ],
       "description": "Animated toggle button to demonstrate popular functions of JQuery using css classes. This is a Georgian College class assignment.",
       "link": "/assets/sites/anibutton-component"
-    },
-    {
-      "id": 15,
-      "title": "Intersection Observer Menu",
-      "type": "component",
-      "tech": [
-        "javascript", "html5", "css", "frontend" 
-      ],
-      "description": "Website design used to demonstate the intersection observer being used to animate a table of contents menu for a website. This is a Georgian College class assignment.",
-      "link": "/assets/sites/observermenu-component"
     }
 ]   

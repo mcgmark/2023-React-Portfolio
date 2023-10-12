@@ -75,17 +75,19 @@ const CloudItem = styled.span<CloudItemProps>`
         justify-content: center;
         align-items: center;
         border-radius: 21px;
-        border: 8px solid var(--purple-bright);
+        border: 6px solid var(--purple-bright);
         width: 15vw;
         max-width: 300px;
         min-width: 100px;
-        height: 45px;
-        font-family: 'Acumin-thin';
-        font-size: 1.3rem;
-        color: #fff;;
+        height: 55px;
+        font-family: 'Acumin-Book';
+        font-size: 1.15rem;
+        color: #fff;
+        letter-spacing: 0.15rem;
         text-transform: uppercase;
         animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse .5s ease-in-out' : 'none' };
         transition: all 2s;
+        backdrop-filter: blur(10px);
 
         @keyframes cloudpulse {
             0% {
@@ -93,7 +95,7 @@ const CloudItem = styled.span<CloudItemProps>`
             }
             50% {
                 transform: scale(1.15);
-                border: 5px solid rgb(255, 217, 0);
+                border: 6px solid rgb(255, 217, 0);
             }
             100% {
                 transform: scale(1);

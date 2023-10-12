@@ -25,12 +25,27 @@
 }
 
 @font-face {
+  font-family: 'Acumin-Book';
+  src: url('../public/assets/fonts/acumin-book.woff') format('woff');
+}
+
+@font-face {
   font-family: 'Roboto-thin';
   src: url('../public/assets/fonts/roboto-thin.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Roboto-Black';
+  src: url('../public/assets/fonts/roboto-black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto-Cond-Bold';
+  src: url('../public/assets/fonts/roboto-cond-bold.woff') format('woff');
+}
+
 :root {
-  --background-purple: #130522;
+  --background-purple: #19042c;
   --purple-bright: #3c096e;
 }
 

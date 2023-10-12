@@ -39,7 +39,6 @@ const HomeHeading = styled.h1`
 const HomeParagraph = styled.p`
     font-family: 'Roboto-Thin';
     font-size: 1.25rem;
-    line-height: 200%;
     letter-spacing: .05rem;
     
     @media (min-width: 1000px) {
@@ -49,12 +48,12 @@ const HomeParagraph = styled.p`
 
     @media (min-width: 1230px) {
         font-size: 1.5rem;
-        line-height: 150%;
-        width: 80%;
+        line-height: 200%;
+        width: 60%;
     }
 
     @media (min-width: 1500px) {
-        width: 95%;
+        width: 80%;
     }
 `;
 

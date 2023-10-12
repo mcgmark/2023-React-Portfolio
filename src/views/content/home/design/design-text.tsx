@@ -66,7 +66,7 @@ const Span = styled.span`
 `;
 
 const DesignParagraph = styled.p`
-    font-family: 'Roboto-Regular';
+    font-family: 'Acumin-Book';
     font-size: 1.25rem;
     line-height: 160%;
     letter-spacing: .05rem;
@@ -94,6 +94,7 @@ const DesignButton = styled.div`
     transition: all 200ms ease;
     border: 4px solid rgb(244, 255, 34);
     background-color: rgba(0, 0, 0, 0.0);
+    backdrop-filter: blur(3px);
     
     &:hover {
         transform: scale(103%);

@@ -41,7 +41,7 @@ const LightboxModal = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1500;
     cursor: pointer;
     transition: all .2s;
     animation: LightboxPop .25s 1 forwards;

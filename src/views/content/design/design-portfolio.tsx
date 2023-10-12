@@ -83,7 +83,7 @@ const FilterButtonsContainer = styled.section`
     margin-top: 20px;
     width: fit-content;
     gap: 30px;
-    background-color: #4e2579;
+    background-color: #2424242a;
     align-self: center;
     border: 1px solid #ffffff1a;
 
@@ -94,7 +94,7 @@ const FilterButtonsContainer = styled.section`
 
 const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         border-radius: 21px;
-        background-color: rgb(42, 42, 43);
+        background-color: rgb(33, 33, 33);
         border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
         width: 62vw;
         max-width: 300px;
@@ -160,7 +160,7 @@ const PortfolioItem = styled.div`
     background-size: 160%;
     background-position: center;
     background-repeat: no-repeat;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid #616161;
     transition: all 300ms ease-in-out;
     cursor: pointer;
     animation: PortfolioItemScale 0.1s 1 forwards ease-in-out;

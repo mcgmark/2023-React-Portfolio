@@ -32,11 +32,11 @@ const MenuContainer = styled.nav<MenuContainerProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => (props.$isScrolled ? 'rgba(74, 12, 137, 0.95)' : 'rgba(74, 12, 137, 0.4)')};
-    z-index: 101;
+    background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.784)' : 'rgba(74, 12, 137, 0.3)')};
+    z-index: 1001;
     border-bottom: ${(props) => (props.$isScrolled ? '1px solid #4d4d4d84' : '4px solid rgba(255, 255, 255, 0.025)')};
-    backdrop-filter: blur(407deg);
-    box-shadow: 0px 10px 70px rgba(20, 2, 25, 0.66);
+    backdrop-filter: blur(14px);
+    box-shadow: 0px 10px 40px rgba(20, 2, 25, 0.4);
     transition: all 0.2s ease;
 `;
 
@@ -62,8 +62,9 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
     top: 0px;
     width: 100vw;
     height: 120vh;
-    background-color: #2a183c;
-    z-index: 100;
+    background-color: rgba(23, 1, 43, 0.861);
+    backdrop-filter: blur(30px);
+    z-index: 1000;
     left: ${(props) => (props.$showmenu ? "0" : "100%")};
     transition: left 1s ease;
 `;

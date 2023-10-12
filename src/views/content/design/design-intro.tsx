@@ -11,7 +11,7 @@ const Section = styled.section`
 
 const Breadcrumb = styled.span`
     font-family: 'Rubik';
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
     color: #e6e6e6;
 `;
@@ -62,9 +62,9 @@ const IntroText = styled.h1`
 
 const Text = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 400;
-    line-height: 150%;
+    line-height: 180%;
     letter-spacing: .03rem;
     color: #e6e6e6;
 `;
