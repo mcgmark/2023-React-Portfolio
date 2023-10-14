@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, MouseEvent} from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,28 +35,28 @@ const PortfolioItem = styled.div`
    position: relative;
     top: -150px;
     box-sizing: border-box;
-    transition: all 100ms ease-in-out;
+    transition: all 0.15s ease-in-out;
     border-radius: 25px;
     padding: 5px;
     border: 10px solid var(--purple-bright);
     background-color: #171319;
     z-index: 500;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6);
 
     @media (min-width: 1000px){
         padding: 20px 20px;
     }
 
-    /* &:hover {
-        background: linear-gradient(152deg, #33124ec0 5%, rgba(17, 17, 17, 0.188) 42%, rgba(68, 66, 66, 0.4) 100%);
-        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
-    } */
+    &:hover {
+        scale: 103%;
+        z-index: 1000;
+    }
 `;
 
 const PortfolioItemText = styled.div`
     display: flex; 
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     padding: 15px;
 `;
 
@@ -65,16 +65,7 @@ const PortfolioItemTitle = styled.h3`
     font-size: 2.8rem;
     text-transform: capitalize;
     color: #ffffff;
-`;
-
-const PortfolioItemDescription = styled.p`
-    font-family: 'Acumin-Book';
-    font-size: 1.05rem;
-    max-width: 1400px;
-    line-height: 140%;
-    letter-spacing: .02rem;
-    color: #ffffff;
-    margin: 20px 0px;
+    text-shadow: 4px 4px 0px #000000;
 `;
 
 const PortfolioItemType = styled.p`
@@ -84,6 +75,48 @@ const PortfolioItemType = styled.p`
     color: #ffea00;
     text-transform: uppercase;
     /* border-bottom: 1px solid #333; */
+`;
+
+const PortfolioItemDescription = styled.p`
+    font-family: 'Acumin-Light';
+    font-size: 1rem;
+    max-width: 1400px;
+    line-height: 180%;
+    letter-spacing: .02rem;
+    color: #ffffff;
+    margin: 20px 0px 15px 0px;
+`;
+
+const FeaturesList = styled.ul`
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    list-style: none;
+    font-family: 'Arial-MT-Bold';
+    font-size: .7rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 0.06rem;
+    padding: 20px;
+    margin: 0px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.015);
+    border-radius: 15px;
+    border: 1px solid #232323;
+    box-shadow: 4px 4px 0px var(--purple-bright);
+`;
+
+const FeaturesItem = styled.li`
+    flex-grow: 1;
+    padding: 10px 0px 0px 10px;
+    border-top: 1px dashed var(--purple-bright);
+    line-height: 160%;
+
+    &:first-child {
+        border: 0;
+        padding-top: 0px;
+    }
 `;
 
 const PortfolioTechList = styled.ul`
@@ -103,17 +136,19 @@ const PortfolioTechList = styled.ul`
 
 const ListItem = styled.li`
     flex-grow: 1;
-    background-color: #303030;
+    background-color: none;
     padding: 6px 15px;
     border-radius: 25px;
     text-align: center;
+    border: 3px solid var(--purple-bright);
 `;
 
 const StyledItemButton = styled.button`
-  font-size: .8rem;
+  position: relative;
+  font-size: 1.25rem;
   font-family: 'Arial-MT-Bold';
   color: #ffffff;
-  padding: 15px 10px;
+  padding: 15px 0px;
   border: none;
   background: #5c0bb2;
   cursor: pointer;
@@ -121,23 +156,44 @@ const StyledItemButton = styled.button`
   margin-bottom: 30px;
   letter-spacing: 0.1rem;
   border-radius: 10px;
-  box-shadow: inset 10px 10px rgba(0, 0, 0, 0.112);
-  width: 35%;
-  
+  box-shadow: inset 7px 7px rgba(0, 0, 0, 0.112);
+  width: 50%;
+  overflow: hidden;
 
   &:hover {
     color: #fff;
-    background-color: rgb(125, 30, 220);
   }
 `;
+
 
 const StyledIcon = styled(FontAwesomeIcon)`
     margin-left: 3px;
     color: #ffea00;
     text-shadow: #000;
+    transform: scale(80%);
 `;
 
+
 const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl, children }) => {
+    const [isTracking, setIsTracking] = useState(false);
+    const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
+
+    const handleMouseEnter = () => {
+        setIsTracking(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsTracking(false);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+        if (isTracking) {
+            const buttonRect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - buttonRect.left;
+            const y = e.clientY - buttonRect.top;
+            setCirclePosition({ x, y });
+        }
+    };
 
     const handleOpenURL = () => {
         if ($externalUrl) {
@@ -146,9 +202,32 @@ const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl, children }) =>
     };
 
     return (
-        <StyledItemButton onClick={handleOpenURL}>
-            {children}
-            <StyledIcon icon={faCircleArrowRight} />
+        <StyledItemButton 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseMove={handleMouseMove}
+        style={{ position: 'relative' }}
+        onClick={handleOpenURL}>
+            <div style={{position: 'relative', zIndex: '1'}}>
+                {children}
+                <StyledIcon icon={faCircleArrowRight} />
+            </div>
+        {isTracking && (
+        <div
+            style={{
+                position: 'absolute',
+                top: circlePosition.y,
+                left: circlePosition.x,
+                width: '220px',
+                height: '220px',
+                backgroundColor: 'rgb(146, 56, 235)',
+                borderRadius: '50%',
+                transform: 'scale(0) translate(-50%, -50%)',
+                zIndex: '0',
+                animation: 'growCircle 0.4s ease-in-out forwards',
+            }}
+        />
+      )}
         </StyledItemButton>
     );
 };
@@ -165,6 +244,11 @@ const DevPortfolio: React.FC<Props> = ({ data }) => {
                                 <PortfolioItemTitle>{item.title}</PortfolioItemTitle> 
                                 <PortfolioItemType>{item.type}</PortfolioItemType>
                                 <PortfolioItemDescription>{item.description}</PortfolioItemDescription>   
+                                <FeaturesList>
+                                {item.features.map((feature, index) => (
+                                    <FeaturesItem key={index}>{feature}</FeaturesItem>
+                                ))}
+                                </FeaturesList>
                                 <div style={{display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'stretch'}}>
                                     <DevItemButton $externalUrl={item.link} >Launch</DevItemButton>
                                     <DevItemButton>Github</DevItemButton>

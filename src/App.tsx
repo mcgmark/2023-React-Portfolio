@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import Home from './views/routes/home';
@@ -15,7 +15,6 @@ const AppContainerDiv = styled.div`
 `;
 
 const App = () => {
-
   return (
     <BrowserRouter> 
       <AppContainerDiv>
@@ -23,6 +22,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/design" element={<Design />} />
           <Route path="/dev" element={<Dev />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AppContainerDiv>
     </BrowserRouter>

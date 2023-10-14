@@ -25,6 +25,11 @@
 }
 
 @font-face {
+  font-family: 'Acumin-Light';
+  src: url('../public/assets/fonts/acumin-light.woff') format('woff');
+}
+
+@font-face {
   font-family: 'Acumin-Book';
   src: url('../public/assets/fonts/acumin-book.woff') format('woff');
 }
@@ -254,5 +259,20 @@ a {
   100% {
     opacity: 1;
     transform: translateY(0%);
+  }
+}
+
+@keyframes growCircle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  
+  90% {
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
   }
 }

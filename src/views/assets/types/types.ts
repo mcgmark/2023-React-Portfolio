@@ -12,6 +12,7 @@ export type DesignItem = {
 export type DevItem = {
     id: number;
     title: string;
+    features: string[];
     type: string;
     tech: string[];
     description: string;

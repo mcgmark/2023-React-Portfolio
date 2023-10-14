@@ -3,6 +3,14 @@
       "id": 1,
       "title": "ReactJS Portfolio Website",
       "type": "Application",
+      "features": [
+        "Common react hooks like useState and useEffect",
+        "popular libraries such as React-Spring, FontAwesome React-Styled",
+        "Mapped JSON data for app content",
+        "Font and image preloading",
+        "CSS and JS Animations",
+        "Responsive layout"
+      ],
       "tech": [
         "CSS", "html5", "react", "json", "typescript"  
       ],
@@ -13,6 +21,15 @@
       "id": 2,
       "title": "M.E.A.N. Data Dashboard Tool",
       "type": "Application",
+      "features": [
+        "M.E.A.N. stack application with TypeScript",
+        "Uses popular libraries passport, mongoose, font awesome, chartsjs",
+        "Seperate Express API",
+        "Angular framework frontend",
+        "User authentication/authorization using Passport",
+        "Implements MVC framework architecture",
+        "Responsive layout"
+      ],
       "tech": [
         "CSS", "html5", "mean", "angular", "api", "mongodb", "nodejs", "express", "chartsJS", "backend", "frontend", "json", "typescript"  
       ],
@@ -22,6 +39,17 @@
     {
       "id": 3,
       "title": "ExpressJS Poll app with live updates",
+      "features": [
+        "Express application runing in Node",
+        "Handlebars template frontend",
+        "Mongo database",
+        "Live updates using SocketIO web sockets",
+        "User authentication/authorization using Passport and Express Api",
+        "IP and cookie tracking for vote integrity",
+        "MVC architecture",
+        "Animated responsive interface"
+
+      ],
       "type": "Application",
       "tech": [
         "javascript", "express API", "handlebars", "socketIO", "mongo", "css", "html5", "passport", "nodejs", "frontend", "backend", "json", "RESTful" 
@@ -32,6 +60,13 @@
     {
       "id": 4,
       "title": "ASP.Net Geocaching App",
+      "features": [
+        "Built on ASP.net using Entity MsSQL",
+        "Developed using Visual Studio",
+        "Bootstrap responsive interface",
+        "Bing Maps API using Javascript",
+        "User authentication/authorization using Asp.net core"
+      ],
       "type": "Application",
       "tech": [
         "asp.net", "javascript", "bootstrap", "MsSQL", "C#", "frontend", "backend", "JSON", "RESTful"
@@ -42,6 +77,13 @@
     {
       "id": 5,
       "title": "Javascript Storymaker Game Toy Game",
+      "features": [
+        "Fun demonstration of Javascript fundamentals",
+        "functions, Objects, Arrays, iterative loops, conditional statements",
+        "Uses device speaker for text to speech",
+        "Responsive layout",
+        "SVG artwork"
+      ],
       "type": "Application",
       "tech": [
         "CSS", "html5", "javascript", "frontend"
@@ -52,6 +94,10 @@
     {
       "id": 6,
       "title": "Bootstrap Responsive Website for Book promotion",
+      "features": [
+        "Responsive layout using Bootstrap",
+        "Implements popular Bootstrap components navigation, slides, tabs, accordion"
+      ],
       "type": "website",
       "tech": [
         "bootstrap", "html5", "frontend"
@@ -62,6 +108,9 @@
     {
       "id": 7,
       "title": "Responsive Grid Layout for landscaping business",
+      "features": [
+        "Responsive CSS grid layout"
+      ],
       "type": "website",
       "tech": [
         "css", "html5", "frontend" 
@@ -72,6 +121,10 @@
     {
       "id": 8,
       "title": "Responsive Website Recreation for Apparel store",
+      "features": [
+        "Responsive CSS layout",
+        "Flexbox and Grid layout techniques"
+      ],
       "type": "website",
       "tech": [
         "css", "html5", "frontend" 
@@ -82,6 +135,9 @@
     {
       "id": 9,
       "title": "Responsive Layout for candybar promotion",
+      "features": [
+        "Responsive CSS layout"
+      ],
       "type": "website",
       "tech": [
         "CSS", "html5", "frontend" 
@@ -92,6 +148,9 @@
     {
       "id": 10,
       "title": "Responsive website layout",
+      "features": [
+        "Responsive CSS layout"
+      ],
       "type": "website",
       "tech": [
         "CSS", "html5", "frontend" 
@@ -102,6 +161,9 @@
     {
       "id": 15,
       "title": "Intersection Observer Menu",
+      "features": [
+        "HTML, CSS, Javascript"
+      ],
       "type": "component",
       "tech": [
         "javascript", "html5", "css", "frontend" 
@@ -112,6 +174,8 @@
     {
       "id": 11,
       "title": "Magazine Cover Layout",
+      "features": [
+        "CSS layout"      ],
       "type": "website",
       "tech": [
         "css", "html5", "frontend"
@@ -122,6 +186,10 @@
     {
       "id": 12,
       "title": "Animated tabs layout",
+      "features": [
+        "JQuery manipulating dom",
+        "JQuery animation"
+      ],
       "type": "component",
       "tech": [
         "CSS", "html5", "jquery", "frontend" 
@@ -132,6 +200,9 @@
     {
       "id": 13,
       "title": "Big Dropdown Menu",
+      "features": [
+        "CSS design with Javascript to show and hide menu"
+      ],
       "type": "component",
       "tech": [
         "css", "html5", "frontend"
@@ -142,6 +213,10 @@
     {
       "id": 14,
       "title": "Animated Toggle Button",
+      "features": [
+        "Jquery controlling class animations",
+        "Font Awesome icons"
+      ],
       "type": "component",
       "tech": [
         "jquery", "CSS", "HTML5", "frontend"
