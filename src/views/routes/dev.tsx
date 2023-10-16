@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DevItem } from '../assets/types/types';
 
-import Menu from '../components/menu/menu';
+
 import Footer from '../components/footer/footer';
 import Intro from '../content/dev/dev-intro';
 import DevPortfolio from '../content/dev/dev-portfolio';
@@ -52,7 +52,7 @@ const Dev = () => {
 
     return (
         <DevContainer>
-            <Menu></Menu>
+    
             <Intro></Intro>
             <DevPortfolio data={data}></DevPortfolio>
             <Footer></Footer>

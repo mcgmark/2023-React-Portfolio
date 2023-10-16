@@ -7,7 +7,7 @@ import backgroundImage from '../assets/images/bg-image.svg';
 
 // import adobeCCLogo from '../assets/images/cc-logo.svg';
 
-import Menu from '../components/menu/menu';
+
 import Footer from '../components/footer/footer';
 import Intro from '../content/design/design-intro';
 import DesignCloud from '../content/design/design-cloud';
@@ -54,12 +54,12 @@ const HeaderSection = styled.header`
 // const SubHeader = styled.section`
 //     height: 30px;
 //     width: 100%;
-//     background: rgba(74, 12, 137, 0.35);
 //     display: flex;
 //     align-items: center;
 //     justify-content: end;
-//     padding-right: 20px;
+//     padding: 20px;
 //     left: 100px;
+//     background-color: #ffffff20;
 // `;
 
 // const Text = styled.p`
@@ -119,7 +119,6 @@ const Dev = () => {
 
     return (
         <Portfolio style={{ backgroundPosition: `center ${backgroundPositionX}`}}>
-            <Menu></Menu>
             <HeaderSection>
                 <Intro></Intro>
                 <DesignCloud></DesignCloud>

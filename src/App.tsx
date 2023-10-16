@@ -6,6 +6,7 @@ import Home from './views/routes/home';
 import Design from './views/routes/design';
 import Dev from './views/routes/dev';
 
+import Menu from './views/components/menu/menu';
 
 const AppContainerDiv = styled.div`
   display: flex;
@@ -14,10 +15,12 @@ const AppContainerDiv = styled.div`
   width: 100%;
 `;
 
+
 const App = () => {
   return (
     <BrowserRouter> 
       <AppContainerDiv>
+      <Menu></Menu>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/design" element={<Design />} />

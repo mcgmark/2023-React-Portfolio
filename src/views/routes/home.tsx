@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
+import Menu from '../components/menu/menu';
 import HomeHead from '../content/home/home-head';
 import DesignText from '../content/home/design/design-text';
 import DesignHero from '../content/home/design/design-hero';
@@ -31,20 +32,20 @@ const Top = styled.section`
     display: grid;
     grid-template-rows: auto;
     align-items: start;
-    margin-top: 4rem;
+    margin-top: 8rem;
     
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr;
-        margin-top: 0rem;
+        margin-top: 8rem;
     }
 
     @media (min-width: 1500px) {
         grid-template-columns: 1fr 1fr;
-        margin-top: 1rem;
+        margin-top: 12rem;
     }
     @media (min-width: 2000px) {
         grid-template-columns: 1fr 1fr;
-        margin-top: 8rem;
+        margin-top: 20rem;
     }
 `;
 
@@ -110,7 +111,7 @@ const Home = () => {
     return (
         <Section>
             <Inner>
-                <Header />   
+                {/* <Header />    */}
                 <Top>
                     <HomeHead onAssetsLoaded={assetsLoadedCallback}></HomeHead>
                 </Top>

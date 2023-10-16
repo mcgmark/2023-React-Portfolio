@@ -39,17 +39,23 @@ const PortfolioItem = styled.div`
     border-radius: 25px;
     padding: 5px;
     border: 10px solid var(--purple-bright);
-    background-color: #171319;
-    z-index: 500;
+    background-color: #2f2732bf;
+    background-image:  linear-gradient(135deg, #1e1e1e 25%, transparent 25%), linear-gradient(225deg, #1e1e1e 25%, transparent 25%), linear-gradient(45deg, #1e1e1e 25%, transparent 25%), linear-gradient(315deg, #1e1e1e 25%, #1a1a1a 25%);
+    background-position:  5px 0, 5px 0, 0 0, 0 0;
+    background-size: 5px 5px;
+    background-repeat: repeat;
+    z-index: 499;
     box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6);
+    filter:  grayscale(100%);
 
     @media (min-width: 1000px){
-        padding: 20px 20px;
+        padding: 10px 10px;
     }
 
     &:hover {
         scale: 103%;
-        z-index: 1000;
+        z-index: 500;
+        filter:  none;
     }
 `;
 
@@ -62,10 +68,10 @@ const PortfolioItemText = styled.div`
 
 const PortfolioItemTitle = styled.h3`
     font-family: 'Roboto-Black';
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     text-transform: capitalize;
     color: #ffffff;
-    text-shadow: 4px 4px 0px #000000;
+    line-height: 120%;
 `;
 
 const PortfolioItemType = styled.p`
@@ -101,10 +107,10 @@ const FeaturesList = styled.ul`
     padding: 20px;
     margin: 0px;
     margin-bottom: 30px;
-    background-color: rgba(255, 255, 255, 0.015);
+    background-color: rgba(24, 24, 24, 0.463);
     border-radius: 15px;
-    border: 1px solid #232323;
-    box-shadow: 4px 4px 0px var(--purple-bright);
+    border: 1px solid var(--purple-bright);
+    box-shadow: 8px 8px 0px var(--purple-bright);
 `;
 
 const FeaturesItem = styled.li`
@@ -220,11 +226,11 @@ const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl, children }) =>
                 left: circlePosition.x,
                 width: '220px',
                 height: '220px',
-                backgroundColor: 'rgb(146, 56, 235)',
+                backgroundColor: 'rgb(144, 36, 253)',
                 borderRadius: '50%',
                 transform: 'scale(0) translate(-50%, -50%)',
                 zIndex: '0',
-                animation: 'growCircle 0.4s ease-in-out forwards',
+                animation: 'growCircle 0.3s ease-in-out forwards',
             }}
         />
       )}
