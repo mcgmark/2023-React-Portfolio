@@ -26,7 +26,7 @@ const HomeHeading = styled.h1`
     }
 
     @media (min-width: 1500px) {
-        font-size: 10.5rem;
+        font-size: 9rem;
     }
 
     @media (min-width: 1930px) {

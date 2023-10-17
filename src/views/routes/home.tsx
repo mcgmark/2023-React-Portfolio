@@ -46,7 +46,7 @@ const Top = styled.section`
     }
     @media (min-width: 2000px) {
         grid-template-columns: 1fr 1fr;
-        margin-top: 22rem;
+        margin-top: 20rem;
     }
 `;
 

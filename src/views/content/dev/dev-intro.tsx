@@ -38,6 +38,7 @@ const Breadcrumb = styled.span`
     font-family: 'Rubik';
     font-size: 1.25rem;
     text-transform: uppercase;
+    color: #e6e6e6;
 `;
 
 const IntroText = styled.h1`
@@ -47,7 +48,7 @@ const IntroText = styled.h1`
     font-weight: 100;
     width: fit-content;
     z-index: 1;
-    color: #ffffff;
+    color: #e6e6e6;
     line-height: 140%;
 
     @media (min-width: 1400px) {
