@@ -21,28 +21,29 @@ const DesignContentDiv = styled.div`
     border-radius: 25px;
 
     @media (min-width: 1000px) {
-        padding: 2rem;
+        padding: 2.5rem;
         gap: 30px;
         justify-content: flex-end;
     }
  
     @media (min-width: 1500px) {
         min-height: 680px;
-        padding: 5rem;
-        gap: 60px;
+        padding: 6rem;
+        gap: 50px;
         justify-content: flex-end;
     }
 `;
 
 const DesignHeading = styled.h1`
     position: relative;
-    left: -50px;
+    left: 0px;
     font-family: 'Arial-MT-Bold';
     font-size: 8vw;
     line-height: 175%;
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
+    left: -70px;
     font-family: 'Arial-MT-Bold';
     font-size: 3.25rem;
     line-height: 165%;
@@ -52,7 +53,6 @@ const DesignHeading = styled.h1`
     @media (min-width: 1500px) {
     position: absolute;
     top: 10%;
-    left: -10%;
     font-family: 'Arial-MT-Bold';
     font-size: 4.25rem;
     line-height: 165%;
@@ -66,13 +66,13 @@ const Span = styled.span`
 `;
 
 const DesignParagraph = styled.p`
-    font-family: 'Acumin-Book';
+    font-family: 'Roboto-Thin';
     font-size: 1.25rem;
     line-height: 160%;
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-        line-height: 170%;
+        line-height: 180%;
     }
 `;
 
@@ -112,7 +112,7 @@ const DesignText = () => {
     return (
         <DesignContentDiv>
             <DesignHeading><Span>keep it simple, but not too simple.</Span></DesignHeading>
-            <DesignParagraph>I enjoy combining typography and graphics to create engaging and informative marketing materials. For web or print I have experience designing everything your business needs to promote itself.</DesignParagraph>
+            <DesignParagraph>Mark enjoys combining typography and graphics to create engaging and informative resources needed in marketing and advertising. Web or print Mark has experience designing everything your business needs.</DesignParagraph>
             <DesignButton onClick={() => loadPortfolio('/design')}>VIEW DESIGN </DesignButton>
         </DesignContentDiv>
     );

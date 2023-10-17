@@ -20,23 +20,23 @@ const data: Item[] =
     },
     {
         "id": 22,
-    "title": "illustrator"
+    "title": "websites"
     },
     {
         "id": 33,
-    "title": "indesign"
-    },
-    {
-        "id": 44,
     "title": "print"
     },
     {
+        "id": 44,
+    "title": "indesign"
+    },
+    {
         "id": 55,
-    "title": "digital"
+    "title": "illustrator"
     },
     {
         "id": 66,
-    "title": "websites"
+    "title": "digital"
     },
     {
         "id": 77,
@@ -44,15 +44,15 @@ const data: Item[] =
     },
     {
         "id": 88,
-    "title": "apps"
+    "title": "ADS"
     },
     {
         "id": 99,
-    "title": "ads"
+    "title": "interfaces"
     },
     {
         "id": 1010,
-    "title": "ux"
+    "title": "marketing"
     },
 
 ]

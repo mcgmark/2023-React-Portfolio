@@ -380,7 +380,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
             <PortfolioInner>
                 <PortfolioHeadingContainer>
                     <PortfolioHeading>Digital <span style={{position: 'relative', color:'rgb(255, 217, 0)', fontSize: '90%', bottom: '8px'}}>+</span> Print</PortfolioHeading>
-                    <PortfolioIntro>I have experience designing for web and print, here is a few examples.</PortfolioIntro>
+                    <PortfolioIntro>Mark has experience designing for web and print, take a look at these examples.</PortfolioIntro>
                     <FilterButtonsContainer>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'digital'}

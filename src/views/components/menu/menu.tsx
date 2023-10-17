@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom'; 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faCode, faPaperPlane, faM } from '@fortawesome/free-solid-svg-icons';
 
 
 type MobileMenuProps = {
@@ -38,7 +38,7 @@ const MenuContainer = styled.nav<MenuContainerProps>`
     align-items: center;
     background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.784)' : 'rgba(74, 12, 137, 0.3)')};
     z-index: 2001;
-    border-bottom: ${(props) => (props.$isScrolled ? '1px solid #4d4d4d84' : '4px solid rgba(255, 255, 255, 0.025)')};
+    border-bottom: ${(props) => (props.$isScrolled ? '4px solid rgba(255, 255, 255, 0.025)' : '4px solid rgba(255, 255, 255, 0.025)')};
     backdrop-filter: blur(14px);
     box-shadow: 0px 10px 40px rgba(20, 2, 25, 0.4);
     transition: all 0.2s ease;
@@ -62,25 +62,26 @@ const NameLogo = styled.span<MenuContainerProps>`
 `;
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
+box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
     position: fixed;
     top: 0px;
     min-height: 100vh;
-    background-color: rgba(18, 2, 29, 0.522);
+    background-color: rgba(18, 2, 29, 0.722);
     backdrop-filter: blur(70px);
     z-index: 1000;
     left: ${(props) => (props.$showmenu ? "0%" : "100%")};
-    transition: left 1s ease;
-    box-shadow: 0px 0px 50px rgb(0, 0, 0);
-    border: 10px solid rgba(163, 101, 255, 0.066);
+    transition: left .5s ease;
+    box-shadow: ${(props) => (props.$showmenu ? "0px 0px 50px rgb(0, 0, 0)" : "none")};
+    border: 0px;
     overflow-y: auto;
     width: 100%;
+    padding: 0px 20px;
 
     &::-webkit-scrollbar {
         background-color: #000000;
-        width: 11px;
+        width: 5px;
     }
     &::-webkit-scrollbar-track {
         background-color: #242424;
@@ -91,9 +92,20 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
         height: 10px;
     }
 
-    @media (min-width: 1300px){
-        left: ${(props) => (props.$showmenu ? "60%" : "100%")};
+    @media (min-width: 900px){
+        border: 10px solid rgba(163, 101, 255, 0.066);
+        width: fit-content;
+        left: ${(props) => (props.$showmenu ? "55%" : "100%")};
+        padding: 0px 4%;
         width: 40%;
+    }
+
+    @media (min-width: 1800px){
+        border: 10px solid rgba(163, 101, 255, 0.066);
+        width: fit-content;
+        left: ${(props) => (props.$showmenu ? "55%" : "100%")};
+        padding: 0px 4%;
+        width: 35%;
     }
 `;
 
@@ -104,13 +116,13 @@ const MobileMenuContent = styled.div`
     gap: 20px;
     position: relative;
     top: 150px;
-    width: 85%;
 `;
 
 const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
     font-family: 'Oswald';
-    font-size: 2.5rem;
+    font-size: 3rem;
     cursor: pointer;
+    transform: rotate(-2deg);
 
     &.current {
         position: relative;
@@ -121,15 +133,15 @@ const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
         color: #9e30ff;
     }
 
-    &.current::after {
+    /* &.current::after {
     content: "+"; 
     position: absolute;
-    top: 54%; 
-    right: -20px; 
+    top: 75%; 
+    right: -5px; 
     transform: rotate(90deg) translateX(-60%);
-    color: #9e30ff; 
-    font-size: 3rem; 
-  }
+    color: #9dffdb; 
+    font-size: 1rem; 
+  } */
 
   &:hover {
     color: #9dffdb;
@@ -152,7 +164,7 @@ const MobileMenuParagraph = styled.p`
     transition: height .5s ease-in-out;
     color: #bebebe;
     border-bottom: 3px solid rgba(93, 93, 93, 0.3);
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 
     &:last-child {
         border-bottom: 0px;
@@ -189,9 +201,9 @@ const MenuIcon = React.forwardRef<SVGSVGElement, MenuIconProps>(({ $showMenu, on
 
 const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmenu }, ref) => {
 
-    const navigate = useNavigate();
-
     const location = useLocation();
+
+    const navigate = useNavigate();
 
     const loadPortfolio = (route: string) => {
         navigate(route);
@@ -205,20 +217,22 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                 className={location.pathname === '/design' ? 'current' : ''}
                 onClick={() => loadPortfolio('/design')}
             >
-                    DESIGN PORTFOLIO
+                    <FontAwesomeIcon icon={faPaperPlane} />
+                    DESIGN
                 </MobileMenuButton>
                 <MobileMenuParagraph>
-                    Print and Web design Mark has experience designing everything from flyers to websites and more!
+                    Print and Web design Mark has experience designing everything from flyers to websites.
                 </MobileMenuParagraph>
                 
                 <MobileMenuButton
                     className={location.pathname === '/dev' ? 'current' : ''}
                     onClick={() => loadPortfolio('/dev')}
                 >
-                    DEVELOPMENT PORTFOLIO
+                    <FontAwesomeIcon icon={faCode} />
+                    DEVELOPMENT
                 </MobileMenuButton>
                 <MobileMenuParagraph>
-                    Frontend and backend web development Mark has experience designing websites and web applications from start to finish. 
+                    Frontend and backend web development Mark has experience building websites and web applications from start to finish. 
                 </MobileMenuParagraph>
                 <MobileMenuHeading
                     onClick={() => {return false}}
@@ -226,9 +240,9 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                     ABOUT MARK
                 </MobileMenuHeading>
                 <MobileMenuParagraph>
-                Mark is 43 living in Barrie, Ontario with decades of experience designing for print and web. Designing everything from mailout flyers, websites, business cards, newspaper ads, logos, printed tshirts, posters, signage, cnc engravings, and more. 
+                43, living in Barrie, Ontario Mark has years of experience related to computers, marketing, graphic design, and web development. The majority of Mark's experience comes from designing everything related to marketing a business or service. Mailout flyers, websites, newspaper/magazine ads, printed tshirts, posters, cnc cutting/engraving, and more. 
                 <br/><br/>
-                Recently Mark graduated from Georgian College and has spent the last 3 years learning the fundamentals of programming and web development. Focusing on data driven business applications incorporating CRUD API functions.   
+                Recently Mark graduated from Georgian College <small>(Dean's List)</small> and has spent the last 3 years learning the fundamentals of programming and web development. Mark has focused on data driven business applications incorporating API CRUD functions.   
                 </MobileMenuParagraph>
             </MobileMenuContent>
         </MobileMenuContainer>
@@ -251,14 +265,6 @@ const Menu = () => {
     const menuButtonClick = () => {
         setShowMenu(!showMenu);
     };
-
-    // useEffect(() => {
-    //     if (showMenu){
-    //         document.body.style.overflowY = 'hidden';
-    //     } else {
-    //         document.body.style.overflow = 'auto';
-    //     }
-    // }, [showMenu]);
 
     useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {

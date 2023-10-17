@@ -14,7 +14,7 @@
       "tech": [
         "CSS", "html5", "react", "json", "typescript"  
       ],
-      "description": "This portfolio application is built using the NodeJS environment with React and incorporates many common functions of React and NPM libraries.",
+      "description": "This portfolio application is built using the NodeJS environment with React frontend and incorporates many common functions of React such as functional components and hooks.",
       "link": "/"
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "id": 3,
-      "title": "ExpressJS Poll app with live updates",
+      "title": "Express Poll app with live updates",
       "features": [
         "Express application runing in Node",
         "Handlebars template frontend",
@@ -76,7 +76,7 @@
     },
     {
       "id": 5,
-      "title": "Javascript Storymaker Game Toy Game",
+      "title": "Javascript Storymaker Toy",
       "features": [
         "Fun demonstration of Javascript fundamentals",
         "functions, Objects, Arrays, iterative loops, conditional statements",
@@ -93,7 +93,7 @@
     },
     {
       "id": 6,
-      "title": "Bootstrap Responsive Website for Book promotion",
+      "title": "Bootstrap Responsive layout for Book promotion",
       "features": [
         "Responsive layout using Bootstrap",
         "Implements popular Bootstrap components navigation, slides, tabs, accordion"
@@ -120,7 +120,7 @@
     },
     {
       "id": 8,
-      "title": "Responsive Website Recreation for Apparel store",
+      "title": "Responsive Layout Recreation for Apparel store",
       "features": [
         "Responsive CSS layout",
         "Flexbox and Grid layout techniques"
@@ -147,7 +147,7 @@
     },
     {
       "id": 10,
-      "title": "Responsive website layout",
+      "title": "Responsive layout with typography",
       "features": [
         "Responsive CSS layout"
       ],
@@ -160,7 +160,7 @@
     },
     {
       "id": 15,
-      "title": "Intersection Observer Menu",
+      "title": "Intersection Observer Animated Table of Contents Menu",
       "features": [
         "HTML, CSS, Javascript"
       ],
@@ -173,7 +173,7 @@
     },
     {
       "id": 11,
-      "title": "Magazine Cover Layout",
+      "title": "Magazine Cover CSS Layout",
       "features": [
         "CSS layout"      ],
       "type": "website",
@@ -185,7 +185,7 @@
     },
     {
       "id": 12,
-      "title": "Animated tabs layout",
+      "title": "JQuery Animated tabs",
       "features": [
         "JQuery manipulating dom",
         "JQuery animation"
@@ -199,7 +199,7 @@
     },
     {
       "id": 13,
-      "title": "Big Dropdown Menu",
+      "title": "Big Dropdown Menu Component",
       "features": [
         "CSS design with Javascript to show and hide menu"
       ],

@@ -19,63 +19,62 @@ const DevContentDiv = styled.div`
     background-size: cover;
     width: 100%;
     padding: 2rem;
+    justify-self: center;
     border-radius: 25px;
-    
 
     @media (min-width: 1000px) {
-        padding: 2rem;
+        padding: 2.5rem;
         gap: 30px;
         justify-content: flex-end;
-        margin-left: 30px;
     }
-
-    
+ 
     @media (min-width: 1500px) {
-        justify-self: center;
         min-height: 680px;
-        padding: 5rem;
-        gap: 60px;
+        padding: 6rem;
+        gap: 50px;
         justify-content: flex-end;
-        margin-left: 150px;
     }
 `;
 
 const DevHeading = styled.h1`
     position: relative;
-    left: -50px;
+    left: 0px;
     font-family: 'Arial-MT-Bold';
     font-size: 8vw;
     line-height: 175%;
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-        font-size: 3.25rem;
-        line-height: 165%;
-        letter-spacing: .05rem;
+    left: -70px;
+    font-family: 'Arial-MT-Bold';
+    font-size: 3.25rem;
+    line-height: 165%;
+    letter-spacing: .05rem;
     }
 
     @media (min-width: 1500px) {
-        position: absolute;
-        top: 10%;
-        left: -10%;
-        font-size: 4rem;
-        line-height: 165%;
-        letter-spacing: .05rem;
+    position: absolute;
+    top: 10%;
+    font-family: 'Arial-MT-Bold';
+    font-size: 4.25rem;
+    line-height: 165%;
+    letter-spacing: .05rem;
     }
 `;
+
 const Span = styled.span`
     background-color: var(--purple-bright);
     padding: .5rem;
 `;
 
 const DevParagraph = styled.p`
-    font-family: 'Acumin-Book';
+    font-family: 'Roboto-Thin';
     font-size: 1.25rem;
     line-height: 160%;
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-        line-height: 170%;
+        line-height: 180%;
     }
 `;
 
@@ -86,7 +85,7 @@ const DevButton = styled.div`
     align-items: center;
     font-family: 'Arial-MT-Bold';
     font-size: 1.05rem;
-    color: #ffffff;
+    color: #fff;
     width: 50%;
     max-width: 225px;
     height: 50px;
@@ -95,10 +94,10 @@ const DevButton = styled.div`
     overflow: hidden;
     cursor: pointer;
     transition: all 200ms ease;
-    border: 4px solid rgb(34, 255, 104);
-    background-color: rgba(0, 0, 0, 0.043);
+    border: 4px solid rgb(0, 98, 255);
+    background-color: rgba(0, 0, 0, 0.0);
     backdrop-filter: blur(3px);
-
+    
     &:hover {
         transform: scale(103%);
     }
@@ -114,8 +113,8 @@ const DevText = () => {
 
     return (
         <DevContentDiv>
-            <DevHeading><Span>javascript, html, react, sql, php, git, oh my...</Span></DevHeading>
-            <DevParagraph>Today simple websites are complicated applications with many peices. I've been working the last two years to build on my knowledge and experience building the frontend of applications and some backend. </DevParagraph>
+            <DevHeading><Span>javascript, react, php, sql, git, oh my...</Span></DevHeading>
+            <DevParagraph>Websites are applications and the best ones require a lot of pieces to make them work. Mark has spent the last three years building his knowledge and experience putting these peices together building websites and web applications. </DevParagraph>
             <DevButton onClick={() => loadPortfolio('/dev')}>VIEW DEV</DevButton>
         </DevContentDiv>
     );

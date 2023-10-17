@@ -22,6 +22,7 @@ const Section = styled.section`
   align-items: center;
   background: url(${backgroundImage});
   background-color: var(--background-purple);
+  background-attachment: fixed;
   min-width: 100%;
   max-width: 90%;
   min-height: 100vh;
@@ -45,7 +46,7 @@ const Top = styled.section`
     }
     @media (min-width: 2000px) {
         grid-template-columns: 1fr 1fr;
-        margin-top: 20rem;
+        margin-top: 22rem;
     }
 `;
 
@@ -63,15 +64,13 @@ const Bottom = styled.section`
     }
 
     @media (min-width: 1500px) {
-        margin-top: 300px;
-        row-gap: 9vw;
+        margin-top: 350px;
+        row-gap: 12vw;
     }
 
 `;
 
 const Inner = styled.section`
-    background: url(${backgroundImage});
-    background-color: var(--background-purple);
     background-position: -100% -100%;
     display: grid;
     grid-template-rows: auto;

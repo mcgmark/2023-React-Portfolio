@@ -24,7 +24,6 @@ const Portfolio = styled.section`
    display: flex;
    flex-direction: column;
    align-items: center;
-   padding-bottom: 3vw;
    overflow-x: hidden;
 `;
 
@@ -36,7 +35,7 @@ const HeaderSection = styled.header`
     column-gap: 4rem;
     width: 90%;
     max-width: 2000px;
-    height: 800px;
+    height: 700px;
     margin-top: 60px;
 
     @media (min-width: 1000px) {
@@ -46,6 +45,7 @@ const HeaderSection = styled.header`
 
     @media (min-width: 2000px) {
         column-gap: 17rem;
+        height: 800px;
     }
 
 

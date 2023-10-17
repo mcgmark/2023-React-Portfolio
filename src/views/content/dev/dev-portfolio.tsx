@@ -22,6 +22,9 @@ type LinkButtonProps = {
 const PortfolioContainer = styled.section`
     min-height: 100vh;
     margin-top: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 `;
 
 const PortfolioInner = styled.section`
@@ -29,11 +32,12 @@ const PortfolioInner = styled.section`
     flex-direction: column;
     align-items: center;
     max-width: 2000px;
+    width: 95%;
 `;
 
 const PortfolioItem = styled.div`
-   position: relative;
-    top: -150px;
+    position: relative;
+    top: -160px;
     box-sizing: border-box;
     transition: all 0.15s ease-in-out;
     border-radius: 25px;

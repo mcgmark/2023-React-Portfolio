@@ -13,17 +13,16 @@ import backgroundImage from '../assets/images/bg-image-light.svg';
 
 const DevContainer = styled.section`
    width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow-x: hidden;
    background: none;
    background: url(${backgroundImage});
    background-color: var(--background-purple);
    background-attachment: fixed;
    background-position: center center;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   overflow-x: hidden;
 `;
-
 
 const Dev = () => {
 

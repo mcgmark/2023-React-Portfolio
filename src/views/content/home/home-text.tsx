@@ -8,6 +8,7 @@ const FontFaceObserver = require('font-face-observer');
 
 
 const HomeContentDiv = styled.div`
+    box-sizing: border-box;
     max-width: 900px;
     display: grid;
     grid-template-rows: auto;
@@ -18,38 +19,31 @@ const HomeHeading = styled.h1`
     font-family: 'Arial-MT-Bold';
     font-size: 16vw;
     line-height: 110%;
-    letter-spacing: .05rem;
+    letter-spacing: -.15rem;
 
     @media (min-width: 1000px) {
         font-size: 12vw;
-        text-align: justify;
     }
 
     @media (min-width: 1500px) {
-        font-size: 8vw;
-        text-align: justify;
+        font-size: 10.5rem;
     }
 
     @media (min-width: 1930px) {
-        font-size: 10rem;
-        line-height: 115%;
+        font-size: 12rem;
+        line-height: 110%;
     }
 `;
 
 const HomeParagraph = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     letter-spacing: .05rem;
-    
-    @media (min-width: 1000px) {
-        ont-size: 1.25rem;
-        width: 70%;
-    }
 
-    @media (min-width: 1230px) {
-        font-size: 1.5rem;
+    @media (min-width: 1000px) {
         line-height: 200%;
-        width: 60%;
+        font-size: 1.5rem;
+        width: 80%;
     }
 
     @media (min-width: 1500px) {
@@ -75,8 +69,8 @@ const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
 
     return fontLoaded ? (
         <HomeContentDiv>
-            <HomeHeading>Frontend<br /> Designer<br />Developer<br /></HomeHeading>
-            <HomeParagraph>I have experience doing everything from graphic design to web development. Take a look at my portfolio and contact me to discuss your next project.</HomeParagraph>
+            <HomeHeading>Frontend<br /> Designer<br />Developer.<br /></HomeHeading>
+            <HomeParagraph>Graphic design and web development Mark has experience doing a wide range of projects.</HomeParagraph>
         </HomeContentDiv>
     ): null;
 };

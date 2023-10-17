@@ -62,7 +62,7 @@ const IntroText = styled.h1`
 
 const Text = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 400;
     line-height: 180%;
     letter-spacing: .03rem;
@@ -78,7 +78,7 @@ const Intro = () => {
                 <IntroText>simple, but not</IntroText>
                 <IntroText>too simple.</IntroText>
             </div>
-            <Text>I enjoy combining typography and images to create engaging and informative marketing related design materials. Digital & Print I have experience designing everything from flyers, newspaper ads, t-shirts, websites, app UX, cnc engraved stone signage. </Text>
+            <Text>Mark enjoys combining typography and graphics to create engaging and informative resources needed in marketing and advertising. Web or print Mark has experience designing everything your business needs. </Text>
         </Section>
     );
 }

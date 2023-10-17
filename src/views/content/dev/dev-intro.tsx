@@ -61,13 +61,12 @@ const IntroText = styled.h1`
 
 const Text = styled.p`
     font-family: 'Roboto-thin';
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.25rem;
     line-height: 180%;
     color: #e6e6e6;
 
     @media (min-width: 1200px) {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         max-width: 1600px;
     }
 `;
@@ -80,7 +79,7 @@ const Intro = () => {
             <SectionInner>
             <Breadcrumb>Frontend Development</Breadcrumb>
             <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(255, 238, 0)'}}>oh my...</span></IntroText>
-            <Text>Today simple websites are complicated applications with many peices. I've been working the last two years to build on my knowledge and experience building the frontend of applications and some backend. I can build websites and many types of web applications from start to finish. </Text>
+            <Text>Websites are applications that require a lot of pieces to make them work. Mark has spent three years building his knowledge and experience putting these peices together building websites and web applications. </Text>
             </SectionInner>
             <HeaderSpacer></HeaderSpacer>
         </Section>

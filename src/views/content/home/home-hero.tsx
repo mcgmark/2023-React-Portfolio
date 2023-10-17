@@ -193,8 +193,8 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
             <section>
                 <SpacemanColorIMG top="50px" left="-30px" src={spacemanColorImage} alt="Logo"></SpacemanColorIMG>
                 <SpacemanPlainIMG top="150px" left="630px" src={spacemanPlainImage} alt="Logo"></SpacemanPlainIMG>
-                <StarLargeIMG top="-70px" left="500px" src={starLarge} alt="star" ></StarLargeIMG>
-                <StarMediumIMG top="420px" left="-150px" src={starMedium} alt="star"></StarMediumIMG>
+                <StarLargeIMG top="-90px" left="500px" src={starLarge} alt="star" ></StarLargeIMG>
+                <StarMediumIMG top="420px" left="-50px" src={starMedium} alt="star"></StarMediumIMG>
                 <StarMediumIMG top="500px" left="775px" src={starMedium} alt="star"></StarMediumIMG>
                 <StarSmallIMG top="-100px" left="200px" src={starSmall} alt="star"></StarSmallIMG>
                 <StarSmallIMG top="-200px" left="500px" src={starSmall} alt="star"></StarSmallIMG>
