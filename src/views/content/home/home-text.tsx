@@ -13,6 +13,11 @@ const HomeContentDiv = styled.div`
     display: grid;
     grid-template-rows: auto;
     row-gap: 30px;
+
+
+    @media (min-width: 1000px) {
+        margin-top: 40px;
+    }
 `;
 
 const HomeHeading = styled.h1`
@@ -26,7 +31,7 @@ const HomeHeading = styled.h1`
     }
 
     @media (min-width: 1500px) {
-        font-size: 9rem;
+        font-size: 10rem;
     }
 
     @media (min-width: 1930px) {
