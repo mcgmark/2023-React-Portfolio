@@ -67,11 +67,11 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: .75rem;  /* Adjust as needed */
+  width: .15rem;  /* Adjust as needed */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #8800ff;  /* Color of the thumb */
+  background-color: #bb00ff;  /* Color of the thumb */
   border-radius: 0.5rem;  /* Rounded corners */
 }
 

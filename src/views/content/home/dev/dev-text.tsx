@@ -15,7 +15,7 @@ const DevContentDiv = styled.div`
     gap: 30px;
     justify-content: center;
     background: url(${spaceBackground});
-    background-color: rgba(29, 4, 56, 1);
+    background-color: #170e21;;
     background-size: cover;
     width: 100%;
     padding: 2rem;
@@ -95,7 +95,6 @@ const DevButton = styled.div`
     cursor: pointer;
     transition: all 200ms ease;
     border: 4px solid rgb(0, 98, 255);
-    background-color: rgba(0, 0, 0, 0.0);
     backdrop-filter: blur(3px);
     
     &:hover {

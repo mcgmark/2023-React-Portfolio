@@ -4,13 +4,11 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import Menu from '../components/menu/menu';
 import HomeHead from '../content/home/home-head';
 import DesignText from '../content/home/design/design-text';
 import DesignHero from '../content/home/design/design-hero';
 import DevText from '../content/home/dev/dev-text';
 import DevHero from '../content/home/dev/dev-hero';
-import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 
 import backgroundImage from '../assets/images/bg-image.svg';

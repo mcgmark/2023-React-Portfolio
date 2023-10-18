@@ -80,7 +80,7 @@ const Intro = () => {
             <SectionInner>
             <Breadcrumb>Frontend Development</Breadcrumb>
             <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(255, 238, 0)'}}>oh my...</span></IntroText>
-            <Text>Websites are applications that require a lot of pieces to make them work. Mark has spent three years building his knowledge and experience putting these peices together building websites and web applications. </Text>
+            <Text>Websites are applications that require a lot of pieces to make them work. A recent Dean's list graduate of Georgian College Mark has spent the last three years building his knowledge and experience putting the peices together building websites and web applications.</Text>
             </SectionInner>
             <HeaderSpacer></HeaderSpacer>
         </Section>

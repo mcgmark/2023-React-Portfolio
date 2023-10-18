@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
+import Lightbox from '../../components/lightbox/lightbox';
 
 import { DesignItem } from '../../assets/types/types';
 
@@ -10,7 +13,7 @@ import bottomRightBG from '../../assets/images/bottomrightbg.svg';
 import topLeftBG from '../../assets/images/topleftbg.svg';
 import bottomLeftBG from '../../assets/images/bottomleftbg.svg';
 
-import Lightbox from '../../components/lightbox/lightbox';
+
 
 type Props = {
     data: DesignItem[];
@@ -20,6 +23,7 @@ type PortfolioFilterButtonProps = {
     $selected: boolean;
     onClick: () => void;
 }
+
 
 const PortfolioContainer = styled.section`
     background: url(${topRightBG}), url(${bottomRightBG}), var(--purple-bright);
@@ -266,43 +270,72 @@ const PortfolioItemLoadIcon = styled(FontAwesomeIcon)`
     }  
 `;
 
+
+const LoadingIcon = styled(FontAwesomeIcon)`
+    font-size: 2vw;
+    animation: loadingRotate 2s infinite;
+    color: #fff;
+    overflow: hidden;
+    @keyframes loadingRotate {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+`;
+
+const LoadingIconContainer = styled.div`
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+`;
+
 const DesignPortfolio: React.FC<Props> = ({ data }) => {
 
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [filteredData, setFilteredData] = useState<DesignItem[]>([]);
     const [renderedData, setRenderedData] = useState<DesignItem[]>([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxImageUrl, setLightboxImageUrl] = useState('');
     const [imageTitle, setImageTitle] = useState('');
     const [currentLightboxIndex, setCurrentLightboxIndex] = useState(0);
+    const [hasMore, setHasMore] = useState<boolean>(true);
+    const [nextPage, setNextPage] = useState<number>(0);
+    const [pageSize, setPageSize] = useState<number>(8);
 
-    const portfolioRef = useRef(null);
+    const loadingRef = useRef<SVGSVGElement | null>(null);
 
     const totalItems = data.length;
     const totalDigitalItems = data.filter(item => item.category === "digital").length;
     const totalPrintItems = data.filter(item => item.category === "print").length;
 
+    // Sort data for initial page load
     useEffect(() => {
         const sortedData = [...data];
-            sortedData.sort((a,b) => {
-                if (a.category === 'digital' && b.category === 'print') {
-                    return -1;
-                } else if (a.category === 'print' && b.category === 'digital'){
-                    return 1;
-                } else {
-                    return 0;
-                }
-            });
+        sortedData.sort((a,b) => {
+            if (a.category === 'digital' && b.category === 'print') {
+                return -1;
+            } else if (a.category === 'print' && b.category === 'digital'){
+                return 1;
+            } else {
+                return 0;
+            }
+        });
         setFilteredData(sortedData);
     }, [data]);
 
+    // reset 
     useEffect(() => {
         setRenderedData([]);
-        setCurrentIndex(0);
     }, [filteredData]);
 
+    // handle category filter button click if all show all and sort them
     const filterButtonClick = (category: string) => {
+        setHasMore(true);
+        setNextPage(0);
         setSelectedCategory(category);
         if (category === 'all') {
             const sortedData = [...data];
@@ -323,16 +356,59 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
         setRenderedData([]);
     };
 
-    useEffect(() => {
-        if (currentIndex < filteredData.length) {
-            const item = filteredData[currentIndex];
-            const timer = setTimeout(() => {
-                setRenderedData((prevData) => [...prevData, item]);
-                setCurrentIndex((prevIndex) => prevIndex +1);
-            }, 25);
-            return () => clearTimeout(timer);
+    // Function to load data using pagination
+    const loadMoreItems = () => {
+        if (!hasMore) {
+            return;
         }
-    }, [currentIndex, filteredData]);
+        const startIndex = (nextPage - 1) * pageSize;
+        const endIndex = startIndex + pageSize;
+        const newItems = filteredData.slice(startIndex, endIndex);
+        setRenderedData([...renderedData, ...newItems]);
+        setNextPage(nextPage + 1); 
+
+        if (endIndex >= filteredData.length){
+            setHasMore(false);
+        };
+    };
+
+    // Intersection Observer
+    const handleObserver = (entities: IntersectionObserverEntry[]) => {
+        const target = entities[0];
+        if (target.isIntersecting) {
+          setTimeout(loadMoreItems, 200);
+        }
+    };
+    
+    useEffect(() => {
+        const observer = new IntersectionObserver(handleObserver, {
+          root: null,
+          rootMargin: '0px',
+          threshold: 1.0,
+        });
+    
+        if (hasMore && loadingRef.current) {
+          observer.observe(loadingRef.current);
+        }
+    
+        return () => observer.disconnect();
+    });
+    
+    
+    // // display the items of filtered data individually by adding to renderedData
+    // useEffect(() => {
+    //     if (currentIndex < filteredData.length) {
+    //         const item = filteredData[currentIndex];
+    //         const timer = setTimeout(() => {
+    //             setRenderedData((prevData) => [...prevData, item]);
+    //             setCurrentIndex((prevIndex) => prevIndex +1);
+    //         }, 25);
+    //         return () => clearTimeout(timer);
+    //     };
+    // }, [currentIndex, filteredData]);
+
+
+
 
     const openLightbox = (index: number) => {
         const imageUrl = renderedData[index].full;
@@ -396,7 +472,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
                             >all ({totalItems})</PortfolioFilterButton>
                     </FilterButtonsContainer>
                </PortfolioHeadingContainer>
-               <PortfolioItemsContainer ref={portfolioRef}>
+               <PortfolioItemsContainer>
                     {renderedData.map((item: DesignItem, index) => (
                         <PortfolioItem
                         key={item.id}
@@ -413,7 +489,9 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
                             </PortfolioItemText>
                         </PortfolioItem>
                     ))}
+
                 </PortfolioItemsContainer>
+                { hasMore && <LoadingIconContainer> <LoadingIcon icon={faSpinner} ref={loadingRef}/> </LoadingIconContainer>}
             </PortfolioInner>
             {lightboxOpen && (
                 <Lightbox $imageTitle={imageTitle} $imageUrl={lightboxImageUrl} onNext={handleNext} onPrev={handlePrevious} onClose={closeLightbox}></Lightbox>
