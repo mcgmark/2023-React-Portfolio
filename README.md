@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# ReactJS Portfolio Site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What?
+Graphic design and Frontend Development portfolio website.
 
+
+---
+### Live site: http://markmcg.ca

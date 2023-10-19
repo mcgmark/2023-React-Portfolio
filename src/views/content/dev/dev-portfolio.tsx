@@ -248,20 +248,24 @@ const DevPortfolio: React.FC<Props> = ({ data }) => {
         <PortfolioContainer>
             <PortfolioInner>
                <Masonry columns={{xs: 1, sm: 1, md: 1, lg: 2, xl: 3}} spacing={3}>
-               {data.map((item: DevItem) => (
+               {data.map((item: DevItem, outerIndex) => (
                         <PortfolioItem key={item.id}>
                             <PortfolioItemText>
                                 <PortfolioItemTitle>{item.title}</PortfolioItemTitle> 
                                 <PortfolioItemType>{item.type}</PortfolioItemType>
                                 <PortfolioItemDescription>{item.description}</PortfolioItemDescription>   
                                 <FeaturesList>
-                                {item.features.map((feature, index) => (
-                                    <FeaturesItem key={index}>{feature}</FeaturesItem>
+                                {item.features.map((feature, innerIndex) => (
+                                    <FeaturesItem key={innerIndex}>{feature}</FeaturesItem>
                                 ))}
                                 </FeaturesList>
                                 <div style={{display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'stretch'}}>
-                                    <DevItemButton $externalUrl={item.link} >Launch</DevItemButton>
-                                    <DevItemButton>Github</DevItemButton>
+                                    {outerIndex === 0 ? ( 
+                                        <DevItemButton>You're Here</DevItemButton>
+                                    ):(
+                                        <DevItemButton $externalUrl={item.link}>Launch</DevItemButton>
+                                    )}
+                                    <DevItemButton $externalUrl={item.github}>Github</DevItemButton>
                                 </div>
                                 <PortfolioTechList>
                                 {item.tech.map((tech, index) => (

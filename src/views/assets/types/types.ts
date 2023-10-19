@@ -17,4 +17,5 @@ export type DevItem = {
     tech: string[];
     description: string;
     link: string;
+    github: string;
 };

@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom'; 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes, faCode, faPaperPlane, faM } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faCode, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
+import mark from '../../assets/images/mark.png';
 
 
 type MobileMenuProps = {
@@ -68,11 +70,13 @@ box-sizing: border-box;
     position: fixed;
     top: 0px;
     min-height: 100vh;
-    background-color: rgba(18, 2, 29, 0.722);
+    background: url(${mark}), rgba(28, 16, 44, 0.75);
+    background-position: 20% top;
+    background-repeat: no-repeat;
     backdrop-filter: blur(70px);
     z-index: 1000;
     left: ${(props) => (props.$showmenu ? "0%" : "100%")};
-    transition: left .5s ease;
+    transition: left .5s ease-in-out;
     box-shadow: ${(props) => (props.$showmenu ? "0px 0px 50px rgb(0, 0, 0)" : "none")};
     border: 0px;
     overflow-y: auto;
@@ -92,20 +96,40 @@ box-sizing: border-box;
         height: 10px;
     }
 
-    @media (min-width: 900px){
+    @media (min-width: 700px){
+        background-position: 20% top;
         border: 10px solid rgba(163, 101, 255, 0.066);
         width: fit-content;
-        left: ${(props) => (props.$showmenu ? "55%" : "100%")};
+        left: ${(props) => (props.$showmenu ? "35%" : "100%")};
         padding: 0px 4%;
-        width: 40%;
+        width: 60%;
+    }
+
+    @media (min-width: 1300px){
+        background-position: 0% top;
+        border: 10px solid rgba(163, 101, 255, 0.066);
+        width: fit-content;
+        left: ${(props) => (props.$showmenu ? "50%" : "100%")};
+        padding: 0px 4%;
+        width: 45%;
     }
 
     @media (min-width: 1800px){
+        background-position: -10% top;
         border: 10px solid rgba(163, 101, 255, 0.066);
         width: fit-content;
         left: ${(props) => (props.$showmenu ? "55%" : "100%")};
-        padding: 0px 4%;
-        width: 35%;
+        padding: 0px 3%;
+        width: 40%;
+    }
+
+    @media (min-width: 2000px){
+        background-position: -20% top;
+        border: 10px solid rgba(163, 101, 255, 0.066);
+        width: fit-content;
+        left: ${(props) => (props.$showmenu ? "65%" : "100%")};
+        padding: 0px 3%;
+        width: 30%;
     }
 `;
 
@@ -151,6 +175,7 @@ const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
 const MobileMenuHeading = styled.h2`
     font-family: 'Oswald';
     font-size: 2rem;
+
 `;
 
 const MobileMenuParagraph = styled.p`

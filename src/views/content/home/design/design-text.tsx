@@ -13,7 +13,7 @@ const DesignContentDiv = styled.div`
     gap: 30px;
     justify-content: center;
     background: url(${spaceBackground});
-    background-color: #170e21;
+    background-color: #170e2168;
     background-size: cover;
     width: 100%;
     padding: 2rem;
