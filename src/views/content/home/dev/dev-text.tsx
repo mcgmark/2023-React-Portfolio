@@ -15,7 +15,7 @@ const DevContentDiv = styled.div`
     gap: 30px;
     justify-content: center;
     background: url(${spaceBackground});
-    background-color: #170e2168;
+    background-color: rgba(29, 15, 44, 0.81);
     background-size: cover;
     width: 100%;
     padding: 2rem;
@@ -69,7 +69,7 @@ const Span = styled.span`
 
 const DevParagraph = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 160%;
     letter-spacing: .05rem;
 

@@ -376,7 +376,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     const handleObserver = (entities: IntersectionObserverEntry[]) => {
         const target = entities[0];
         if (target.isIntersecting) {
-          setTimeout(loadMoreItems, 200);
+          setTimeout(loadMoreItems, 50);
         }
     };
     

@@ -75,7 +75,7 @@ const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
     return fontLoaded ? (
         <HomeContentDiv>
             <HomeHeading>Frontend<br /> Designer<br />Developer.<br /></HomeHeading>
-            <HomeParagraph>Graphic design and web development Mark has experience doing a wide range of projects.</HomeParagraph>
+            <HomeParagraph>Graphic design and web development Mark has experience doing a wide range of projects. Take a look at his design and development portfolios.</HomeParagraph>
         </HomeContentDiv>
     ): null;
 };

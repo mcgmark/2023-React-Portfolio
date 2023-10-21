@@ -108,7 +108,6 @@ const Home = () => {
     return (
         <Section>
             <Inner>
-                {/* <Header />    */}
                 <Top>
                     <HomeHead onAssetsLoaded={assetsLoadedCallback}></HomeHead>
                 </Top>

@@ -146,7 +146,7 @@ const PortfolioTechList = styled.ul`
 
 const ListItem = styled.li`
     flex-grow: 1;
-    background-color: none;
+    background-color: var(--purple-bright);
     padding: 6px 15px;
     border-radius: 25px;
     text-align: center;
