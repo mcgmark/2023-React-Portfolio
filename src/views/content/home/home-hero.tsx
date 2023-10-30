@@ -120,7 +120,7 @@ const HomeHeroCircle = styled(animated.div)<ImageProps>`
   border-color: rgb(219, 219, 219);
   border-style: solid;
   border-radius: 50%;
-  background-image: linear-gradient( 25deg, rgb(246,67,5) 13%, rgb(123,70,130) 30%, rgb(0,72,255) 50%, rgb(39,146,128) 63%, rgb(77,219,0) 88%);
+  background-image: linear-gradient( 25deg, rgb(246,67,5) 3%, rgb(123,70,130) 30%, rgb(0,72,255) 50%, rgb(39,146,128) 63%, rgb(77,219,0) 88%);
   width: 648.76px;
   height: 648.76px;
   z-index: -1;

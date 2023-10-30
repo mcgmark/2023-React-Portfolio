@@ -2,7 +2,7 @@
       {
       "id": 1,
       "title": "ReactJS Portfolio Website",
-      "type": "Application",
+      "type": "Web Application",
       "features": [
         "Common react hooks like useState, useEffect, useRef, and UseNavigate",
         "popular libraries such as React-Spring, Font Awesome React-Styled",
@@ -23,7 +23,7 @@
     {
       "id": 2,
       "title": "M.E.A.N. Data Dashboard Tool",
-      "type": "Application",
+      "type": "Web Application",
       "features": [
         "M.E.A.N. stack application with TypeScript",
         "Uses popular libraries passport, mongoose, font awesome, chartsjs",
@@ -58,7 +58,7 @@
         "Simple Application with a lot going on"
 
       ],
-      "type": "Application",
+      "type": "Web Application",
       "tech": [
         "javascript", "express API", "handlebars", "socketIO", "mongo", "css", "html5", "passport", "nodejs", "frontend", "backend", "json", "RESTful" 
       ],
@@ -78,7 +78,7 @@
         "User authentication/authorization using Asp.net core",
         "Simple Application with a lot going on"
       ],
-      "type": "Application",
+      "type": "Web Application",
       "tech": [
         "asp.net", "javascript", "bootstrap", "MsSQL", "C#", "frontend", "backend", "JSON", "RESTful"
       ],
@@ -96,7 +96,7 @@
         "Responsive layout",
         "SVG graphics"
       ],
-      "type": "Application",
+      "type": "Toy Application",
       "tech": [
         "CSS", "html5", "javascript", "frontend"
       ],

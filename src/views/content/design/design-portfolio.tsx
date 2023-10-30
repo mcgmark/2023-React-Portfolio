@@ -79,7 +79,7 @@ const PortfolioIntro = styled.p`
 const FilterButtonsContainer = styled.section`
     box-sizing: border-box;
     border-radius: 32px;
-    padding: 15px 15px;
+    padding: 20px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,6 +90,7 @@ const FilterButtonsContainer = styled.section`
     background-color: #2424242a;
     align-self: center;
     border: 1px solid #ffffff1a;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.355);
 
     @media (min-width: 815px) {
         flex-direction: row;
@@ -98,14 +99,14 @@ const FilterButtonsContainer = styled.section`
 
 const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         border-radius: 21px;
-        background-color: rgb(33, 33, 33);
+        background-color: rgb(41, 36, 36);
         border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
         width: 62vw;
         max-width: 300px;
-        height: 51px;
-        font-family: 'Rubik';
-        font-weight: bold;
+        height: 55px;
+        font-family: 'Acumin-Book';
         font-size: 1.3rem;
+        letter-spacing: 0.06rem;
         color: ${({ $selected }) => $selected ? 'rgb(255, 217, 0)' : '#ffffff' };
         box-shadow: inset 0px 0px 1px rgb(0,0,0, 0.1);
         text-transform: uppercase;
@@ -211,8 +212,8 @@ const PortfolioItemText = styled.div`
     ${PortfolioItem}:hover & {
         bottom: 0px;
         height: 100%;
-        backdrop-filter: blur(5px);
-        background: rgba(27, 8, 37, 0.9);
+        backdrop-filter: blur(5px) grayscale(100);
+        background: rgba(14, 13, 14, 0.9);
     }  
 
     @media (max-width: 600px) {
@@ -235,7 +236,7 @@ const PortfolioItemDescription = styled.p`
 
 const PortfolioItemType = styled.p`
     font-family: 'Roboto-Regular';
-    font-size: .8rem;
+    font-size: 0.9rem;
     text-align: center;
     margin: 0rem 2px;
     text-transform: uppercase;
@@ -376,7 +377,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     const handleObserver = (entities: IntersectionObserverEntry[]) => {
         const target = entities[0];
         if (target.isIntersecting) {
-          setTimeout(loadMoreItems, 50);
+          setTimeout(loadMoreItems, 10);
         }
     };
     

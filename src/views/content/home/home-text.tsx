@@ -14,7 +14,6 @@ const HomeContentDiv = styled.div`
     grid-template-rows: auto;
     row-gap: 30px;
 
-
     @media (min-width: 1000px) {
         margin-top: 40px;
     }
@@ -47,7 +46,7 @@ const HomeParagraph = styled.p`
 
     @media (min-width: 1000px) {
         line-height: 200%;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         width: 80%;
     }
 

@@ -14,6 +14,7 @@ import DesignCloud from '../content/design/design-cloud';
 import DesignPortfolio from '../content/design/design-portfolio';
 
 
+
 const Portfolio = styled.section`
    width: 100%;
    background: none;

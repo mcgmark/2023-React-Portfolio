@@ -32,13 +32,13 @@ type MenuContainerProps = {
 const MenuContainer = styled.nav<MenuContainerProps>`
     position: fixed;
     left: 0;
-    height: ${(props) => (props.$isScrolled ? '50px' : '80px')};
+    height: ${(props) => (props.$isScrolled ? '50px' : '60px')};
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.784)' : 'rgba(74, 12, 137, 0.3)')};
+    background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.784)' : 'rgba(74, 12, 137, 0.0)')};
     z-index: 2001;
     border-bottom: ${(props) => (props.$isScrolled ? '4px solid rgba(255, 255, 255, 0.025)' : '4px solid rgba(255, 255, 255, 0.025)')};
     backdrop-filter: blur(14px);
@@ -76,7 +76,7 @@ box-sizing: border-box;
     backdrop-filter: blur(70px);
     z-index: 1000;
     left: ${(props) => (props.$showmenu ? "0%" : "100%")};
-    transition: left .5s ease-in-out;
+    transition: left .5s ease;
     box-shadow: ${(props) => (props.$showmenu ? "0px 0px 50px rgb(0, 0, 0)" : "none")};
     border: 0px;
     overflow-y: auto;
@@ -98,37 +98,32 @@ box-sizing: border-box;
 
     @media (min-width: 700px){
         background-position: 20% top;
-        border: 10px solid rgba(163, 101, 255, 0.066);
+        border-left: 10px solid rgba(163, 101, 255, 0.066);
+        border-right: 10px solid rgba(163, 101, 255, 0.066);
         width: fit-content;
-        left: ${(props) => (props.$showmenu ? "35%" : "100%")};
+        left: ${(props) => (props.$showmenu ? "25%" : "100%")};
         padding: 0px 4%;
-        width: 60%;
+        width: 70%;
     }
 
-    @media (min-width: 1300px){
+    @media (min-width: 1200px){
         background-position: 0% top;
-        border: 10px solid rgba(163, 101, 255, 0.066);
-        width: fit-content;
-        left: ${(props) => (props.$showmenu ? "50%" : "100%")};
-        padding: 0px 4%;
-        width: 45%;
+        left: ${(props) => (props.$showmenu ? "45%" : "100%")};
+        padding: 0px 2%;
+        width: 50%;
     }
 
     @media (min-width: 1800px){
         background-position: -10% top;
-        border: 10px solid rgba(163, 101, 255, 0.066);
-        width: fit-content;
         left: ${(props) => (props.$showmenu ? "55%" : "100%")};
-        padding: 0px 3%;
+        padding: 0px 2%;
         width: 40%;
     }
 
     @media (min-width: 2000px){
         background-position: -20% top;
-        border: 10px solid rgba(163, 101, 255, 0.066);
-        width: fit-content;
         left: ${(props) => (props.$showmenu ? "65%" : "100%")};
-        padding: 0px 3%;
+        padding: 0px 2%;
         width: 30%;
     }
 `;
@@ -139,7 +134,7 @@ const MobileMenuContent = styled.div`
     align-items: start;
     gap: 20px;
     position: relative;
-    top: 150px;
+    top: 120px;
 `;
 
 const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
@@ -157,7 +152,7 @@ const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
         color: #9e30ff;
     }
 
-    /* &.current::after {
+    &.current::after {
     content: "+"; 
     position: absolute;
     top: 75%; 
@@ -165,7 +160,7 @@ const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
     transform: rotate(90deg) translateX(-60%);
     color: #9dffdb; 
     font-size: 1rem; 
-  } */
+  }
 
   &:hover {
     color: #9dffdb;
@@ -188,7 +183,7 @@ const MobileMenuParagraph = styled.p`
     overflow: hidden;
     transition: height .5s ease-in-out;
     color: #bebebe;
-    border-bottom: 3px solid rgba(93, 93, 93, 0.3);
+    border-bottom: 5px solid rgba(93, 93, 93, 0.3);
     padding-bottom: 30px;
 
     &:last-child {
@@ -331,7 +326,7 @@ const Menu = () => {
                     <MenuIcon $showMenu={showMenu} onClick={menuButtonClick} ref={menuButtonRef}/>
                 </MenuContainerInner>
             </MenuContainer>
-            <MobileMenu $showmenu={showMenu} ref={menuRef}/>
+            <MobileMenu $showmenu={showMenu} ref={menuRef} />
         </>
     );
 }

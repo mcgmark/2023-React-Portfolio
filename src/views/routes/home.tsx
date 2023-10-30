@@ -12,20 +12,24 @@ import DevHero from '../content/home/dev/dev-hero';
 import Footer from '../components/footer/footer';
 
 import backgroundImage from '../assets/images/bg-image.svg';
+import backgroundImageTop from '../assets/images/bg.svg';
 
 
 const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(${backgroundImage});
-  background-color: var(--background-purple);
+  background: url(${backgroundImage}), var(--background-purple);
+  background-position: center;
+  background-size: 100%;
   background-attachment: fixed;
+  background-repeat:  repeat;
   min-width: 100%;
   max-width: 90%;
   min-height: 100vh;
   overflow-x: hidden;
 `;
+
 
 const Top = styled.section`
     display: grid;
@@ -53,7 +57,7 @@ const Bottom = styled.section`
     grid-template-rows: auto;
     row-gap: 6rem;
     margin-bottom: 100px;
-    /* width: 90%; */
+
 
     @media (min-width: 1000px) {
         margin-top: 400px;

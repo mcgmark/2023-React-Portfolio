@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
+type CloudItemProps = {
+    $isAnimated: boolean;
+    style: React.CSSProperties;
+}
+
 
 type Item = {
     id: number; 
     title: string;
 };
 
-type CloudItemProps = {
-    $isAnimated: boolean;
-    style: React.CSSProperties;
-}
 
 const data: Item[] = 
 [
@@ -65,6 +66,8 @@ const Section = styled.section`
     height: fit-content;
     row-gap: 25px;
     max-width: fit-content;
+    display: none;
+
     @media (min-width: 1000px) {
         display: grid;
     }
@@ -85,8 +88,8 @@ const CloudItem = styled.span<CloudItemProps>`
         color: #fff;
         letter-spacing: 0.15rem;
         text-transform: uppercase;
-        animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse .5s ease-in-out' : 'none' };
-        transition: all 2s;
+        animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse 1s ease-in-out' : 'none' };
+        transition: all 2s ease;
         backdrop-filter: blur(10px);
 
         @keyframes cloudpulse {
@@ -94,8 +97,9 @@ const CloudItem = styled.span<CloudItemProps>`
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.15);
+                transform: scale(1.5);
                 border: 6px solid rgb(255, 217, 0);
+                z-index: 500;
             }
             100% {
                 transform: scale(1);
@@ -106,18 +110,23 @@ const CloudItem = styled.span<CloudItemProps>`
 const DesignCloud = () => {
 
     const [animatedChildIndex, setAnimatedChildIndex] = useState(0);
+    const [animatedChildIndexPrev, setAnimatedChildIndexPrev] = useState(0);
 
-    useEffect(() => {
-        // Function to randomly select a child component for animation
+    useEffect(() => {  
         const randomlyAnimateChild = () => {
-          const randomIndex = Math.floor(Math.random() * 10); // Assuming you have 10 child components
+          let randomIndex; 
+
+          do {randomIndex = Math.floor(Math.random() * 10);} 
+          while (randomIndex === animatedChildIndexPrev);
+
           setAnimatedChildIndex(randomIndex);
+          setAnimatedChildIndexPrev(randomIndex)
         };
     
-        const timer = setInterval(randomlyAnimateChild, 1250); // Adjust the timer interval as needed (e.g., every 3 seconds)
+        const timer = setInterval(randomlyAnimateChild, 1500); 
     
         return () => clearInterval(timer);
-      }, []);
+      });
 
     return (
         <Section>

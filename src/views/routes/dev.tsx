@@ -9,6 +9,7 @@ import Intro from '../content/dev/dev-intro';
 import DevPortfolio from '../content/dev/dev-portfolio';
 
 import backgroundImage from '../assets/images/bg-image-light.svg';
+import backgroundImageBottom from '../assets/images/bottomrightbg.svg';
 
 
 const DevContainer = styled.section`
@@ -18,10 +19,11 @@ const DevContainer = styled.section`
    align-items: center;
    overflow-x: hidden;
    background: none;
-   background: url(${backgroundImage});
+   background: url(${backgroundImageBottom}), url(${backgroundImage});
    background-color: var(--background-purple);
-   background-attachment: fixed;
-   background-position: center center;
+   background-attachment: scroll, fixed;
+   background-position: bottom left, center;
+   background-repeat: no-repeat;
 `;
 
 const Dev = () => {
@@ -51,7 +53,6 @@ const Dev = () => {
 
     return (
         <DevContainer>
-    
             <Intro></Intro>
             <DevPortfolio data={data}></DevPortfolio>
             <Footer></Footer>

@@ -2,13 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 import backgroundImage from '../../assets/images/bg-image-light.svg';
+import backgroundImageTop from '../../assets/images/topleftbg.svg';
 
 
 const Section = styled.section`
     background: url(${backgroundImage});
     background-color: var(--purple-bright);
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: auto;
     width: 100%;
     min-height: 750px;
     height: 100%;
@@ -17,8 +20,19 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+
+    @media (min-width: 1000px){
+        background: url(${backgroundImageTop}), url(${backgroundImage});
+        background-color: var(--purple-bright);
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat, repeat;
+        background-size: 150%, auto;
+    }
+
 `;
+
+
 
 const SectionInner = styled.div`
     display: flex;
@@ -42,14 +56,14 @@ const Breadcrumb = styled.span`
 `;
 
 const IntroText = styled.h1`
-    font-family: 'Roboto-Black';
-    text-transform: uppercase;
-    font-size: 2.85rem;
+    font-family: 'Arial-MT-Bold';
+    text-transform: capitalize;
+    font-size: 3rem;
     font-weight: 100;
     width: fit-content;
     z-index: 1;
     color: #e6e6e6;
-    line-height: 140%;
+    line-height: 120%;
 
     @media (min-width: 1400px) {
         font-size: 3.5rem;
