@@ -262,7 +262,7 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                 <MobileMenuParagraph>
                 40, living in Barrie, Ontario Mark has years of experience related to computers, marketing, graphic design, and web development. The majority of Mark's experience comes from designing everything related to marketing a business or service. Mailout flyers, websites, newspaper/magazine ads, printed tshirts, posters, cnc cutting/engraving, and more. 
                 <br/><br/>
-                Recently Mark graduated from Georgian College <small>(Dean's List)</small> and has spent the last 3 years learning the fundamentals of programming and web development. Mark has focused on data driven business applications incorporating API CRUD functions.   
+                Recently Mark graduated from Georgian College, Dean's List, and has spent the last 3 years learning the fundamentals of programming and web development.   
                 </MobileMenuParagraph>
             </MobileMenuContent>
         </MobileMenuContainer>

@@ -7,7 +7,7 @@
         "Common react hooks like useState, useEffect, useRef, and UseNavigate",
         "popular libraries such as React-Spring, Font Awesome React-Styled",
         "Mapped JSON data for app content",
-        "Lazy loading, infinite scroll",
+        "Lazy loading, infinite scroll, preloading images and fonts",
         "Font and image preloading",
         "CSS and JS Animations",
         "Responsive layout",
@@ -27,7 +27,7 @@
       "features": [
         "M.E.A.N. stack application with TypeScript",
         "Uses popular libraries passport, mongoose, font awesome, chartsjs",
-        "Express API",
+        "Express RESTful API with JWT token auth",
         "Angular frontend",
         "Chart and Graph calculation logic",
         "User authentication/authorization using Passport",
@@ -37,7 +37,7 @@
         "Simple Application with a lot going on"
       ],
       "tech": [
-        "CSS", "html5", "mean", "angular", "api", "mongodb", "nodejs", "express", "chartsJS", "backend", "frontend", "json", "typescript"  
+        "CSS", "html5", "mean", "angular", "RESTful API", "mongodb", "nodejs", "express", "chartsJS", "backend", "frontend", "json", "typescript"  
       ],
       "description": "Website MEAN stack CRUD application to display database data using different methods such as charts and graphs. This app features full CRUD for user authentication and site data.Running on the NodeJs environment with an Angular frontend and Express backend RESTful API. The application incorporates user authentication and authorization. This application incorporates popular libraries such as ChartsJs to display data, and passport for authentication. This app was created for a Georgian College course.",
       "link": "http://mcgmark-001-site4.dtempurl.com/",
@@ -51,7 +51,8 @@
         "Handlebars template frontend",
         "Mongo database",
         "Live updates using SocketIO web sockets",
-        "User authentication/authorization using Passport and Express Api",
+        "User authentication/authorization using Passport",
+        "Express RESTful API",
         "IP and cookie tracking for vote integrity",
         "MVC architecture",
         "Animated responsive interface",
@@ -60,7 +61,7 @@
       ],
       "type": "Web Application",
       "tech": [
-        "javascript", "express API", "handlebars", "socketIO", "mongo", "css", "html5", "passport", "nodejs", "frontend", "backend", "json", "RESTful" 
+        "javascript", "express" , "RESTful API", "handlebars", "socketIO", "mongo", "css", "html5", "passport", "nodejs", "frontend", "backend", "json", "RESTful" 
       ],
       "description": "Website application that allows users to create and share live polls. This application incorporates both frontend and backend javascript development. The poll voting is automatically live updated using web sockets. LivePoll is built on the Node.js environment using ExpressJS. The UI for the site is created using the Handlebars library. The website uses an Express server for the CRUD RESTful API. The app incorporates user authentication and authorization. This app was created for a Georgian College course.",
       "link": "http://mcgmark-001-site3.dtempurl.com/",
@@ -76,11 +77,12 @@
         "Complete Bing Maps implementation",
         "Bing Maps API using Javascript",
         "User authentication/authorization using Asp.net core",
+        "ASP.net Web API",
         "Simple Application with a lot going on"
       ],
       "type": "Web Application",
       "tech": [
-        "asp.net", "javascript", "bootstrap", "MsSQL", "C#", "frontend", "backend", "JSON", "RESTful"
+        "asp.net", "javascript", "bootstrap", "MsSQL", "C#", "frontend", "backend", "JSON", "RESTful API"
       ],
       "description": "GeoMarker allows users to create and view saved locations on a map. GeoMarker built on the ASP.Net platform and implements full CRUD, user authentication/authorization, MsSQL database, JSON API, and Bing Map API implementation using Javascript. Bootstrap was used to create the responsive layout. This app was created for a Georgian College course.",
       "link": "http://mcgmark-001-site1.dtempurl.com/",
