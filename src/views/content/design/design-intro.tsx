@@ -20,7 +20,7 @@ const IntroText = styled.h1`
     position: relative;
     font-family: 'Acumin-thin';
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-weight: 100;
     width: fit-content;
     z-index: 1;

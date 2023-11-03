@@ -135,6 +135,7 @@ const HomeHeroCircle = styled(animated.div)<ImageProps>`
 const HomeHeroContainer = styled(animated.div)`
     position: relative;
     z-index: 5;
+    perspective: 1000px;
 `;
 
 interface HomeHeroProps {
@@ -191,7 +192,7 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     return heroLoaded ? (     
         <HomeHeroContainer style={animatedProps}> 
             <section>
-                <SpacemanColorIMG top="50px" left="-30px" src={spacemanColorImage} alt="Logo"></SpacemanColorIMG>
+                <SpacemanColorIMG top="50px" left="-30px" src={spacemanColorImage} alt="Logo" ></SpacemanColorIMG>
                 <SpacemanPlainIMG top="150px" left="630px" src={spacemanPlainImage} alt="Logo"></SpacemanPlainIMG>
                 <StarLargeIMG top="-90px" left="500px" src={starLarge} alt="star" ></StarLargeIMG>
                 <StarMediumIMG top="420px" left="-50px" src={starMedium} alt="star"></StarMediumIMG>

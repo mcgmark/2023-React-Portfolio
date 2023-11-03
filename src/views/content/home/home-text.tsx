@@ -24,6 +24,7 @@ const HomeHeading = styled.h1`
     font-size: 16vw;
     line-height: 110%;
     letter-spacing: -.15rem;
+    z-index:800;
 
     @media (min-width: 1000px) {
         font-size: 12vw;
@@ -51,7 +52,8 @@ const HomeParagraph = styled.p`
     }
 
     @media (min-width: 1500px) {
-        width: 80%;
+        width: 90%;
+        font-size: 1.5rem;
     }
 `;
 

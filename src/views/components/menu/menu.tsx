@@ -64,7 +64,7 @@ const NameLogo = styled.span<MenuContainerProps>`
 `;
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
-box-sizing: border-box;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -76,7 +76,7 @@ box-sizing: border-box;
     backdrop-filter: blur(70px);
     z-index: 1000;
     left: ${(props) => (props.$showmenu ? "0%" : "100%")};
-    transition: left .5s ease;
+    transition: all .5s ease;
     box-shadow: ${(props) => (props.$showmenu ? "0px 0px 50px rgb(0, 0, 0)" : "none")};
     border: 0px;
     overflow-y: auto;
@@ -109,32 +109,32 @@ box-sizing: border-box;
     @media (min-width: 1200px){
         background-position: 0% top;
         left: ${(props) => (props.$showmenu ? "45%" : "100%")};
-        padding: 0px 2%;
+        padding: 50px 2%;
         width: 50%;
     }
 
     @media (min-width: 1800px){
         background-position: -10% top;
         left: ${(props) => (props.$showmenu ? "55%" : "100%")};
-        padding: 0px 2%;
+
         width: 40%;
     }
 
     @media (min-width: 2000px){
         background-position: -20% top;
         left: ${(props) => (props.$showmenu ? "65%" : "100%")};
-        padding: 0px 2%;
         width: 30%;
     }
 `;
 
 const MobileMenuContent = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 20px;
     position: relative;
-    top: 120px;
+    top: 80px;
 `;
 
 const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
@@ -262,7 +262,7 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                 <MobileMenuParagraph>
                 40, living in Barrie, Ontario Mark has years of experience related to computers, marketing, graphic design, and web development. The majority of Mark's experience comes from designing everything related to marketing a business or service. Mailout flyers, websites, newspaper/magazine ads, printed tshirts, posters, cnc cutting/engraving, and more. 
                 <br/><br/>
-                Recently Mark graduated from Georgian College, Dean's List, and has spent the last 3 years learning the fundamentals of programming and web development.   
+                Recently Mark graduated from Georgian College, Dean's List, and has spent the last 3 years learning the fundamentals of web development.   
                 </MobileMenuParagraph>
             </MobileMenuContent>
         </MobileMenuContainer>

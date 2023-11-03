@@ -36,20 +36,20 @@ const HeaderSection = styled.header`
     column-gap: 4rem;
     width: 90%;
     max-width: 2000px;
-    height: 700px;
-    margin-top: 60px;
+    min-height: 100vh;
 
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr; 
         column-gap: 5rem;
+        min-height: 750px;
+        padding-top: 60px; 
+        padding-bottom: 90px;
     }
 
     @media (min-width: 2000px) {
         column-gap: 17rem;
         height: 800px;
     }
-
-
 `;
 
 // const SubHeader = styled.section`

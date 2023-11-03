@@ -90,7 +90,7 @@ const CloudItem = styled.span<CloudItemProps>`
         text-transform: uppercase;
         animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse 1s ease-in-out' : 'none' };
         transition: all 2s ease;
-        backdrop-filter: blur(10px);
+        background-color: rgba(25, 4, 43, 0.734);
 
         @keyframes cloudpulse {
             0% {

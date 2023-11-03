@@ -50,10 +50,11 @@ const PortfolioItem = styled.div`
     background-repeat: repeat;
     z-index: 499;
     box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6);
-    filter:  grayscale(100%);
+    
 
     @media (min-width: 1000px){
         padding: 10px 10px;
+        filter:  grayscale(100%);
     }
 
     &:hover {
@@ -155,7 +156,7 @@ const ListItem = styled.li`
 
 const StyledItemButton = styled.button`
   position: relative;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-family: 'Arial-MT-Bold';
   color: #ffffff;
   padding: 15px 0px;

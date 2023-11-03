@@ -78,31 +78,32 @@ const PortfolioIntro = styled.p`
 
 const FilterButtonsContainer = styled.section`
     box-sizing: border-box;
-    border-radius: 32px;
-    padding: 20px 25px;
+    border-radius: 40px;
+    padding: 15px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    width: fit-content;
-    gap: 30px;
-    background-color: #2424242a;
+    width: 100%;
+    gap: 20px;
+    background-color: #24242417;
     align-self: center;
     border: 1px solid #ffffff1a;
     box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.355);
 
     @media (min-width: 815px) {
         flex-direction: row;
+        max-width: 1000px;
     }
 `;
 
 const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
-        border-radius: 21px;
+        border-radius: 45px;
         background-color: rgb(41, 36, 36);
         border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
-        width: 62vw;
-        max-width: 300px;
+        width: 100%;
+        
         height: 55px;
         font-family: 'Acumin-Book';
         font-size: 1.3rem;
@@ -112,11 +113,13 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         text-transform: uppercase;
         cursor: pointer;
         transition: all .3s ease;
-        animation: ${({ $selected }) => $selected ? 'pulse 0.3s 1' : 'none'};   
-
-        @media (min-width: 800px){
-            width: 22vw;
+        animation: ${({ $selected }) => $selected ? 'pulse 0.3s 1' : 'none'}; 
+        
+        @media (min-width: 1000px) {
+            flex-direction: row;
+            max-width: 300px;
         }
+
         
         &:hover {
             background-color: ${({ $selected }) => $selected ? 'rgb(42, 42, 43)' : 'rgb(59, 59, 60)'};
@@ -155,7 +158,7 @@ const PortfolioItemsContainer = styled.section`
 const PortfolioItem = styled.div`
     position: relative;
     box-sizing: border-box;
-    width: 80%;
+    width: 100%;
     overflow: hidden;
     opacity: 0;
     aspect-ratio: 16/9;
@@ -215,10 +218,6 @@ const PortfolioItemText = styled.div`
         backdrop-filter: blur(5px) grayscale(100);
         background: rgba(14, 13, 14, 0.9);
     }  
-
-    @media (max-width: 600px) {
-        display: none;
-    }
 `;
 
 const PortfolioItemDescription = styled.p`
