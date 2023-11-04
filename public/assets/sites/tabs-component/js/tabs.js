@@ -8,21 +8,23 @@ $(document).ready(function(){
 	$('div.tabs nav ul.tabNavigation a:first').addClass('selected');
 	// add onclick handlers to all tabs
 	$('div.tabs nav ul.tabNavigation a').click(function(){
-		// hide all tabContainers
-		tabContainers.fadeOut()
-		// select only the tabContainer with with ID that matches the ID of the anchor tag clicked
-		tabContainers.filter(this.hash)
-		.fadeIn() // fadeIn the elememt
-		// animate the element movements using jquery. 
-		.animate({top: '10px'}, {queue: false}) // animate the element down 10px from the top and do it immediately while fadeIn
-		.animate({top: '-5px'}) // Move element up to -5px 
-		.animate({top: '5px'}) // Move element down to 5px
-		.animate({top: '0px'}) // move element up to 0px
-		// remove class="selected" from all tabs
-		$('div.tabs nav ul.tabNavigation a').removeClass('selected');
-		// set class="selected" on the tab that was just clicked
-		$(this).addClass('selected');
-		// stop following links
-		return false;
+		if (!$(this).hasClass("selected")){
+			// hide all tabContainers
+			tabContainers.fadeOut()
+			// select only the tabContainer with with ID that matches the ID of the anchor tag clicked
+			tabContainers.filter(this.hash)
+			.fadeIn() // fadeIn the elememt
+			// animate the element movements using jquery. 
+			.animate({top: '10px'}, {queue: false}) // animate the element down 10px from the top and do it immediately while fadeIn
+			.animate({top: '-5px'}) // Move element up to -5px 
+			.animate({top: '5px'}) // Move element down to 5px
+			.animate({top: '0px'}) // move element up to 0px
+			// remove class="selected" from all tabs
+			$('div.tabs nav ul.tabNavigation a').removeClass('selected');
+			// set class="selected" on the tab that was just clicked
+			$(this).addClass('selected');
+			// stop following links
+			return false;
+		}
 	});
 });

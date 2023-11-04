@@ -9,11 +9,11 @@ toggleButton.addEventListener('click', toggleMenu);
     
 function toggleMenu() {
     if (toggleState === 0) {
-        bigMenu.setAttribute('style', 'visibility: visible;');
+        bigMenu.setAttribute('style', 'visibility: visible; top: 80px;');
         toggleArrow.setAttribute('style', 'transform: rotate(180deg);');
         toggleState = 1
     } else {
-        bigMenu.setAttribute('style', 'visibility: hidden;');
+        bigMenu.setAttribute('style', 'visibility: hidden; top: -245px;');
         toggleArrow.setAttribute('style', 'transform: rotate(0deg);');
         toggleState = 0
     };
