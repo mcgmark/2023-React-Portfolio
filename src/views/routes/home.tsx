@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-
 import HomeHead from '../content/home/home-head';
 import DesignText from '../content/home/design/design-text';
 import DesignHero from '../content/home/design/design-hero';
 import DevText from '../content/home/dev/dev-text';
 import DevHero from '../content/home/dev/dev-hero';
 import Footer from '../components/footer/footer';
+import Loading from '../content/home/loading';
 
 import backgroundImage from '../assets/images/bg-image.svg';
-import backgroundImageTop from '../assets/images/bg.svg';
 
 
 const Section = styled.section`
@@ -20,16 +17,13 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   background: url(${backgroundImage}), var(--background-purple);
-  background-position: center;
-  background-size: 100%;
   background-attachment: fixed;
-  background-repeat:  repeat;
+  background-position: center center;
   min-width: 100%;
   max-width: 90%;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
-
 
 const Top = styled.section`
     display: grid;
@@ -44,7 +38,7 @@ const Top = styled.section`
 
     @media (min-width: 1500px) {
         grid-template-columns: 1fr 1fr;
-        margin-top: 12rem;
+        margin-top: 10rem;
     }
     @media (min-width: 2000px) {
         grid-template-columns: 1fr 1fr;
@@ -81,32 +75,16 @@ const Inner = styled.section`
     max-width: 2000px;
 `;
 
-const LoadingIcon = styled(FontAwesomeIcon)`
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    font-size: 3vw;
-    z-index: 1500;
-    animation: loadingRotate 2s infinite;
-    color: #fff;
-
-    @keyframes loadingRotate {
-        0% {
-            transform: rotate(0turn);
-        }
-        100% {
-            transform: rotate(-1turn);
-        }
-    }
-`;
-
-
 const Home = () => {
 
     const [assetsLoaded, setAssetsLoaded] = useState(false)
 
     const assetsLoadedCallback = () => {
-        setAssetsLoaded(true);
+        const timeout = setTimeout(() => {
+            setAssetsLoaded(true);
+        }, 500);
+
+        return () => clearTimeout(timeout)
     }
 
     return (
@@ -125,7 +103,8 @@ const Home = () => {
                 </Bottom>
                 <Footer></Footer>
                 </> 
-                ) : <LoadingIcon icon={faSpinner}/> }
+                ) : null } 
+                <Loading visible={!assetsLoaded} />
             </Inner> 
         </Section>
     );

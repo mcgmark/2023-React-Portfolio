@@ -18,7 +18,8 @@ const DesignContentDiv = styled.div`
     width: 100%;
     padding: 2rem;
     justify-self: center;
-    border-radius: 25px;
+    border-radius: 0px 60px 0px 60px;
+    box-shadow: 5px 5px 50px #ffffff35;
 
     @media (min-width: 1000px) {
         padding: 2.5rem;
@@ -67,7 +68,7 @@ const Span = styled.span`
 
 const DesignParagraph = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 160%;
     letter-spacing: .05rem;
 
@@ -92,11 +93,14 @@ const DesignButton = styled.div`
     overflow: hidden;
     cursor: pointer;
     transition: all 200ms ease;
-    border: 4px solid rgb(244, 255, 34);
+    border: 2px solid #43f103;
     backdrop-filter: blur(3px);
+    box-shadow: 5px 5px 50px #ffffff35;
     
     &:hover {
-        transform: scale(103%);
+        transform: scale(105%);
+        color: #43f103;
+        box-shadow: 5px 5px 50px #ffffff62;
     }
 `;
 
@@ -111,7 +115,7 @@ const DesignText = () => {
     return (
         <DesignContentDiv>
             <DesignHeading><Span>keep it simple, but not too simple.</Span></DesignHeading>
-            <DesignParagraph>Mark enjoys combining typography and graphics to create engaging and informative resources needed in marketing and advertising. Web or print Mark has experience designing everything your business needs.</DesignParagraph>
+            <DesignParagraph>I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything your business needs.</DesignParagraph>
             <DesignButton onClick={() => loadPortfolio('/design')}>VIEW DESIGN </DesignButton>
         </DesignContentDiv>
     );

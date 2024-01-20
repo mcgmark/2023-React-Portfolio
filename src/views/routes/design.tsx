@@ -13,7 +13,7 @@ import Intro from '../content/design/design-intro';
 import DesignCloud from '../content/design/design-cloud';
 import DesignPortfolio from '../content/design/design-portfolio';
 
-
+import Loading from '../content/home/loading';
 
 const Portfolio = styled.section`
    width: 100%;
@@ -41,7 +41,7 @@ const HeaderSection = styled.header`
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr; 
         column-gap: 5rem;
-        min-height: 750px;
+        min-height: 680px;
         padding-top: 60px; 
         padding-bottom: 90px;
     }
@@ -79,6 +79,8 @@ const Dev = () => {
 
     const [data, setData] = useState<DesignItem[]>([]);
 
+    const [assetsLoaded, setAssetsLoaded] = useState(false)
+
     const loadData = async () => {
         try {
             const dataLoaded: Response = await fetch('/assets/data/design.json');
@@ -86,7 +88,10 @@ const Dev = () => {
                 throw new Error('Failed to fetch data');
             }
             const dataJSON: DesignItem[] = await dataLoaded.json();
-            setData(dataJSON);
+            setData(dataJSON);           
+            setTimeout(() => {
+                setAssetsLoaded(true);
+            }, 500);
         } catch (error) {
             console.error('Error loading data:', error);
         };  
@@ -120,6 +125,7 @@ const Dev = () => {
 
     return (
         <Portfolio style={{ backgroundPosition: `center ${backgroundPositionX}`}}>
+            <Loading visible={!assetsLoaded} />
             <HeaderSection>
                 <Intro></Intro>
                 <DesignCloud></DesignCloud>

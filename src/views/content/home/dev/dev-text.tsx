@@ -20,7 +20,8 @@ const DevContentDiv = styled.div`
     width: 100%;
     padding: 2rem;
     justify-self: center;
-    border-radius: 25px;
+    border-radius: 0px 60px 0px 60px;
+    box-shadow: 5px 5px 50px #ffffff35;
 
     @media (min-width: 1000px) {
         padding: 2.5rem;
@@ -69,7 +70,7 @@ const Span = styled.span`
 
 const DevParagraph = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 160%;
     letter-spacing: .05rem;
 
@@ -94,11 +95,14 @@ const DevButton = styled.div`
     overflow: hidden;
     cursor: pointer;
     transition: all 200ms ease;
-    border: 4px solid rgb(0, 98, 255);
+    border: 2px solid #b700ff;
     backdrop-filter: blur(3px);
+    box-shadow: 5px 5px 50px #ffffff35;
     
     &:hover {
-        transform: scale(103%);
+        transform: scale(105%);
+        color: #b700ff;
+        box-shadow: 5px 5px 50px #ffffff62;
     }
 `;
   
@@ -113,7 +117,7 @@ const DevText = () => {
     return (
         <DevContentDiv>
             <DevHeading><Span>javascript, react, php, sql, git, oh my...</Span></DevHeading>
-            <DevParagraph>Websites are applications and the best ones require a lot of pieces to make them work. Mark has spent the last three years building his knowledge and experience putting these peices together building websites and web applications. </DevParagraph>
+            <DevParagraph>Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications. </DevParagraph>
             <DevButton onClick={() => loadPortfolio('/dev')}>VIEW DEV</DevButton>
         </DevContentDiv>
     );

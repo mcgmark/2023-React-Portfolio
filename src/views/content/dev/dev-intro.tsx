@@ -33,7 +33,6 @@ const Section = styled.section`
 `;
 
 
-
 const SectionInner = styled.div`
     display: flex;
     flex-direction: column;
@@ -76,12 +75,11 @@ const IntroText = styled.h1`
 
 const Text = styled.p`
     font-family: 'Roboto-thin';
-    font-size: 1.25rem;
-    line-height: 180%;
+    font-size: 1.45rem;
+    line-height: 150%;
     color: #e6e6e6;
 
     @media (min-width: 1200px) {
-        font-size: 1.3rem;
         max-width: 1600px;
     }
 `;
@@ -93,8 +91,8 @@ const Intro = () => {
             <HeaderSpacer></HeaderSpacer>
             <SectionInner>
             <Breadcrumb>Web Development</Breadcrumb>
-            <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(255, 238, 0)'}}>oh my...</span></IntroText>
-            <Text>Websites are applications that require a lot of pieces to make them work. Mark, a recent Dean's List graduate of Georgian College, has spent the last three years building his knowledge and experience putting the peices together building websites and web applications.</Text>
+            <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(136, 255, 0)'}}>oh my...</span></IntroText>
+            <Text>Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications.</Text>
             </SectionInner>
             <HeaderSpacer></HeaderSpacer>
         </Section>

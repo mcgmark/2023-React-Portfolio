@@ -5,11 +5,11 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
 min-width: 100%;
-height: 150px;
+height: 50px;
 display: flex;
-align-items: center;
+align-items: end;
 justify-content: center;
-text-align: center;
+padding-bottom: 40px;
 `;
 
 const FooterInnerContainer = styled.section`
@@ -17,7 +17,7 @@ const FooterInnerContainer = styled.section`
 
 const NameLogo = styled.span`
     font-family: 'Rubik';
-    font-size: 1.75rem;
+    font-size: 1.05rem;
     text-transform: uppercase;
     cursor: pointer;
 `;

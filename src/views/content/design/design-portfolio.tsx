@@ -376,7 +376,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     const handleObserver = (entities: IntersectionObserverEntry[]) => {
         const target = entities[0];
         if (target.isIntersecting) {
-          setTimeout(loadMoreItems, 10);
+          setTimeout(loadMoreItems, 5);
         }
     };
     
@@ -456,7 +456,7 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
             <PortfolioInner>
                 <PortfolioHeadingContainer>
                     <PortfolioHeading>Digital <span style={{position: 'relative', color:'rgb(255, 217, 0)', fontSize: '90%', bottom: '8px'}}>+</span> Print</PortfolioHeading>
-                    <PortfolioIntro>Mark has experience designing for web and print, take a look at these previous designs.</PortfolioIntro>
+                    <PortfolioIntro>I have experience designing for web and print, take a look at these previous designs.</PortfolioIntro>
                     <FilterButtonsContainer>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'digital'}

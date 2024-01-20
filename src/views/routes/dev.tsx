@@ -8,6 +8,8 @@ import Footer from '../components/footer/footer';
 import Intro from '../content/dev/dev-intro';
 import DevPortfolio from '../content/dev/dev-portfolio';
 
+import Loading from '../content/home/loading';
+
 import backgroundImage from '../assets/images/bg-image-light.svg';
 import backgroundImageBottom from '../assets/images/bottomrightbg.svg';
 
@@ -29,6 +31,7 @@ const DevContainer = styled.section`
 const Dev = () => {
 
     const [data, setData] = useState<DevItem[]>([]);
+    const [assetsLoaded, setAssetsLoaded] = useState(false)
 
     const loadData = async () => {
         try {
@@ -38,6 +41,9 @@ const Dev = () => {
             }
             const dataJSON: DevItem[] = await dataLoaded.json();
             setData(dataJSON);
+            setTimeout(() => {
+                setAssetsLoaded(true);
+            }, 500);
         } catch (error) {
             console.error('Error loading data:', error);
         };  
@@ -53,6 +59,7 @@ const Dev = () => {
 
     return (
         <DevContainer>
+            <Loading visible={!assetsLoaded} />
             <Intro></Intro>
             <DevPortfolio data={data}></DevPortfolio>
             <Footer></Footer>

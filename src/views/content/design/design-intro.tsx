@@ -78,7 +78,7 @@ const Intro = () => {
                 <IntroText>simple, but not</IntroText>
                 <IntroText>too simple.</IntroText>
             </div>
-            <Text>Mark enjoys combining typography and graphics to create engaging and informative resources needed in marketing and advertising. Web or print Mark has experience designing everything your business needs. </Text>
+            <Text>I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything your business needs. </Text>
         </Section>
     );
 }

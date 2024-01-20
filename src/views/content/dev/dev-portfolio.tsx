@@ -48,9 +48,7 @@ const PortfolioItem = styled.div`
     background-position:  5px 0, 5px 0, 0 0, 0 0;
     background-size: 5px 5px;
     background-repeat: repeat;
-    z-index: 499;
     box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6);
-    
 
     @media (min-width: 1000px){
         padding: 10px 10px;
@@ -83,7 +81,7 @@ const PortfolioItemType = styled.p`
     font-family: 'Roboto-Cond-Bold';
     font-size: 1.05rem;
     text-transform: capitalize;
-    color: #ffea00;
+    color: rgb(136, 255, 0);
     text-transform: uppercase;
     /* border-bottom: 1px solid #333; */
 `;

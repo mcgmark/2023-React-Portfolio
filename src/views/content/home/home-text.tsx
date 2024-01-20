@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
+import spaceBackground from '../../assets/images/space-bg.png';
+
 const FontFaceObserver = require('font-face-observer');
 
 
@@ -12,11 +14,7 @@ const HomeContentDiv = styled.div`
     max-width: 900px;
     display: grid;
     grid-template-rows: auto;
-    row-gap: 30px;
-
-    @media (min-width: 1000px) {
-        margin-top: 40px;
-    }
+    row-gap: 50px;
 `;
 
 const HomeHeading = styled.h1`
@@ -41,19 +39,26 @@ const HomeHeading = styled.h1`
 `;
 
 const HomeParagraph = styled.p`
-    font-family: 'Roboto-Thin';
+    padding: 35px 35px;
+    font-family: 'Roboto-thin';
     font-size: 1.2rem;
     letter-spacing: .05rem;
+    border-radius: 0px 60px 0px 60px;
+    background: url(${spaceBackground});
+    background-position: left;
+    border-left: 3px solid #43f103;
+    border-right: 5px solid #b700ff;
+    box-shadow: 5px 5px 50px #ffffff35;
 
     @media (min-width: 1000px) {
         line-height: 200%;
         font-size: 1.25rem;
-        width: 80%;
+        width: 70%;
     }
 
     @media (min-width: 1500px) {
-        width: 90%;
-        font-size: 1.5rem;
+        width: 80%;
+        font-size: 1.15rem;
     }
 `;
 
@@ -75,8 +80,8 @@ const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
 
     return fontLoaded ? (
         <HomeContentDiv>
-            <HomeHeading>Frontend<br /> Designer<br />Developer.<br /></HomeHeading>
-            <HomeParagraph>Graphic design and web development Mark has experience doing a wide range of projects. Take a look at his design and development portfolios.</HomeParagraph>
+            <HomeHeading>frontend<br /> designer<br />developer<br /></HomeHeading>
+            <HomeParagraph>Graphic design or web development I have experience doing a wide range of projects. Browse my portfolio for a better understanding of the work I do.</HomeParagraph>
         </HomeContentDiv>
     ): null;
 };

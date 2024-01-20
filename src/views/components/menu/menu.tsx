@@ -10,6 +10,7 @@ import mark from '../../assets/images/mark.png';
 
 type MobileMenuProps = {
     $showmenu: boolean;
+    menuButtonClick: () => void;
 }
 
 type MenuIconProps = {
@@ -39,7 +40,7 @@ const MenuContainer = styled.nav<MenuContainerProps>`
     justify-content: center;
     align-items: center;
     background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.784)' : 'rgba(74, 12, 137, 0.0)')};
-    z-index: 2001;
+    z-index: 12001;
     border-bottom: ${(props) => (props.$isScrolled ? '4px solid rgba(255, 255, 255, 0.025)' : '4px solid rgba(255, 255, 255, 0.025)')};
     backdrop-filter: blur(14px);
     box-shadow: 0px 10px 40px rgba(20, 2, 25, 0.4);
@@ -74,7 +75,7 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
     background-position: 20% top;
     background-repeat: no-repeat;
     backdrop-filter: blur(70px);
-    z-index: 1000;
+    z-index: 12000;
     left: ${(props) => (props.$showmenu ? "0%" : "100%")};
     transition: all .5s ease;
     box-shadow: ${(props) => (props.$showmenu ? "0px 0px 50px rgb(0, 0, 0)" : "none")};
@@ -219,7 +220,7 @@ const MenuIcon = React.forwardRef<SVGSVGElement, MenuIconProps>(({ $showMenu, on
     );
 });
 
-const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmenu }, ref) => {
+const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmenu, menuButtonClick }, ref) => {
 
     const location = useLocation();
 
@@ -230,29 +231,29 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
     };
 
     return (
-        <MobileMenuContainer $showmenu={$showmenu} ref={ref}>
+        <MobileMenuContainer $showmenu={$showmenu} ref={ref} menuButtonClick={menuButtonClick}>
             <MobileMenuContent>
                 
             <MobileMenuButton
                 className={location.pathname === '/design' ? 'current' : ''}
-                onClick={() => loadPortfolio('/design')}
+                onClick={() => {loadPortfolio('/design'); menuButtonClick();}}
             >
                     <FontAwesomeIcon icon={faPaperPlane} />
                     DESIGN
                 </MobileMenuButton>
                 <MobileMenuParagraph>
-                    Print and Web design Mark has experience designing everything from flyers to websites.
+                    Print and Web design I have experience designing everything from flyers to websites.
                 </MobileMenuParagraph>
                 
                 <MobileMenuButton
                     className={location.pathname === '/dev' ? 'current' : ''}
-                    onClick={() => loadPortfolio('/dev')}
+                    onClick={() => {loadPortfolio('/dev'); menuButtonClick();}}
                 >
                     <FontAwesomeIcon icon={faCode} />
                     DEVELOPMENT
                 </MobileMenuButton>
                 <MobileMenuParagraph>
-                    Frontend and backend web development Mark has experience building websites and web applications from start to finish. 
+                    Frontend and backend web development I have experience building web applications from start to finish. 
                 </MobileMenuParagraph>
                 <MobileMenuHeading
                     onClick={() => {return false}}
@@ -260,9 +261,9 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                     ABOUT MARK
                 </MobileMenuHeading>
                 <MobileMenuParagraph>
-                40, living in Barrie, Ontario Mark has years of experience related to computers, marketing, graphic design, and web development. The majority of Mark's experience comes from designing everything related to marketing a business or service. Mailout flyers, websites, newspaper/magazine ads, printed tshirts, posters, cnc cutting/engraving, and more. 
+                40, living in Barrie, Ontario I have years of experience related to computers, marketing, graphic design, and web development. The majority of my experience comes from designing everything related to marketing a business. Mailout flyers, websites, print ads, web ads, printed tshirts, posters, cnc cutting/engraving, and more. 
                 <br/><br/>
-                Recently Mark graduated from Georgian College, Dean's List, and has spent the last 3 years learning the fundamentals of web development.   
+                Recently I graduated from Georgian College on the Dean's List and I have spent the last 3 years learning the fundamentals of web development.   
                 </MobileMenuParagraph>
             </MobileMenuContent>
         </MobileMenuContainer>
@@ -326,7 +327,7 @@ const Menu = () => {
                     <MenuIcon $showMenu={showMenu} onClick={menuButtonClick} ref={menuButtonRef}/>
                 </MenuContainerInner>
             </MenuContainer>
-            <MobileMenu $showmenu={showMenu} ref={menuRef} />
+            <MobileMenu $showmenu={showMenu} menuButtonClick={menuButtonClick} ref={menuRef} />
         </>
     );
 }
