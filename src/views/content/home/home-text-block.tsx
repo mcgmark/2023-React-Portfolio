@@ -1,12 +1,18 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import spaceBackground from '../../../assets/images/space-bg.png';
+import { useNavigate } from 'react-router-dom'; 
 
-const DevContentDiv = styled.div`
+import spaceBackground from '../../assets/images/space-bg.png';
+
+interface HomeTextBlockProps {
+    heading: string;
+    paragraph: string;
+    link: string;
+    children: ReactNode;
+}
+
+const HomeContentDiv = styled.div`
     position: relative;
     box-sizing: border-box;
     max-width: 775px;
@@ -20,7 +26,7 @@ const DevContentDiv = styled.div`
     width: 100%;
     padding: 2rem;
     justify-self: center;
-    border-radius: 0px 60px 0px 60px;
+    border-radius: 0px 120px 0px 120px;
     box-shadow: 5px 5px 50px #ffffff35;
 
     @media (min-width: 1000px) {
@@ -37,7 +43,7 @@ const DevContentDiv = styled.div`
     }
 `;
 
-const DevHeading = styled.h1`
+const HomeHeading = styled.h1`
     position: relative;
     left: 0px;
     font-family: 'Arial-MT-Bold';
@@ -47,7 +53,6 @@ const DevHeading = styled.h1`
 
     @media (min-width: 1000px) {
     left: -70px;
-    font-family: 'Arial-MT-Bold';
     font-size: 3.25rem;
     line-height: 165%;
     letter-spacing: .05rem;
@@ -56,7 +61,6 @@ const DevHeading = styled.h1`
     @media (min-width: 1500px) {
     position: absolute;
     top: 10%;
-    font-family: 'Arial-MT-Bold';
     font-size: 4.25rem;
     line-height: 165%;
     letter-spacing: .05rem;
@@ -68,7 +72,7 @@ const Span = styled.span`
     padding: .5rem;
 `;
 
-const DevParagraph = styled.p`
+const HomeParagraph = styled.p`
     font-family: 'Roboto-Thin';
     font-size: 1.1rem;
     line-height: 160%;
@@ -79,7 +83,7 @@ const DevParagraph = styled.p`
     }
 `;
 
-const DevButton = styled.div`
+const HomeButton = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
@@ -95,34 +99,34 @@ const DevButton = styled.div`
     overflow: hidden;
     cursor: pointer;
     transition: all 200ms ease;
-    border: 2px solid #b700ff;
+    border: 2px solid #4203f1;
     backdrop-filter: blur(3px);
-    box-shadow: 5px 5px 50px #ffffff35;
+    box-shadow: 0px 0px 50px #ffffff35;
+    text-transform: uppercase;
     
     &:hover {
         transform: scale(105%);
-        color: #b700ff;
-        box-shadow: 5px 5px 50px #ffffff62;
+        box-shadow: 0px 0px 20px #4203f1;
     }
 `;
-  
-const DevText = () => {
+
+const HomeTextBlock: React.FC<HomeTextBlockProps> = ({ heading, paragraph, link, children}) => {
 
     const navigate = useNavigate();
 
-    const loadPortfolio = (route: string) => {
-        navigate(route);
+    const loadPortfolio = () => {
+        navigate(link);
     };
 
     return (
-        <DevContentDiv>
-            <DevHeading><Span>javascript, react, php, sql, git, oh my...</Span></DevHeading>
-            <DevParagraph>Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications. </DevParagraph>
-            <DevButton onClick={() => loadPortfolio('/dev')}>VIEW DEV</DevButton>
-        </DevContentDiv>
+        <HomeContentDiv>
+            <HomeHeading><Span>{heading}</Span></HomeHeading>
+            <HomeParagraph>{paragraph}</HomeParagraph>
+            <HomeButton onClick={loadPortfolio}>{children}</HomeButton>
+        </HomeContentDiv>
     );
 
 };
 
 
-export default DevText;
+export default HomeTextBlock;

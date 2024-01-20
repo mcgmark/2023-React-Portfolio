@@ -8,7 +8,7 @@ import Footer from '../components/footer/footer';
 import Intro from '../content/dev/dev-intro';
 import DevPortfolio from '../content/dev/dev-portfolio';
 
-import Loading from '../content/home/loading';
+import Loading from '../components/loading/loading';
 
 import backgroundImage from '../assets/images/bg-image-light.svg';
 import backgroundImageBottom from '../assets/images/bottomrightbg.svg';

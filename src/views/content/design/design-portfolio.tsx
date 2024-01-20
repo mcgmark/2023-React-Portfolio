@@ -105,7 +105,7 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         width: 100%;
         
         height: 55px;
-        font-family: 'Acumin-Book';
+        font-family: 'Roboto-Regular';
         font-size: 1.3rem;
         letter-spacing: 0.06rem;
         color: ${({ $selected }) => $selected ? 'rgb(255, 217, 0)' : '#ffffff' };

@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "title": "M.E.A.N. Data Dashboard Tool",
+      "title": "Data Dashboard Tool",
       "type": "Web Application",
       "features": [
         "M.E.A.N. stack application with TypeScript",

@@ -72,6 +72,7 @@ const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
 
     useEffect(() => {
         const observer = new FontFaceObserver('Arial-MT-Bold');
+
         observer.check().then(() => {
             setFontLoaded(true);
             onFontsLoaded();

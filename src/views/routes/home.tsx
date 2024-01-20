@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import HomeHead from '../content/home/home-head';
-import DesignText from '../content/home/design/design-text';
-import DesignHero from '../content/home/design/design-hero';
-import DevText from '../content/home/dev/dev-text';
-import DevHero from '../content/home/dev/dev-hero';
+import HomeTextBlock from '../content/home/home-text-block';
+import DesignHero from '../content/home/design-hero';
+import DevHero from '../content/home/dev-hero';
 import Footer from '../components/footer/footer';
-import Loading from '../content/home/loading';
+import Loading from '../components/loading/loading';
 
 import backgroundImage from '../assets/images/bg-image.svg';
+
 
 
 const Section = styled.section`
@@ -75,7 +75,7 @@ const Inner = styled.section`
     max-width: 2000px;
 `;
 
-const Home = () => {
+const Home: React.FC = () => {
 
     const [assetsLoaded, setAssetsLoaded] = useState(false)
 
@@ -97,8 +97,16 @@ const Home = () => {
                 <>
                 <Bottom>
                     <DesignHero></DesignHero>
-                    <DesignText></DesignText>
-                    <DevText></DevText>
+                    <HomeTextBlock
+                        heading="keep it simple, but not too simple."
+                        paragraph="I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything your business needs."
+                        link="/design"
+                    >view design</HomeTextBlock>
+                    <HomeTextBlock
+                        heading="javascript, react, php, sql, git, oh my..."
+                        paragraph="Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications."
+                        link="/dev"
+                    >view dev</HomeTextBlock>
                     <DevHero></DevHero>
                 </Bottom>
                 <Footer></Footer>

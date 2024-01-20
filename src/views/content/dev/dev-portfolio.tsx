@@ -52,7 +52,7 @@ const PortfolioItem = styled.div`
 
     @media (min-width: 1000px){
         padding: 10px 10px;
-        filter:  grayscale(100%);
+        filter:  grayscale(60%);
     }
 
     &:hover {
@@ -71,15 +71,15 @@ const PortfolioItemText = styled.div`
 
 const PortfolioItemTitle = styled.h3`
     font-family: 'Roboto-Black';
-    font-size: 2.6rem;
+    font-size: 3rem;
     text-transform: capitalize;
     color: #ffffff;
     line-height: 120%;
 `;
 
 const PortfolioItemType = styled.p`
-    font-family: 'Roboto-Cond-Bold';
-    font-size: 1.05rem;
+    font-family: 'Roboto-Black';
+    font-size: .95rem;
     text-transform: capitalize;
     color: rgb(136, 255, 0);
     text-transform: uppercase;
@@ -87,7 +87,7 @@ const PortfolioItemType = styled.p`
 `;
 
 const PortfolioItemDescription = styled.p`
-    font-family: 'Acumin-Light';
+    font-family: 'Rubik';
     font-size: 1rem;
     max-width: 1400px;
     line-height: 180%;

@@ -13,7 +13,7 @@ import Intro from '../content/design/design-intro';
 import DesignCloud from '../content/design/design-cloud';
 import DesignPortfolio from '../content/design/design-portfolio';
 
-import Loading from '../content/home/loading';
+import Loading from '../components/loading/loading';
 
 const Portfolio = styled.section`
    width: 100%;
@@ -51,26 +51,6 @@ const HeaderSection = styled.header`
         height: 800px;
     }
 `;
-
-// const SubHeader = styled.section`
-//     height: 30px;
-//     width: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: end;
-//     padding: 20px;
-//     left: 100px;
-//     background-color: #ffffff20;
-// `;
-
-// const Text = styled.p`
-//     font-family: 'Roboto-Regular';
-//     font-size: .8rem;
-//     color: #dfdfdf;
-//     width: fit-content;
-//     letter-spacing: .005rem;
-//     text-transform: uppercase;
-// `;
 
 
 const Dev = () => {

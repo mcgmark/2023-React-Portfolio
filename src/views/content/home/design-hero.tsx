@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import rocketman from '../../../assets/images/rocketman.png';
-import planetImage from '../../../assets/images/planet.png'
+import rocketman from '../../assets/images/rocketman.png';
+import planetImage from '../../assets/images/planet.png'
 
 
 interface ImageProps {

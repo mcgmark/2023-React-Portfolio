@@ -83,7 +83,7 @@ const CloudItem = styled.span<CloudItemProps>`
         max-width: 300px;
         min-width: 100px;
         height: 55px;
-        font-family: 'Acumin-Book';
+        font-family: 'Roboto-Regular';
         font-size: 1.15rem;
         color: #fff;
         letter-spacing: 0.15rem;
