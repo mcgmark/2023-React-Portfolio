@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
 import backgroundImage from '../../assets/images/bg-image-light.svg';
 import backgroundImageTop from '../../assets/images/topleftbg.svg';
@@ -32,7 +33,6 @@ const Section = styled.section`
 
 `;
 
-
 const SectionInner = styled.div`
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@ const Breadcrumb = styled.span`
     color: #e6e6e6;
 `;
 
-const IntroText = styled.h1`
+const IntroText = styled.p`
     font-family: 'Arial-MT-Bold';
     text-transform: capitalize;
     font-size: 3rem;
@@ -63,6 +63,8 @@ const IntroText = styled.h1`
     z-index: 1;
     color: #e6e6e6;
     line-height: 120%;
+    text-shadow: 2px 2px 0px #000;
+    min-height: 220px;
 
     @media (min-width: 1400px) {
         font-size: 3.5rem;
@@ -86,13 +88,48 @@ const Text = styled.p`
 
 
 const Intro = () => {
+    const [wordsArray, setWordsArray] = useState<string[]>([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [visibleWords, setVisibleWords] = useState<string[]>([]);
+
+    let text = "javascript, html, bootstrap, api, react, express, sql, php, mongo, git, oh my!";
+    
+    useEffect(() => {
+        setWordsArray(text.split(","));
+    }, [text]);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            if (currentIndex < wordsArray.length) {
+                setVisibleWords((prevVisibleWords) => [
+                    ...prevVisibleWords,
+                    wordsArray[currentIndex]
+                ])
+                setCurrentIndex(prevIndex => prevIndex + 1);
+            } else {
+                clearInterval(intervalId);          
+            }
+        }, 500);
+
+        return () => clearInterval(intervalId);
+        
+    }, [currentIndex, wordsArray]);
+    
+
     return(
         <Section>
             <HeaderSpacer></HeaderSpacer>
             <SectionInner>
-            <Breadcrumb>Web Development</Breadcrumb>
-            <IntroText>javascript, html, bootstrap, api, react, express, sql, php, mongo, git, <span style={{color: 'rgb(136, 255, 0)'}}>oh my...</span></IntroText>
-            <Text>Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications.</Text>
+                <Breadcrumb>Web Development</Breadcrumb>
+                <IntroText className="fade-in-words">
+                    {visibleWords.map ((word, index) => (
+                        <span key={index} className={`fade-in ${index === wordsArray.length - 1 ? 'last-element' : ''}`}>
+                            {word}
+                            {index < wordsArray.length - 1 ? ',' : ''}
+                        </span>
+                    ))}
+                </IntroText>
+                <Text>Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications.</Text>
             </SectionInner>
             <HeaderSpacer></HeaderSpacer>
         </Section>

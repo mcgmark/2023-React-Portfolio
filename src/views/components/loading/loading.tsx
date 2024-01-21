@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import backgroundImage from '../../assets/images/bg-image-light.svg';
+import backgroundImage from '../../assets/images/bg-image.svg';
 
 interface LoadingContainerProps {
     visible: boolean;
@@ -40,7 +40,7 @@ const LoadingContainer = styled.div<LoadingContainerProps>`
     visibility: ${({ visible })=> (visible ? 'visible' : 'hidden')};
     transform: translateY(${({visible})=>(visible ? 0 : '-100%')});
     transition: all 500ms;
-    background: rgba(24, 0, 52) url(${backgroundImage});
+    background: url(${backgroundImage}) var(--background-purple);
     background-position: center;
     background-attachment: fixed;
     background-position: center center;

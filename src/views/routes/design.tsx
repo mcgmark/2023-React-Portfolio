@@ -110,10 +110,6 @@ const Dev = () => {
                 <Intro></Intro>
                 <DesignCloud></DesignCloud>
             </HeaderSection>
-            {/* <SubHeader>
-                <Text style={{width: 'fit-content', textAlign: 'center'}}>All created using Adobe CC</Text>
-                <img src={adobeCCLogo} alt="Adobe CC logo" style={{width: '70px', marginLeft: '10px'}}/>
-            </SubHeader> */}
             <DesignPortfolio data={data}></DesignPortfolio>
             <Footer></Footer>
         </Portfolio>
