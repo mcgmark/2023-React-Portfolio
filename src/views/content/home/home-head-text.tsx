@@ -19,46 +19,48 @@ const HomeContentDiv = styled.div`
 
 const HomeHeading = styled.h1`
     font-family: 'Arial-MT-Bold';
-    font-size: 16vw;
-    line-height: 110%;
-    letter-spacing: -.15rem;
+    font-size: 17vw;
+    line-height: 120%;
     z-index:800;
+    /* text-shadow: -2px -2px 0px #88ff00, 2px 2px 0px #B700FF; */
+    text-transform: capitalize;
 
     @media (min-width: 1000px) {
         font-size: 12vw;
     }
 
     @media (min-width: 1500px) {
-        font-size: 10rem;
+        font-size: 9rem;
     }
 
     @media (min-width: 1930px) {
-        font-size: 12rem;
-        line-height: 110%;
+        font-size: 10rem;
     }
 `;
 
 const HomeParagraph = styled.p`
     padding: 35px 35px;
     font-family: 'Roboto-thin';
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: .05rem;
     border-radius: 0px 60px 0px 60px;
     background: url(${spaceBackground});
+    background-size: cover;
     background-position: left;
     border-left: 3px solid #43f103;
-    border-right: 5px solid #b700ff;
-    box-shadow: 5px 5px 50px #ffffff35;
+    border-right: 5px solid #43f103;
+    box-shadow: 15px 5px 15px #00000040, 5px 5px 100px #57069fbf;
+    
 
     @media (min-width: 1000px) {
-        line-height: 200%;
-        font-size: 1.25rem;
+        line-height: 160%;
+        font-size: 1.1rem;
         width: 70%;
     }
 
     @media (min-width: 1500px) {
+        line-height: 150%;
         width: 80%;
-        font-size: 1.15rem;
     }
 `;
 

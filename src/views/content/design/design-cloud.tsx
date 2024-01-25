@@ -62,7 +62,6 @@ const Section = styled.section`
     display: none;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    align-items: center;
     height: fit-content;
     row-gap: 25px;
     max-width: fit-content;

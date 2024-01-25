@@ -18,8 +18,8 @@ const HomeContentDiv = styled.div`
     max-width: 775px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
     justify-content: center;
+    gap: 40px;
     background: url(${spaceBackground});
     background-color: rgba(29, 15, 44, 0.81);
     background-size: cover;
@@ -27,7 +27,7 @@ const HomeContentDiv = styled.div`
     padding: 2rem;
     justify-self: center;
     border-radius: 0px 120px 0px 120px;
-    box-shadow: 5px 5px 50px #ffffff35;
+    box-shadow: 15px 5px 15px #00000040, 5px 5px 100px #57069fbf;
 
     @media (min-width: 1000px) {
         padding: 2.5rem;
@@ -38,7 +38,7 @@ const HomeContentDiv = styled.div`
     @media (min-width: 1500px) {
         min-height: 680px;
         padding: 6rem;
-        gap: 50px;
+        gap: 30px;
         justify-content: flex-end;
     }
 `;
@@ -47,21 +47,22 @@ const HomeHeading = styled.h1`
     position: relative;
     left: 0px;
     font-family: 'Arial-MT-Bold';
-    font-size: 8vw;
-    line-height: 175%;
+    font-size: 7vw;
+    line-height: 140%;
     letter-spacing: .05rem;
+    padding: 2px 0;
 
     @media (min-width: 1000px) {
     left: -70px;
     font-size: 3.25rem;
-    line-height: 165%;
+    line-height: 130%;
     letter-spacing: .05rem;
     }
 
     @media (min-width: 1500px) {
     position: absolute;
     top: 10%;
-    font-size: 4.25rem;
+    font-size: 4.75rem;
     line-height: 165%;
     letter-spacing: .05rem;
     }
@@ -69,7 +70,10 @@ const HomeHeading = styled.h1`
 
 const Span = styled.span`
     background-color: var(--purple-bright);
-    padding: .5rem;
+    padding: .4rem 1rem .4rem 1rem;
+    white-space: pre-wrap;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 `;
 
 const HomeParagraph = styled.p`
@@ -99,14 +103,14 @@ const HomeButton = styled.div`
     overflow: hidden;
     cursor: pointer;
     transition: all 200ms ease;
-    border: 2px solid #4203f1;
     backdrop-filter: blur(3px);
+    background-color: var(--purple-bright);
     box-shadow: 0px 0px 50px #ffffff35;
     text-transform: uppercase;
     
     &:hover {
         transform: scale(105%);
-        box-shadow: 0px 0px 20px #4203f1;
+        box-shadow: 0px 0px 20px #ffffff;
     }
 `;
 

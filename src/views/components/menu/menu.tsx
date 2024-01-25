@@ -5,8 +5,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCode, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-import mark from '../../assets/images/mark.png';
-
 
 type MobileMenuProps = {
     $showmenu: boolean;
@@ -33,17 +31,15 @@ type MenuContainerProps = {
 const MenuContainer = styled.nav<MenuContainerProps>`
     position: fixed;
     left: 0;
-    height: ${(props) => (props.$isScrolled ? '50px' : '60px')};
+    height: ${(props) => (props.$isScrolled ? '50px' : '120px')};
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.784)' : 'rgba(74, 12, 137, 0.0)')};
+    background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.95)' : 'none')};
     z-index: 12001;
-    border-bottom: ${(props) => (props.$isScrolled ? '4px solid rgba(255, 255, 255, 0.025)' : '4px solid rgba(255, 255, 255, 0.025)')};
-    backdrop-filter: blur(14px);
-    box-shadow: 0px 10px 40px rgba(20, 2, 25, 0.4);
+    border-bottom: ${(props) => (props.$isScrolled ? '4px solid rgba(255, 255, 255, 0.025)' : '4px solid rgba(255, 255, 255, 0.0)')};
     transition: all 0.2s ease;
 `;
 
@@ -58,7 +54,7 @@ const MenuContainerInner = styled.div`
 const NameLogo = styled.span<MenuContainerProps>`
     justify-self: start;
     font-family: Rubik;
-    font-size: ${(props) => (props.$isScrolled ? '1rem' : '1.25rem')};
+    font-size: ${(props) => (props.$isScrolled ? '1rem' : '1.5rem')};
     text-transform: uppercase;
     cursor: pointer;
     transition: all .2s ease;
@@ -70,62 +66,21 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
     flex-direction: column;
     position: fixed;
     top: 0px;
-    min-height: 100vh;
-    background: url(${mark}), rgba(28, 16, 44, 0.75);
-    background-position: 20% top;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(70px);
+    background: rgba(28, 16, 44, 0.85);
+    backdrop-filter: blur(20px);
     z-index: 12000;
-    left: ${(props) => (props.$showmenu ? "0%" : "100%")};
+    right: ${(props) => (props.$showmenu ? "-0%" : "-100%")};
     transition: all .5s ease;
-    box-shadow: ${(props) => (props.$showmenu ? "0px 0px 50px rgb(0, 0, 0)" : "none")};
-    border: 0px;
-    overflow-y: auto;
     width: 100%;
     padding: 0px 20px;
+    max-width: 600px;
 
-    &::-webkit-scrollbar {
-        background-color: #000000;
-        width: 5px;
-    }
-    &::-webkit-scrollbar-track {
-        background-color: #242424;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: rgb(157, 0, 255);
-        border-radius: 6px;
-        height: 10px;
+    @media (min-width: 800px){
+        border-left: 5px solid rgba(163, 101, 255, 0.066);
+        border-right: 5px solid rgba(163, 101, 255, 0.066);      
+        padding: 0px 20px;
     }
 
-    @media (min-width: 700px){
-        background-position: 20% top;
-        border-left: 10px solid rgba(163, 101, 255, 0.066);
-        border-right: 10px solid rgba(163, 101, 255, 0.066);
-        width: fit-content;
-        left: ${(props) => (props.$showmenu ? "25%" : "100%")};
-        padding: 0px 4%;
-        width: 70%;
-    }
-
-    @media (min-width: 1200px){
-        background-position: 0% top;
-        left: ${(props) => (props.$showmenu ? "45%" : "100%")};
-        padding: 50px 2%;
-        width: 50%;
-    }
-
-    @media (min-width: 1800px){
-        background-position: -10% top;
-        left: ${(props) => (props.$showmenu ? "55%" : "100%")};
-
-        width: 40%;
-    }
-
-    @media (min-width: 2000px){
-        background-position: -20% top;
-        left: ${(props) => (props.$showmenu ? "65%" : "100%")};
-        width: 30%;
-    }
 `;
 
 const MobileMenuContent = styled.div`
@@ -135,7 +90,8 @@ const MobileMenuContent = styled.div`
     align-items: start;
     gap: 20px;
     position: relative;
-    top: 80px;
+    top: 120px;       
+    min-height: 100vh;
 `;
 
 const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
@@ -220,6 +176,7 @@ const MenuIcon = React.forwardRef<SVGSVGElement, MenuIconProps>(({ $showMenu, on
     );
 });
 
+
 const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmenu, menuButtonClick }, ref) => {
 
     const location = useLocation();
@@ -262,7 +219,7 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                 </MobileMenuHeading>
                 <MobileMenuParagraph>
                 40, living in Barrie, Ontario I have years of experience related to computers, marketing, graphic design, and web development. The majority of my experience comes from designing everything related to marketing a business. Mailout flyers, websites, print ads, web ads, printed tshirts, posters, cnc cutting/engraving, and more. 
-                <br/><br/>
+                <br /><br />
                 Recently I graduated from Georgian College on the Dean's List and I have spent the last 3 years learning the fundamentals of web development.   
                 </MobileMenuParagraph>
             </MobileMenuContent>
@@ -284,25 +241,29 @@ const Menu = () => {
     };
 
     const menuButtonClick = () => {
-        setShowMenu(!showMenu);
+        if (showMenu) {
+            setShowMenu(false)
+            document.body.style.overflow = 'auto';
+        } else {
+            setShowMenu(true)
+            document.body.style.overflow = 'hidden';
+        };
+    };
+
+    const handleOutsideClick = (event: MouseEvent) => {
+        if (menuRef.current && event.target instanceof Node){
+            if ((showMenu && (!menuButtonRef.current || !menuButtonRef.current.contains(event.target)) && !menuRef.current.contains(event.target))) {
+                menuButtonClick();
+            };
+        };  
     };
 
     useEffect(() => {
-        const handleOutsideClick = (event: MouseEvent) => {
-            if (menuRef.current && event.target instanceof Node){
-                if ((!menuButtonRef.current || !menuButtonRef.current.contains(event.target)) && !menuRef.current.contains(event.target)) {
-                    setShowMenu(false);
-                };
-            };  
-        };
-
         document.addEventListener('click', handleOutsideClick);
-
         return () => {
             document.removeEventListener('click', handleOutsideClick);
         };
-
-    }, [showMenu]);
+    });
 
     useEffect(() => {
         const handleScroll = () => {

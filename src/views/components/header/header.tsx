@@ -19,7 +19,6 @@ const HeaderContainer = styled.header`
     transition: all 200ms;
 `;
 
-
 const Logo = styled.img`
     position: relative;
     display: none;
@@ -29,7 +28,6 @@ const Logo = styled.img`
         display: block;
     }
 `;
-
 
 const NameLogo = styled.span`
     font-family: 'Rubik';

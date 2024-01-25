@@ -78,8 +78,8 @@ const PortfolioIntro = styled.p`
 
 const FilterButtonsContainer = styled.section`
     box-sizing: border-box;
-    border-radius: 40px;
-    padding: 15px 25px;
+    border-radius: 30px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,14 +87,15 @@ const FilterButtonsContainer = styled.section`
     margin-top: 20px;
     width: 100%;
     gap: 20px;
-    background-color: #24242417;
     align-self: center;
-    border: 1px solid #ffffff1a;
-    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.355);
 
     @media (min-width: 815px) {
+        background-color: rgba(36, 36, 36, 0);
+        box-shadow: inset 5px 10px 5px rgba(0, 0, 0, 0.117);
+        border: 1px solid #ffffff1a;
         flex-direction: row;
         max-width: 1000px;
+        border-radius: 80px;
     }
 `;
 
@@ -103,7 +104,6 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         background-color: rgb(41, 36, 36);
         border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
         width: 100%;
-        
         height: 55px;
         font-family: 'Roboto-Regular';
         font-size: 1.3rem;

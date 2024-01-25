@@ -33,22 +33,20 @@ const HeaderSection = styled.header`
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     align-items: center;
-    column-gap: 4rem;
+    justify-items: end;
     width: 90%;
     max-width: 2000px;
     min-height: 100vh;
+    column-gap: 2rem;
 
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr; 
-        column-gap: 5rem;
-        min-height: 680px;
-        padding-top: 60px; 
-        padding-bottom: 90px;
+        min-height: 800px;
     }
 
     @media (min-width: 2000px) {
         column-gap: 17rem;
-        height: 800px;
+        height: 950px;
     }
 `;
 
@@ -86,21 +84,21 @@ const Dev = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    useEffect(() => {
-        // Event listener to track scroll position
-        const handleScroll = () => {
-          const bgPosition = `${window.scrollY * 0.2}px`;
-          setBackgroundPositionX(bgPosition);
-        };
+    // useEffect(() => {
+    //     // Event listener to track scroll position
+    //     const handleScroll = () => {
+    //       const bgPosition = `${window.scrollY * 0.2}px`;
+    //       setBackgroundPositionX(bgPosition);
+    //     };
     
-        // Attach the event listener
-        window.addEventListener('scroll', handleScroll);
+    //     // Attach the event listener
+    //     window.addEventListener('scroll', handleScroll);
     
-        // Clean up the event listener when the component unmounts
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
+    //     // Clean up the event listener when the component unmounts
+    //     return () => {
+    //       window.removeEventListener('scroll', handleScroll);
+    //     };
+    //   }, []);
 
 
     return (

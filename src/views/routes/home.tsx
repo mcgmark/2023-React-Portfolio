@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HomeHead from '../content/home/home-head';
 import HomeTextBlock from '../content/home/home-text-block';
@@ -20,29 +22,19 @@ const Section = styled.section`
   background-attachment: fixed;
   background-position: center center;
   min-width: 100%;
-  max-width: 90%;
   min-height: 100vh;
   overflow: hidden;
 `;
 
-const Top = styled.section`
-    display: grid;
-    grid-template-rows: auto;
-    align-items: start;
-    margin-top: 8rem;
-    
-    @media (min-width: 1000px) {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 8rem;
-    }
+const Top = styled.section`  
+    height: 100vh;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (min-width: 1500px) {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 10rem;
-    }
-    @media (min-width: 2000px) {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 20rem;
+        row-gap: 17rem;
+        min-height: 1000px;
     }
 `;
 
@@ -50,18 +42,16 @@ const Bottom = styled.section`
     display: grid;
     grid-template-rows: auto;
     row-gap: 6rem;
-    margin-bottom: 100px;
-
+    margin-bottom: 150px;
 
     @media (min-width: 1000px) {
-        margin-top: 400px;
-        row-gap: 20vw;
+        row-gap: 24rem;
         grid-template-columns: 1fr 1fr;
+        margin-top: 200px;
     }
 
     @media (min-width: 1500px) {
-        margin-top: 350px;
-        row-gap: 12vw;
+        row-gap: 17rem;
     }
 
 `;

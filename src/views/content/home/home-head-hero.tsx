@@ -135,7 +135,7 @@ const HomeHeroCircle = styled(animated.div)<ImageProps>`
 const HomeHeroContainer = styled(animated.div)`
     position: relative;
     z-index: 5;
-    perspective: 1000px;
+    scale: 1;
 `;
 
 interface HomeHeroProps {
@@ -149,19 +149,6 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     const [isImage4Loaded, setIsImage4Loaded] = useState(false);
     const [heroLoaded, setHeroLoaded] = useState(false);
 
-    // const [{ y }, set] = useSpring(() => ({ y: 0 }));
-
-    // const maxScrollY = 200; // Adjust this value to control when the parallax effect stops
-    // const parallaxFactor = -12;
-
-    // window.addEventListener('scroll', () => {
-    //     const scrollY = window.scrollY;
-    //     // Limit the translation once it reaches maxScrollY
-    //     if (scrollY < maxScrollY) {
-    //     set({ y: scrollY * parallaxFactor });
-    //     }
-    //     // style={{ transform: y.to((y) => `translate3d(0, ${y}px, 0)`) }}
-    // });
 
     const animatedProps = useSpring({
         from: {opacity: 0, transform: 'translateY(100px)'},
@@ -192,15 +179,15 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     return heroLoaded ? (     
         <HomeHeroContainer style={animatedProps}> 
             <section>
-                <SpacemanColorIMG top="50px" left="-30px" src={spacemanColorImage} alt="Logo" ></SpacemanColorIMG>
+                <SpacemanColorIMG top="-50px" left="-30px" src={spacemanColorImage} alt="Logo" ></SpacemanColorIMG>
                 <SpacemanPlainIMG top="150px" left="630px" src={spacemanPlainImage} alt="Logo"></SpacemanPlainIMG>
                 <StarLargeIMG top="-90px" left="500px" src={starLarge} alt="star" ></StarLargeIMG>
                 <StarMediumIMG top="420px" left="-50px" src={starMedium} alt="star"></StarMediumIMG>
                 <StarMediumIMG top="500px" left="775px" src={starMedium} alt="star"></StarMediumIMG>
-                <StarSmallIMG top="-100px" left="200px" src={starSmall} alt="star"></StarSmallIMG>
+                <StarSmallIMG top="-150px" left="200px" src={starSmall} alt="star"></StarSmallIMG>
                 <StarSmallIMG top="-200px" left="500px" src={starSmall} alt="star"></StarSmallIMG>
-                <RocketIMG top="-80px" left="-80px" src={rocket} alt="Logo"></RocketIMG>
-                <HomeHeroCircle top="20px" left="100px"></HomeHeroCircle>
+                <RocketIMG top="-100px" left="-80px" src={rocket} alt="Logo"></RocketIMG>
+                <HomeHeroCircle top="-40px" left="90px"></HomeHeroCircle>
             </section> 
         </HomeHeroContainer>      
     ) : null;
