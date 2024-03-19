@@ -32,11 +32,10 @@ const RocketIMG = styled(animated.img)<ImageProps>`
     @media (min-width: 1000px){
         top: -10px;
         display: block;
-        right: -300px;
+        right: -350px;
     };
 
     @media (min-width: 1500px) {
-        display: block;
         position: absolute;
         top: ${props => props.top};  
         left: ${props => props.left}; 

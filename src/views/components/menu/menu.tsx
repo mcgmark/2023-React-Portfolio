@@ -5,6 +5,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCode, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
+import markImage from '../../assets/images/mark.png'
+
 
 type MobileMenuProps = {
     $showmenu: boolean;
@@ -54,6 +56,7 @@ const MenuContainerInner = styled.div`
 const NameLogo = styled.span<MenuContainerProps>`
     justify-self: start;
     font-family: Rubik;
+    z-index: 12000;
     font-size: ${(props) => (props.$isScrolled ? '1rem' : '1.5rem')};
     text-transform: uppercase;
     cursor: pointer;
@@ -66,19 +69,37 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
     flex-direction: column;
     position: fixed;
     top: 0px;
-    background: rgba(28, 16, 44, 0.85);
-    backdrop-filter: blur(20px);
-    z-index: 12000;
-    right: ${(props) => (props.$showmenu ? "-0%" : "-100%")};
-    transition: all .5s ease;
+    background: rgba(29, 5, 51, 0.7);
+    background-repeat: no-repeat;
+    background-position: left top;
+    backdrop-filter: blur(25px);
+    z-index: 12001;
+    right: ${(props) => (props.$showmenu ? "0%" : "-100%")};
+    transition: all 500ms ease-in-out;
     width: 100%;
     padding: 0px 20px;
     max-width: 600px;
+    height: 100vh;
+    overflow-y: auto;
 
     @media (min-width: 800px){
         border-left: 5px solid rgba(163, 101, 255, 0.066);
         border-right: 5px solid rgba(163, 101, 255, 0.066);      
         padding: 0px 20px;
+        box-shadow: -20px 0px 50px #14001b;
+    }
+
+    &::-webkit-scrollbar {
+        width: .15rem;  /* Adjust as needed */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #bb00ff;  /* Color of the thumb */
+        border-radius: 0.5rem;  /* Rounded corners */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #59ff00;  /* Color on hover */
     }
 
 `;
@@ -90,8 +111,7 @@ const MobileMenuContent = styled.div`
     align-items: start;
     gap: 20px;
     position: relative;
-    top: 120px;       
-    min-height: 100vh;
+    top: 50px;       
 `;
 
 const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
@@ -134,8 +154,8 @@ const MobileMenuParagraph = styled.p`
     font-family: 'Rubik';
     font-weight: 400;
     width: 100%;
-    max-width: 700px;
-    line-height: 180%;
+    max-width: 500px;
+    line-height: 160%;
     font-size: 1rem;
     overflow: hidden;
     transition: height .5s ease-in-out;
@@ -145,12 +165,8 @@ const MobileMenuParagraph = styled.p`
 
     &:last-child {
         border-bottom: 0px;
+        margin-bottom: 100px;
     }
-
-    @media (min-width: 1000px) {
-        display: block;
-    }
-
 `;
 
 const LargeAwesomeIcon = styled(FontAwesomeIcon)<MenuIconStyleProps>`
@@ -161,6 +177,7 @@ const LargeAwesomeIcon = styled(FontAwesomeIcon)<MenuIconStyleProps>`
     border-radius: 100px;
     padding: .75rem .92rem;
     cursor: pointer;
+    z-index: 12002;
 
     &:hover {
         background-color: #ffffff14;
@@ -189,8 +206,7 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
 
     return (
         <MobileMenuContainer $showmenu={$showmenu} ref={ref} menuButtonClick={menuButtonClick}>
-            <MobileMenuContent>
-                
+            <MobileMenuContent>    
             <MobileMenuButton
                 className={location.pathname === '/design' ? 'current' : ''}
                 onClick={() => {loadPortfolio('/design'); menuButtonClick();}}
@@ -218,9 +234,11 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
                     ABOUT MARK
                 </MobileMenuHeading>
                 <MobileMenuParagraph>
-                40, living in Barrie, Ontario I have years of experience related to computers, marketing, graphic design, and web development. The majority of my experience comes from designing everything related to marketing a business. Mailout flyers, websites, print ads, web ads, printed tshirts, posters, cnc cutting/engraving, and more. 
+                40, living in Barrie, Ontario, I have years of experience related to computers, marketing, graphic design, and web development. Recently I graduated from Georgian College, on the Dean's List, and have spent the last 3 years learning the fundamentals of web development. 
                 <br /><br />
-                Recently I graduated from Georgian College on the Dean's List and I have spent the last 3 years learning the fundamentals of web development.   
+                The majority of my experience comes from designing everything related to marketing a business; Mailout flyers, websites, print ads, web ads, printed tshirts, posters, cnc cutting/engraving, and more.
+                <br /><br />
+                I am currently seeking a full-time opportunity related to graphic design for marketing and/or web development.
                 </MobileMenuParagraph>
             </MobileMenuContent>
         </MobileMenuContainer>
@@ -287,8 +305,8 @@ const Menu = () => {
                     <NameLogo onClick={() => goHome('/')} $isScrolled={isScrolled} >Mark McGuigan</NameLogo>
                     <MenuIcon $showMenu={showMenu} onClick={menuButtonClick} ref={menuButtonRef}/>
                 </MenuContainerInner>
+                <MobileMenu $showmenu={showMenu} menuButtonClick={menuButtonClick} ref={menuRef} />
             </MenuContainer>
-            <MobileMenu $showmenu={showMenu} menuButtonClick={menuButtonClick} ref={menuRef} />
         </>
     );
 }

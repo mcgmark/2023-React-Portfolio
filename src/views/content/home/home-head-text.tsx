@@ -1,13 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
-
-import spaceBackground from '../../assets/images/space-bg.png';
+import styled, { keyframes } from 'styled-components';
+import CircleArrow from '../../assets/images/circle-down.svg';
 
 const FontFaceObserver = require('font-face-observer');
 
+const spin = keyframes`
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+`;
+
+const CircleArrowContainer = styled.img`
+display: inline-block;
+width: 40px;
+height: auto;
+animation: ${spin} 2s ease-in-out infinite;
+`;
+
+const ScrollDown = styled.div`
+    display: flex;
+    gap: 20px;
+`;
 
 const HomeContentDiv = styled.div`
     box-sizing: border-box;
@@ -15,22 +34,22 @@ const HomeContentDiv = styled.div`
     display: grid;
     grid-template-rows: auto;
     row-gap: 50px;
+    margin-top: 20px;
 `;
 
 const HomeHeading = styled.h1`
     font-family: 'Arial-MT-Bold';
     font-size: 17vw;
-    line-height: 120%;
     z-index:800;
-    /* text-shadow: -2px -2px 0px #88ff00, 2px 2px 0px #B700FF; */
     text-transform: capitalize;
+    margin-left: -10px;
 
     @media (min-width: 1000px) {
         font-size: 12vw;
     }
 
     @media (min-width: 1500px) {
-        font-size: 9rem;
+        font-size: 8rem;
     }
 
     @media (min-width: 1930px) {
@@ -39,28 +58,22 @@ const HomeHeading = styled.h1`
 `;
 
 const HomeParagraph = styled.p`
-    padding: 35px 35px;
+    float: right;
     font-family: 'Roboto-thin';
-    font-size: 1rem;
-    letter-spacing: .05rem;
-    border-radius: 0px 60px 0px 60px;
-    background: url(${spaceBackground});
-    background-size: cover;
-    background-position: left;
-    border-left: 3px solid #43f103;
-    border-right: 5px solid #43f103;
-    box-shadow: 15px 5px 15px #00000040, 5px 5px 100px #57069fbf;
-    
-
-    @media (min-width: 1000px) {
-        line-height: 160%;
-        font-size: 1.1rem;
-        width: 70%;
-    }
+    font-size: 1.45rem;
+    line-height: 150%;
+    letter-spacing: 0.05rem;
+    max-width: 70%;
+    border-left: 3px solid #5500a4;
+    padding: 20px 20px;
 
     @media (min-width: 1500px) {
-        line-height: 150%;
-        width: 80%;
+        font-size: 1.2rem;
+    }
+
+    @media (min-width: 1930px) {
+        font-size: 1.4rem;
+        max-width: 85%;
     }
 `;
 
@@ -83,8 +96,11 @@ const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
 
     return fontLoaded ? (
         <HomeContentDiv>
-            <HomeHeading>frontend<br /> designer<br />developer<br /></HomeHeading>
-            <HomeParagraph>Graphic design or web development I have experience doing a wide range of projects. Browse my portfolio for a better understanding of the work I do.</HomeParagraph>
+                <HomeHeading>frontend<br /> designer<br />developer<br /></HomeHeading>
+                <ScrollDown>
+                    <CircleArrowContainer src={CircleArrow} alt="Scroll Down" />
+                    <HomeParagraph>Graphic design or Web development I have experience doing a wide range of projects. Take a moment to browse my portfolio.</HomeParagraph>
+            </ScrollDown>
         </HomeContentDiv>
     ): null;
 };

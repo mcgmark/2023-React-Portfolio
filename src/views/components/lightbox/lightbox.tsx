@@ -57,7 +57,7 @@ const LightboxModal = styled.div`
 
 const LightboxHeaderContent = styled.div<LightboxHeaderProps>`
     position: absolute;
-    height: 50px;
+    height: 40px;
     top: 0;
     width: 100%;
     display: flex;
@@ -65,7 +65,7 @@ const LightboxHeaderContent = styled.div<LightboxHeaderProps>`
     align-items: center;
     box-sizing: border-box;
     padding: 0px 0px 0px 5px;
-    background-color: rgba(233, 233, 233, 0.95);
+    background-color: #ffffff;
 
     @media (min-width: 600px) {
         padding: 0px 0px 0px 20px;
@@ -127,7 +127,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const LightboxAwesomeIcon = styled(FontAwesomeIcon)`
-    font-size: 40px;
+    font-size: 30px;
     cursor: pointer;
     z-index: 1500;
 `;

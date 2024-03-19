@@ -60,6 +60,7 @@ const IntroText = styled.p`
     font-family: 'Arial-MT-Bold';
     font-size: 3rem;
     font-weight: 100;
+    letter-spacing: -0.1rem;
     width: fit-content;
     z-index: 1;
     color: #e6e6e6;
@@ -78,7 +79,7 @@ const IntroText = styled.p`
 
 const Text = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 180%;
     letter-spacing: .03rem;
@@ -86,7 +87,7 @@ const Text = styled.p`
     margin-bottom: 60px;
 
     @media (min-width: 1200px) {
-        max-width: 1600px;
+        max-width: 1100px;
         margin-bottom: 0px;
     }
 `;
@@ -96,7 +97,7 @@ const Intro = () => {
     const [wordsArray, setWordsArray] = useState<string[]>([]);
     const [visibleIndexes, setVisibleIndexes] = useState<number[]>([]);
 
-    let text = "html, css, bootstrap, tailwind, javascript, jquery, react, express, nextjs, api, sql, php, mongo, git, oh my!";
+    let text = "html, css, javascript, php, sql, jquery, react, angular, express, nextjs, bootstrap, tailwind, api, postgres, wordpress, mongo, git, oh my!";
     
     useEffect(() => {
         setWordsArray(text.split(","));

@@ -147,7 +147,7 @@ const PortfolioItemsContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-auto-flow: row; 
-    grid-gap: 10px; 
+    grid-gap: 0px; 
   }
 
   @media (min-width: 1800px){
@@ -163,13 +163,12 @@ const PortfolioItem = styled.div`
     opacity: 0;
     aspect-ratio: 16/9;
     /* padding-bottom: calc(55%);  */
-    margin-bottom: 10px;
-    background-color: #f0f0f0;
     background-size: 160%;
     background-position: center;
     background-repeat: no-repeat;
-    border: 2px solid #616161;
+    border: 1px solid #424242;
     transition: all 300ms ease-in-out;
+    /* border-radius: 25px; */
     cursor: pointer;
     animation: PortfolioItemScale 0.1s 1 forwards ease-in-out;
 
@@ -215,8 +214,8 @@ const PortfolioItemText = styled.div`
     ${PortfolioItem}:hover & {
         bottom: 0px;
         height: 100%;
-        backdrop-filter: blur(5px) grayscale(100);
-        background: rgba(14, 13, 14, 0.9);
+        backdrop-filter: blur(10px);
+        background: rgba(35, 35, 35, 0.8);
     }  
 `;
 
@@ -249,13 +248,13 @@ const PortfolioItemType = styled.p`
 const PortfolioItemButton = styled.p`
     box-sizing: border-box;
     font-family: 'Arial-MT-Bold';
-    font-size: 1.5;
+    font-size: .75rem;
     text-align: center;
     margin: 0rem 2px;
     text-transform: uppercase;
     background-color: rgb(255, 217, 0);
     color: #333;
-    padding: .5rem 3rem;
+    padding: .5rem 2rem;
     border-radius: 50px;
 `;
 

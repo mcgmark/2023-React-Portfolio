@@ -37,7 +37,8 @@
 
 :root {
   --background-purple: #19042c;
-  --purple-bright: #3c096e;
+  --purple-bright: #37056f;
+  --purple-bright-hover: #480e8a;
 }
 
 body {

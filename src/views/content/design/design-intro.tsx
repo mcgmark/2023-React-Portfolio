@@ -20,7 +20,8 @@ const IntroText = styled.h1`
     position: relative;
     font-family: 'Acumin-thin';
     text-transform: uppercase;
-    font-size: 2.6rem;
+    font-size: 3rem;
+    letter-spacing: -.3rem;
     font-weight: 100;
     width: fit-content;
     z-index: 1;
@@ -40,7 +41,7 @@ const IntroText = styled.h1`
     }
 
     @media (min-width: 500px) {
-        font-size: 11vw;
+        font-size: 13vw;
 
         &::before {
             bottom: 20px;
@@ -48,25 +49,26 @@ const IntroText = styled.h1`
     }
 
     @media (min-width: 1000px) {
-        font-size: 6vw;
+        font-size: 7vw;
 
         &::before {
-            bottom: 20px;
+            bottom: 40px;
         }
     }
 
     @media (min-width: 1800px) {
-        font-size: 5vw;
+        font-size: 5.5vw;
     }
 `;
 
 const Text = styled.p`
     font-family: 'Roboto-Thin';
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 180%;
     letter-spacing: .03rem;
     color: #e6e6e6;
+    max-width: 1000px;
 `;
 
 
