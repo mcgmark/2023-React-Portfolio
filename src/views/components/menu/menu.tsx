@@ -57,10 +57,14 @@ const NameLogo = styled.span<MenuContainerProps>`
     justify-self: start;
     font-family: Rubik;
     z-index: 12000;
-    font-size: ${(props) => (props.$isScrolled ? '1rem' : '1.5rem')};
+    font-size: ${(props) => (props.$isScrolled ? '1rem' : '1rem')};
     text-transform: uppercase;
     cursor: pointer;
     transition: all .2s ease;
+
+    @media (min-width: 800px) {
+        font-size: ${(props) => (props.$isScrolled ? '1rem' : '1.5rem')};
+     }
 `;
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
@@ -69,13 +73,13 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
     flex-direction: column;
     position: fixed;
     top: 0px;
-    background: rgba(29, 5, 51, 0.7);
+    background: rgba(41, 37, 45, 0.7);
     background-repeat: no-repeat;
     background-position: left top;
     backdrop-filter: blur(25px);
     z-index: 12001;
     right: ${(props) => (props.$showmenu ? "0%" : "-100%")};
-    transition: all 500ms ease-in-out;
+    transition: all 500ms linear;
     width: 100%;
     padding: 0px 20px;
     max-width: 600px;
@@ -86,7 +90,6 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
         border-left: 5px solid rgba(163, 101, 255, 0.066);
         border-right: 5px solid rgba(163, 101, 255, 0.066);      
         padding: 0px 20px;
-        box-shadow: -20px 0px 50px #14001b;
     }
 
     &::-webkit-scrollbar {
@@ -122,11 +125,7 @@ const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
 
     &.current {
         position: relative;
-        color: #9e30ff;
-    }
-
-    &.current:hover {
-        color: #9e30ff;
+        color: #6200ff;
     }
 
     &.current::after {
@@ -140,7 +139,7 @@ const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
   }
 
   &:hover {
-    color: #9dffdb;
+        color: #771be0;
   }
 `;
 
@@ -246,6 +245,7 @@ const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmen
 });
 
 const Menu = () => {
+    const location = useLocation();
     const navigate = useNavigate();
 
     const [showMenu, setShowMenu] = useState(false);
@@ -302,7 +302,7 @@ const Menu = () => {
         <>
             <MenuContainer $isScrolled={isScrolled}>
                 <MenuContainerInner>
-                    <NameLogo onClick={() => goHome('/')} $isScrolled={isScrolled} >Mark McGuigan</NameLogo>
+                    <NameLogo onClick={() => goHome('/')} $isScrolled={isScrolled} >Mark McGuigan<wbr/> {location.pathname === '/dev' ? ': DEV' : location.pathname === '/design' ? ': DESIGN' : ''}</NameLogo>
                     <MenuIcon $showMenu={showMenu} onClick={menuButtonClick} ref={menuButtonRef}/>
                 </MenuContainerInner>
                 <MobileMenu $showmenu={showMenu} menuButtonClick={menuButtonClick} ref={menuRef} />

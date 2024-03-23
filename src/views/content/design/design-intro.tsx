@@ -9,13 +9,6 @@ const Section = styled.section`
     z-index: 1;
 `;
 
-const Breadcrumb = styled.span`
-    font-family: 'Rubik';
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    color: #e6e6e6;
-`;
-
 const IntroText = styled.h1`
     position: relative;
     font-family: 'Acumin-thin';
@@ -27,7 +20,6 @@ const IntroText = styled.h1`
     z-index: 1;
     color: #e6e6e6;
     white-space: nowrap;
-
 
     &::before {
         content: "";
@@ -52,7 +44,7 @@ const IntroText = styled.h1`
         font-size: 7vw;
 
         &::before {
-            bottom: 40px;
+            bottom: 60px;
         }
     }
 
@@ -75,7 +67,6 @@ const Text = styled.p`
 const Intro = () => {
     return(
         <Section>
-            <Breadcrumb>Graphic Design</Breadcrumb>
             <div>
                 <IntroText>simple, but not</IntroText>
                 <IntroText>too simple.</IntroText>

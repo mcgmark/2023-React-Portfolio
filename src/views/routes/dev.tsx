@@ -12,20 +12,22 @@ import Loading from '../components/loading/loading';
 
 import backgroundImage from '../assets/images/bg-image-light.svg';
 import backgroundImageBottom from '../assets/images/bottomrightbg.svg';
+import backgroundImageTop from '../assets/images/topleftbg.svg';
 
 
 const DevContainer = styled.section`
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   overflow-x: hidden;
-   background: none;
-   background: url(${backgroundImageBottom}), url(${backgroundImage});
-   background-color: var(--background-purple);
-   background-attachment: scroll, fixed;
-   background-position: bottom left, center;
-   background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    overflow-x: hidden;
+    background: url(${backgroundImageTop}), url(${backgroundImageBottom}), url(${backgroundImage});
+    background-color: #29004f;
+    background-attachment: fixed, scroll, fixed;
+    background-position: top right, bottom left, center;
+    background-size: 220%, 70%, 100%;
+    background-repeat: no-repeat;
 `;
 
 const Dev = () => {

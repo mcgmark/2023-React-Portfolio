@@ -8,11 +8,6 @@ import Lightbox from '../../components/lightbox/lightbox';
 
 import { DesignItem } from '../../assets/types/types';
 
-import topRightBG from '../../assets/images/toprightbg.svg';
-import bottomRightBG from '../../assets/images/bottomrightbg.svg';
-import topLeftBG from '../../assets/images/topleftbg.svg';
-import bottomLeftBG from '../../assets/images/bottomleftbg.svg';
-
 
 
 type Props = {
@@ -26,31 +21,21 @@ type PortfolioFilterButtonProps = {
 
 
 const PortfolioContainer = styled.section`
-    background: url(${topRightBG}), url(${bottomRightBG}), var(--purple-bright);
-    background-position: top left, bottom left;
-    background-repeat: no-repeat;
-    background-size: auto;
-    min-height: 100vh;
     width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @media (min-width: 1900px) {
-        background: url(${topRightBG}), url(${bottomRightBG}), url(${topLeftBG}), url(${bottomLeftBG}), var(--purple-bright);
-        background-position: top left, bottom left, top right, bottom right;
-        background-repeat: no-repeat;
-        background-size: auto;
-    }
+    background-color: #380669b9;
+    border-radius: 20vw 0px 0px 0px;
+    padding: 50px;
 `;
 
 const PortfolioInner = styled.section`
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 2700px;
-    padding: 120px 20px;
-    gap: 30px;
+    width: 95%;
+
 `;
 
 const PortfolioHeadingContainer = styled.section`
@@ -58,15 +43,20 @@ const PortfolioHeadingContainer = styled.section`
     flex-direction: column;
     text-align: center;
     gap: 30px;
+    margin-top: 30px;
     margin-bottom: 40px;
 `;
 
 const PortfolioHeading = styled.h2`
     font-family: 'Acumin-Thin';
     text-transform: uppercase;
-    font-size: 5rem;
+    font-size: 16vw;
     color: #e6e6e6;
     text-align: center;
+
+    @media (min-width: 815px) {
+        font-size: 4vw;
+    }
 `;
 
 const PortfolioIntro = styled.p`
@@ -79,7 +69,7 @@ const PortfolioIntro = styled.p`
 const FilterButtonsContainer = styled.section`
     box-sizing: border-box;
     border-radius: 30px;
-    padding: 20px 10px;
+    padding: 20px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,9 +80,7 @@ const FilterButtonsContainer = styled.section`
     align-self: center;
 
     @media (min-width: 815px) {
-        background-color: rgba(36, 36, 36, 0);
-        box-shadow: inset 5px 10px 5px rgba(0, 0, 0, 0.117);
-        border: 1px solid #ffffff1a;
+        background-color: rgba(36, 36, 36, 0.2);
         flex-direction: row;
         max-width: 1000px;
         border-radius: 80px;
@@ -102,7 +90,7 @@ const FilterButtonsContainer = styled.section`
 const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         border-radius: 45px;
         background-color: rgb(41, 36, 36);
-        border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
+        border: ${({ $selected }) => $selected ? '3px solid rgb(102, 6, 180)' : '3px solid rgb(51, 51, 53)'};
         width: 100%;
         height: 55px;
         font-family: 'Roboto-Regular';
@@ -114,6 +102,7 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         cursor: pointer;
         transition: all .3s ease;
         animation: ${({ $selected }) => $selected ? 'pulse 0.3s 1' : 'none'}; 
+        box-shadow: ${({ $selected }) => $selected ? '0px 0px 10px rgba(119, 0, 255, 0.5)' : ''};
         
         @media (min-width: 1000px) {
             flex-direction: row;
@@ -142,6 +131,7 @@ const PortfolioItemsContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 2800px;
 
   @media (min-width: 800px){
     display: grid;
@@ -488,9 +478,9 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
                             </PortfolioItemText>
                         </PortfolioItem>
                     ))}
-
-                </PortfolioItemsContainer>
                 { hasMore && <LoadingIconContainer> <LoadingIcon icon={faSpinner} ref={loadingRef}/> </LoadingIconContainer>}
+                </PortfolioItemsContainer>
+               
             </PortfolioInner>
             {lightboxOpen && (
                 <Lightbox $imageTitle={imageTitle} $imageUrl={lightboxImageUrl} onNext={handleNext} onPrev={handlePrevious} onClose={closeLightbox}></Lightbox>

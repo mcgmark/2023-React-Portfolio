@@ -65,7 +65,7 @@ const LightboxHeaderContent = styled.div<LightboxHeaderProps>`
     align-items: center;
     box-sizing: border-box;
     padding: 0px 0px 0px 5px;
-    background-color: #ffffff;
+
 
     @media (min-width: 600px) {
         padding: 0px 0px 0px 20px;
@@ -76,7 +76,7 @@ const LightboxHeaderTitle = styled.p`
     font-family: 'Arial-MT-Bold';
     font-size: 12px;
     text-transform: uppercase;
-    color: #6b00b2;
+    color: #ffffff;
 `;
 
 const LightboxHeader: React.FC<LightboxHeaderProps> = ({ $imageTitle, onClick, children }) => {
@@ -94,7 +94,7 @@ const LightboxImageContainer = styled.div<LightboxImageContainerProps>`
     box-sizing: border-box;
     overflow-y: auto;
     max-width: 100%;
-    margin-top: 55px;
+    margin-top: 45px;
     margin-bottom: 10px;
     border: 0px solid #333;
     
@@ -135,7 +135,7 @@ const LightboxAwesomeIcon = styled(FontAwesomeIcon)`
 const LightboxButton = styled.div`
     display: flex;
     padding: 5px;
-    color: var(--purple-bright);
+    color: #fff;
 
     &:nth-of-type(3)  {
         padding-left: 15px;

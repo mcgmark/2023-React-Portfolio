@@ -17,7 +17,7 @@ const HomeContentDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 60px;
+    gap: 30px;
 
 
 
@@ -35,22 +35,23 @@ const HomeHeading = styled.h1`
     left: 0px;
     font-family: 'Arial-MT-Bold';
     font-size: 3rem;
-    letter-spacing: .05rem;
+    line-height: 30%;
     margin-left: -20px;
 
     @media (min-width: 1000px) {
     font-size: 3.25rem;
-    letter-spacing: .05rem;
+
     }
 
     @media (min-width: 1500px) {
     font-size: 5rem;
-    letter-spacing: .05rem;
+    line-height: 2rem;
+
     }
 
-    @media (min-width: 1800px) {
+    @media (min-width: 2000px) {
     font-size: 6rem;
-    letter-spacing: .05rem;
+
     }
 `;
 
@@ -70,7 +71,7 @@ const HomeParagraph = styled.p`
     letter-spacing: .05rem;
 
     @media (min-width: 1000px) {
-        line-height: 180%;
+        line-height: 150%;
     }
 `;
 

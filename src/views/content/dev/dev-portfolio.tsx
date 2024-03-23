@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import { DevItem } from '../../assets/types/types';
 
 import { Masonry } from '@mui/lab';
 
 
-type Props = {
+type PortfolioContainerProps = {
     data: DevItem[];
 }
 
@@ -19,81 +20,101 @@ type LinkButtonProps = {
     onClick?: () => void;
 }
 
-const PortfolioContainer = styled.section`
-    min-height: 100vh;
-    margin-top: 70px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-`;
+type PortfolioItemProps = {
+    index: number;
+    item: DevItem;
+    isExpanded: boolean;
+    onExpand: (index: number) => void;
+}
 
-const PortfolioInner = styled.section`
+const PortfolioContainer = styled.section`
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+`;
+
+const PortfolioInner = styled.section`
     max-width: 2000px;
-    width: 95%;
+    overflow: hidden;
 `;
 
 const PortfolioItem = styled.div`
+box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    opacity: 0;
     position: relative;
-    top: -160px;
     box-sizing: border-box;
     transition: all 0.15s ease-in-out;
-    border-radius: 25px;
+    border: 2px solid #33333375;
     padding: 5px;
-    border: 10px solid var(--purple-bright);
-    background-color: #2f2732bf;
-    background-image:  linear-gradient(135deg, #1e1e1e 25%, transparent 25%), linear-gradient(225deg, #1e1e1e 25%, transparent 25%), linear-gradient(45deg, #1e1e1e 25%, transparent 25%), linear-gradient(315deg, #1e1e1e 25%, #1a1a1a 25%);
-    background-position:  5px 0, 5px 0, 0 0, 0 0;
-    background-size: 5px 5px;
-    background-repeat: repeat;
-    box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6);
+    animation: slideTexter 2500ms forwards cubic-bezier(0.68, -0.55, 0.265, 2); 
+    border-radius: 25px;
+    background: linear-gradient(129deg, #300a5cc1 0%, #300a5cd0 54%, #18033088 99%);
+    transition: all 500ms;
 
     @media (min-width: 1000px){
-        padding: 10px 10px;
-        filter:  grayscale(60%);
+        padding: 15px 15px;
     }
 
-    &:hover {
+    /* &:hover {
         scale: 103%;
         z-index: 500;
-        filter:  none;
-    }
+    } */
 `;
 
 const PortfolioItemText = styled.div`
     display: flex; 
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     padding: 15px;
 `;
 
+const ExpandButton = styled.p`
+    font-family: 'Rubik-Bold';
+    width: fit-content;
+    color: #ffffff;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 1%.5; /* or 1.25em */
+    color: #d2e103;
+    text-transform: uppercase;
+
+    &:hover {
+        color: #b36bff; 
+    }
+`;
+
 const PortfolioItemTitle = styled.h3`
-    font-family: 'Roboto-Black';
-    font-size: 3rem;
+    font-family: 'Roboto';
+    font-size: 2rem;
     text-transform: capitalize;
     color: #ffffff;
     line-height: 120%;
 `;
 
 const PortfolioItemType = styled.p`
-    font-family: 'Roboto-Black';
-    font-size: .95rem;
+    font-family: 'Roboto';
+    font-size: .75rem;
     text-transform: capitalize;
-    color: rgb(136, 255, 0);
+    color: rgb(124, 124, 124);
     text-transform: uppercase;
-    /* border-bottom: 1px solid #333; */
+    border-bottom: 3px solid #6a0c98;
+    padding-bottom: 10px;
 `;
 
 const PortfolioItemDescription = styled.p`
     font-family: 'Rubik';
-    font-size: 1rem;
-    max-width: 1400px;
-    line-height: 180%;
-    letter-spacing: .02rem;
+    font-size: 1.1rem;
+    line-height: 160%;
     color: #ffffff;
-    margin: 20px 0px 15px 0px;
+    margin: 20px 0px;
+    flex-grow: 1;
+    height: 100%;
+    text-align: justify;
+    hyphens: auto;
 `;
 
 const FeaturesList = styled.ul`
@@ -110,7 +131,7 @@ const FeaturesList = styled.ul`
     padding: 20px;
     margin: 0px;
     margin-bottom: 30px;
-    background-color: rgba(24, 24, 24, 0.463);
+    background-color: rgba(27, 6, 48, 0.636);
     border-radius: 15px;
     border: 1px solid var(--purple-bright);
     box-shadow: 8px 8px 0px var(--purple-bright);
@@ -135,12 +156,12 @@ const PortfolioTechList = styled.ul`
     gap: 10px;
     list-style: none;
     font-family: 'Arial-MT-Bold';
-    font-size: .8rem;
+    font-size: .9rem;
     text-transform: uppercase;
     color: #ffffff;
     letter-spacing: 0.06rem;
     padding: 0px 0px;
-    margin: 0px;
+    margin-top: 10px;
 `;
 
 const ListItem = styled.li`
@@ -159,15 +180,14 @@ const StyledItemButton = styled.button`
   color: #ffffff;
   padding: 15px 0px;
   border: none;
-  background: #5c0bb2;
+  background: var(--purple-bright);
   cursor: pointer;
   text-transform: uppercase;
-  margin-bottom: 30px;
   letter-spacing: 0.1rem;
   border-radius: 10px;
-  box-shadow: inset 7px 7px rgba(0, 0, 0, 0.112);
   width: 50%;
   overflow: hidden;
+  align-self: end;
 
   &:hover {
     color: #fff;
@@ -177,7 +197,7 @@ const StyledItemButton = styled.button`
 
 const StyledIcon = styled(FontAwesomeIcon)`
     margin-left: 3px;
-    color: #ffea00;
+    color: #d2e103;
     text-shadow: #000;
     transform: scale(80%);
 `;
@@ -233,7 +253,7 @@ const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl, children }) =>
                 borderRadius: '50%',
                 transform: 'scale(0) translate(-50%, -50%)',
                 zIndex: '0',
-                animation: 'growCircle 0.3s ease-in-out forwards',
+                animation: 'growCircle 0.5s ease-in-out forwards',
             }}
         />
       )}
@@ -242,42 +262,66 @@ const DevItemButton: React.FC<LinkButtonProps> = ({ $externalUrl, children }) =>
 };
 
 
-const DevPortfolio: React.FC<Props> = ({ data }) => {
-    return(
+const DevPortfolioItem: React.FC<PortfolioItemProps> = ({ index, item, isExpanded, onExpand }) => {
+
+    const handleExpand = () => {
+        onExpand(index);
+    };
+
+    return (
+        <PortfolioItem key={item.id}>
+            <PortfolioItemText>
+                <PortfolioItemTitle>{item.title}</PortfolioItemTitle> 
+                <PortfolioItemType>{item.type}</PortfolioItemType>
+                <PortfolioItemDescription>{item.description}</PortfolioItemDescription>
+                {isExpanded ? (``):( <ExpandButton onClick={() => {handleExpand()}}>Expand <FontAwesomeIcon icon={faAngleDown} /></ExpandButton> )}   
+                {isExpanded && (
+                    <FeaturesList>
+                        {item.features.map((feature, innerIndex) => (
+                            <FeaturesItem key={innerIndex}>{feature}</FeaturesItem>
+                        ))}
+                    </FeaturesList>
+                    )}
+                <div style={{display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'stretch'}}>
+                        <DevItemButton $externalUrl={item.link}>Launch</DevItemButton>
+                    <DevItemButton $externalUrl={item.github}>Github</DevItemButton>
+                </div>
+                {isExpanded && (
+                    <PortfolioTechList>
+                        {item.tech.map((tech, index) => (
+                            <ListItem key={index}>{tech}</ListItem>
+                        ))}
+                    </PortfolioTechList>
+                )}
+            </PortfolioItemText>
+        </PortfolioItem>
+    );
+}
+
+const DevPortfolio: React.FC<PortfolioContainerProps> = ({ data }) => {
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(1); // Initially no item is expanded
+
+    const handleExpand = (index: number) => {
+        setExpandedIndex((prevIndex) => (prevIndex === index ? null : index)); // Toggle expanded state
+    };
+
+    return (
         <PortfolioContainer>
             <PortfolioInner>
-               <Masonry columns={{xs: 1, sm: 1, md: 1, lg: 2, xl: 3}} spacing={3}>
-               {data.map((item: DevItem, outerIndex) => (
-                        <PortfolioItem key={item.id}>
-                            <PortfolioItemText>
-                                <PortfolioItemTitle>{item.title}</PortfolioItemTitle> 
-                                <PortfolioItemType>{item.type}</PortfolioItemType>
-                                <PortfolioItemDescription>{item.description}</PortfolioItemDescription>   
-                                <FeaturesList>
-                                {item.features.map((feature, innerIndex) => (
-                                    <FeaturesItem key={innerIndex}>{feature}</FeaturesItem>
-                                ))}
-                                </FeaturesList>
-                                <div style={{display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'stretch'}}>
-                                    {outerIndex === 0 ? ( 
-                                        <DevItemButton>You're Here</DevItemButton>
-                                    ):(
-                                        <DevItemButton $externalUrl={item.link}>Launch</DevItemButton>
-                                    )}
-                                    <DevItemButton $externalUrl={item.github}>Github</DevItemButton>
-                                </div>
-                                <PortfolioTechList>
-                                {item.tech.map((tech, index) => (
-                                    <ListItem key={index}>{tech}</ListItem>
-                                ))}
-                                </PortfolioTechList>
-                            </PortfolioItemText>
-                        </PortfolioItem>
+                <Masonry columns={{ xs: 1, sm: 1, md: 1, lg: 2, xl: 3 }} spacing={{ xs: .5, sm: 2, md: 0, lg: 3, xl: 3 }}>
+                    {data.map((item: DevItem, index) => (
+                        <DevPortfolioItem
+                            key={index}
+                            index={index}
+                            item={item}
+                            isExpanded={expandedIndex === index}
+                            onExpand={handleExpand}
+                        />
                     ))}
                 </Masonry>
             </PortfolioInner>
         </PortfolioContainer>
     );
-}
+};
 
 export default DevPortfolio;

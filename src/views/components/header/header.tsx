@@ -31,9 +31,13 @@ const Logo = styled.img`
 
 const NameLogo = styled.span`
     font-family: 'Rubik';
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
     cursor: pointer;
+
+    @media (min-width: 800px) {
+         font-size: 2vw;
+     }
 
 `;
 

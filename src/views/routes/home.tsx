@@ -10,19 +10,23 @@ import DevHero from '../content/home/dev-hero';
 import Footer from '../components/footer/footer';
 import Loading from '../components/loading/loading';
 
-import backgroundImage from '../assets/images/bg-image.svg';
-
+import backgroundImage from '../assets/images/bg-image-light.svg';
+import backgroundImageBottom from '../assets/images/bottomrightbg.svg';
+import backgroundImageTop from '../assets/images/topleftbg.svg';
 
 
 const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: url(${backgroundImage}), var(--background-purple);
-  background-attachment: fixed;
-  background-position: center center;
-  min-width: 100%;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(${backgroundImageTop}), url(${backgroundImageBottom}), url(${backgroundImage});
+    background-color: #29004f;
+    background-attachment: fixed, scroll, fixed;
+    background-position: 15% 10%, bottom right, center;
+    background-size: 170%, 40%, 100%;
+    background-repeat: no-repeat;
+    min-width: 100%;
+    overflow: hidden;
 `;
 
 const Top = styled.section`  
@@ -111,12 +115,12 @@ const Home: React.FC = () => {
                 <Bottom>
                     <DesignHero></DesignHero>
                     <HomeTextBlock
-                        heading="Keep it simple, but not boring."
+                        heading="keep it simple, but not too simple."
                         paragraph="I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything your business needs."
                         link="/design"
                     >view design</HomeTextBlock>
                     <HomeTextBlock
-                        heading="Javascript, react, php, oh my..."
+                        heading="html5, css, javascript, react, php, oh my..."
                         paragraph="Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications."
                         link="/dev"
                     >view dev</HomeTextBlock>

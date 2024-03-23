@@ -45,7 +45,7 @@ const data: Item[] =
     },
     {
         "id": 88,
-    "title": "ADS"
+    "title": "signs"
     },
     {
         "id": 99,
@@ -77,19 +77,18 @@ const CloudItem = styled.span<CloudItemProps>`
         justify-content: center;
         align-items: center;
         border-radius: 21px;
-        border: 6px solid var(--purple-bright);
-        width: 15vw;
-        max-width: 300px;
-        min-width: 100px;
-        height: 55px;
+        width: 12vw;
+        height: 5vh;
         font-family: 'Roboto-Regular';
-        font-size: 1.15rem;
+        font-size: 1%.25;
         color: #fff;
         letter-spacing: 0.15rem;
         text-transform: uppercase;
         animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse 1s ease-in-out' : 'none' };
         transition: all 2s ease;
-        background-color: rgba(25, 4, 43, 0.734);
+        background-color: rgba(58, 8, 108, 0.9);
+        border: 0px solid #3c1c76;
+
 
         @keyframes cloudpulse {
             0% {
@@ -97,7 +96,7 @@ const CloudItem = styled.span<CloudItemProps>`
             }
             50% {
                 transform: scale(1.5);
-                border: 6px solid rgb(255, 217, 0);
+                
                 z-index: 500;
             }
             100% {

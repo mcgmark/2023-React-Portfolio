@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { DesignItem } from '../assets/types/types';
 
-import backgroundImage from '../assets/images/bg-image.svg';
+import backgroundImage from '../assets/images/bg-image-light.svg';
+import backgroundImageTop from '../assets/images/toprightbg.svg';
 
 // import adobeCCLogo from '../assets/images/cc-logo.svg';
 
@@ -15,13 +16,17 @@ import DesignPortfolio from '../content/design/design-portfolio';
 
 import Loading from '../components/loading/loading';
 
+import backgroundImageBottom from '../assets/images/bottomrightbg.svg';
+
 const Portfolio = styled.section`
    width: 100%;
    background: none;
-   background: url(${backgroundImage});
-   background-color: var(--background-purple);
-   background-attachment: fixed;
-   background-position: center center;
+   background: url(${backgroundImageTop}),  url(${backgroundImage});
+    background-color: #29004f;
+    background-attachment: fixed, fixed;
+    background-position: 150% 10%, center;
+    background-size: cover, cover;
+   background-position: center center, 0% 0%;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -36,17 +41,13 @@ const HeaderSection = styled.header`
     justify-items: end;
     width: 90%;
     max-width: 2000px;
-    min-height: 100vh;
+    min-height: 65vh;
     column-gap: 2rem;
+    margin-top: 100px;
 
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr; 
-        min-height: 800px;
-    }
-
-    @media (min-width: 2000px) {
-        column-gap: 17rem;
-        height: 950px;
+        min-height: 60vh;
     }
 `;
 
