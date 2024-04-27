@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import HomeHead from '../content/home/home-head';
 import HomeTextBlock from '../content/home/home-text-block';
@@ -19,37 +17,33 @@ const Section = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: url(${backgroundImageTop}), url(${backgroundImageBottom}), url(${backgroundImage});
-    background-color: #29004f;
-    background-attachment: fixed, scroll, fixed;
-    background-position: 15% 10%, bottom right, center;
-    background-size: 170%, 40%, 100%;
-    background-repeat: no-repeat;
+    background: url(${backgroundImageBottom}), url(${backgroundImage}), radial-gradient(circle at 40% 50%, #440097 2%, rgba(48,10,92,1) 30%, rgba(48,10,92,0.2) 95%);
+    background-color: #2c0058;
+    background-attachment: scroll, fixed, fixed;
+    background-position: bottom right, center, center;
+    background-size: 40%, 100%, 100%;
+    background-repeat: no-repeat, repeat, no-repeat;
     min-width: 100%;
     overflow: hidden;
+    animation: gradientAnimationT 150s linear alternate infinite;
 `;
 
 const Top = styled.section`  
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 
     @media (min-width: 1000px) {
-        margin-top: 90px;
+        margin-top: 20px;
     }
 
     @media (min-width: 1500px) {
-        margin-top: 150px;
-    }
-
-    @media (min-width: 1800px) {
-        row-gap: 17rem;
-
+        margin-top: 140px;
     }
 
     @media (min-width: 2000px) {
-        margin-top: 300px;
+        margin-top: 280px;
     }
 `;
 
@@ -70,7 +64,7 @@ const Bottom = styled.section`
     }
 
     @media (min-width: 1500px) {
-        row-gap: 7rem;
+        row-gap: 9rem;
         grid-template-columns: 1fr 1fr;
         margin-top: 300px;
         /* margin-top: 300px; */
@@ -90,6 +84,7 @@ const Inner = styled.section`
     height: fit-content;
     width: 90%;
     max-width: 2000px;
+   
 `;
 
 const Home: React.FC = () => {
@@ -116,12 +111,12 @@ const Home: React.FC = () => {
                     <DesignHero></DesignHero>
                     <HomeTextBlock
                         heading="keep it simple, but not too simple."
-                        paragraph="I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything your business needs."
+                        paragraph="I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything a business needs."
                         link="/design"
                     >view design</HomeTextBlock>
                     <HomeTextBlock
                         heading="html5, css, javascript, react, php, oh my..."
-                        paragraph="Websites today are applications that require a lot of pieces to make them work. I have spent the last three years building my knowledge and experience putting these peices together building web applications."
+                        paragraph="The simple business website has evolved into a complicated web application that requires a lot of pieces to work. I spent the last three years building my knowledge and experience putting these peices together building web applications."
                         link="/dev"
                     >view dev</HomeTextBlock>
                     <DevHero></DevHero>

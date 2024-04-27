@@ -44,11 +44,12 @@ const SmokeImage: React.FC<ImageProps> = ({top, left}) => {
 
 // Alien
 const AlienIMG = styled.img<ImageProps>`
-display: none;
+    display: none;
     position: absolute;
     top: ${props => props.top};  
     left: ${props => props.left}; 
     animation: ${hover} 15s infinite cubic-bezier(0.25, 0.46, 0.45, 1.94); 
+    scale: 0.9;
 
     @media (min-width: 1000px){
         display: block;
@@ -77,7 +78,7 @@ grid-area: 'devhero';
 const HomeHero = () => {
     return(
         <DevHeroContainer>
-            <SmokeImage top="-100px" left="-50px"></SmokeImage>
+            <SmokeImage top="100px" left="-50px"></SmokeImage>
             <AlienImage top="0px" left="20px"></AlienImage>
         </DevHeroContainer>
     );

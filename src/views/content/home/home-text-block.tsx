@@ -35,23 +35,18 @@ const HomeHeading = styled.h1`
     left: 0px;
     font-family: 'Arial-MT-Bold';
     font-size: 3rem;
-    line-height: 30%;
     margin-left: -20px;
 
     @media (min-width: 1000px) {
-    font-size: 3.25rem;
-
+        font-size: 3.25rem;
     }
 
     @media (min-width: 1500px) {
-    font-size: 5rem;
-    line-height: 2rem;
-
+        font-size: 5rem;
     }
 
     @media (min-width: 2000px) {
-    font-size: 6rem;
-
+        font-size: 6rem;
     }
 `;
 
@@ -69,10 +64,6 @@ const HomeParagraph = styled.p`
     font-size: 1.25rem;
     line-height: 160%;
     letter-spacing: .05rem;
-
-    @media (min-width: 1000px) {
-        line-height: 150%;
-    }
 `;
 
 const HomeButton = styled.div`
@@ -93,12 +84,14 @@ const HomeButton = styled.div`
     transition: all 200ms ease;
     backdrop-filter: blur(3px);
     background-color: var(--purple-bright);
+    border-left: 5px solid #6200ff;
 
     text-transform: uppercase;
     
     &:hover {
         transform: translateX(10px);
-        background-color: var(--purple-bright-hover);
+        background-color: #440097;
+        border-left: 5px solid #38ffa9;
     }
 `;
 

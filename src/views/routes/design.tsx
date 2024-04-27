@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import { DesignItem } from '../assets/types/types';
@@ -16,21 +16,19 @@ import DesignPortfolio from '../content/design/design-portfolio';
 
 import Loading from '../components/loading/loading';
 
-import backgroundImageBottom from '../assets/images/bottomrightbg.svg';
 
 const Portfolio = styled.section`
-   width: 100%;
-   background: none;
-   background: url(${backgroundImageTop}),  url(${backgroundImage});
+    width: 100%;
+    background: url(${backgroundImage}), radial-gradient(circle at 40% -20%, #440097 2%, rgba(48,10,92,1) 31%, rgba(48,10,92,0.2) 95%);
     background-color: #29004f;
     background-attachment: fixed, fixed;
     background-position: 150% 10%, center;
-    background-size: cover, cover;
-   background-position: center center, 0% 0%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   overflow-x: hidden;
+    background-size: 150%, cover;
+    background-position: center center, 0% 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
 `;
 
 const HeaderSection = styled.header`
@@ -38,16 +36,15 @@ const HeaderSection = styled.header`
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     align-items: center;
-    justify-items: end;
+    justify-items: center;
     width: 90%;
     max-width: 2000px;
-    min-height: 65vh;
+    min-height: 87vh;
     column-gap: 2rem;
-    margin-top: 100px;
 
     @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr; 
-        min-height: 60vh;
+        width: 85%;
     }
 `;
 
@@ -100,6 +97,7 @@ const Dev = () => {
     //       window.removeEventListener('scroll', handleScroll);
     //     };
     //   }, []);
+    
 
 
     return (

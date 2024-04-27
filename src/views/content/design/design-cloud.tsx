@@ -80,14 +80,13 @@ const CloudItem = styled.span<CloudItemProps>`
         width: 12vw;
         height: 5vh;
         font-family: 'Roboto-Regular';
-        font-size: 1%.25;
+        font-size: .9vw;
         color: #fff;
         letter-spacing: 0.15rem;
         text-transform: uppercase;
         animation: ${({$isAnimated}) => $isAnimated ? 'cloudpulse 1s ease-in-out' : 'none' };
         transition: all 2s ease;
-        background-color: rgba(58, 8, 108, 0.9);
-        border: 0px solid #3c1c76;
+        background-color: #4400979d;
 
 
         @keyframes cloudpulse {

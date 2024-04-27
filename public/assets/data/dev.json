@@ -16,7 +16,7 @@
       "tech": [
         "CSS", "html5", "react", "json", "typescript"  
       ],
-      "description": "This portfolio application is built using the NodeJS environment with React frontend and incorporates many common functions of React such as functional components and hooks.",
+      "description": "This portfolio application was built using the Nodejs environment with React frontend and incorporates many common functions of React such as functional components, hooks, state, and libraries.",
       "link": "/",
       "github": "https://github.com/mcgmark/2023-React-Portfolio"
     },
@@ -39,7 +39,7 @@
       "tech": [
         "CSS", "html5", "mean", "angular", "RESTful API", "mongodb", "nodejs", "express", "chartsJS", "backend", "frontend", "json", "typescript"  
       ],
-      "description": "Website MEAN stack CRUD application to display database data using different methods such as charts and graphs. This app features full CRUD for user authentication and site data.Running on the NodeJs environment with an Angular frontend and Express backend RESTful API. The application incorporates user authentication and authorization. This application incorporates popular libraries such as ChartsJs to display data, and passport for authentication. This app was created for a Georgian College course.",
+      "description": "Website MEAN stack CRUD application to display database data using different methods such as tables, charts, and graphs. This app features full CRUD for user authentication and site data. Running on the Nodejs environment with an Angular frontend and Express API. The application incorporates user authentication and authorization using Passport and tokens. This application incorporates popular libraries such as ChartsJs to display data, and passport for authentication. This was built for a Georgian College course.",
       "link": "http://mcgmark-001-site4.dtempurl.com/",
       "github": "https://github.com/mcgmark/Rental-Data-Dashboard"
     },
@@ -63,7 +63,7 @@
       "tech": [
         "javascript", "express" , "RESTful API", "handlebars", "socketIO", "mongo", "css", "html5", "passport", "nodejs", "frontend", "backend", "json", "RESTful" 
       ],
-      "description": "Website application that allows users to create and share live polls. This application incorporates both frontend and backend javascript development. The poll voting is automatically live updated using web sockets. LivePoll is built on the Node.js environment using ExpressJS. The UI for the site is created using the Handlebars library. The website uses an Express server for the CRUD RESTful API. The app incorporates user authentication and authorization. This app was created for a Georgian College course.",
+      "description": "Website application that allows users sign up and create live polls. This application incorporates both frontend and backend javascript development. The poll voting is automatically live updated using web sockets. LivePoll is built on the Nodejs environment using Express. The UI for the site is created using the Handlebars library. The website uses an Express server for the API. The app incorporates user authentication and authorization. This was built for a Georgian College course.",
       "link": "http://mcgmark-001-site3.dtempurl.com/",
       "github": "https://github.com/mcgmark/LivePoll-App"
     },
@@ -84,7 +84,7 @@
       "tech": [
         "asp.net", "javascript", "bootstrap", "MsSQL", "C#", "frontend", "backend", "JSON", "RESTful API"
       ],
-      "description": "GeoMarker allows users to create and view saved locations on a map. GeoMarker built on the ASP.Net platform and implements full CRUD, user authentication/authorization, MsSQL database, JSON API, and Bing Map API implementation using Javascript. Bootstrap was used to create the responsive layout. This app was created for a Georgian College course.",
+      "description": "GeoMarker allows users to sign up and save locations on a map. This application is built on the C# ASP.Net platform and implements full CRUD, user authentication/authorization, MsSQL database, JSON API, and Bing Map API implementation using Javascript. Bootstrap was used to create the responsive interface. This was built for a Georgian College course.",
       "link": "http://mcgmark-001-site1.dtempurl.com/",
       "github": "https://github.com/mcgmark/GeoMarker-App"
     },
@@ -102,7 +102,7 @@
       "tech": [
         "CSS", "html5", "javascript", "frontend"
       ],
-      "description": "Recreation of the retro Storymaker toy. This application was created using Javascript fundamentals such as objects, variables, functions and iterative loops. Like the real toy the app uses the user's browser text-to-speech to recreat the real toy experience. This applicaiton was created for a Georgian College course.",
+      "description": "Application to recreate the experience of the retro talking Storymaker toy. This application was created using Javascript fundamentals such as objects, variables, functions and iterative loops. Like the real toy the app uses the user's browser text-to-speech to recreat the real toy experience. This was built for a Georgian College course.",
       "link": "/assets/sites/storymaker-app/",
       "github": "https://github.com/mcgmark/storymaker-toy-js"
     },
@@ -117,7 +117,7 @@
       "tech": [
         "bootstrap", "html5", "frontend"
       ],
-      "description": "Website layout created using Bootstrap to demonstrate using the css library to create a responsive layout using Bootstrap components. This is a Georgian College class assignment.",
+      "description": "Website layout created using Bootstrap to demonstrate using the library to create a responsive layout using Bootstrap components. This was built for a Georgian College course.",
       "link": "/assets/sites/bootstrap-site",
       "github": "https://github.com/mcgmark/bootstrap-site"
     },
@@ -131,7 +131,7 @@
       "tech": [
         "css", "html5", "frontend" 
       ],
-      "description": "This is a responsive website design using CSS. This is a Georgian College class assignment.",
+      "description": "Website layout using CSS focusing on the grid layout feature of CSS. This was built for a Georgian College course.",
       "link": "/assets/sites/jgarden-site",
       "github": "https://github.com/mcgmark/responsive-grid-site"
     },
@@ -147,7 +147,7 @@
       "tech": [
         "css", "html5", "frontend" 
       ],
-      "description": "This responsive website layout is a recreation/clone of an existing apparel store website built using CSS and HTML. This is a Georgian College class assignment.",
+      "description": "Recreation of an existing responsive e-commerce website layout. This website was built using fundamental CSS and HTML layout techniques. This was built for a Georgian College course.",
       "link": "/assets/sites/marks-site",
       "github": "https://github.com/mcgmark/ecommerce-layout-recreation"
     },
@@ -161,7 +161,7 @@
       "tech": [
         "CSS", "html5", "frontend" 
       ],
-      "description": "Responsive website layout created using CSS and HTML. This is a Georgian College class assignment.",
+      "description": "Responsive website layout created using fundamental CSS and HTML layout techniques. This was built for a Georgian College course.",
       "link": "/assets/sites/ohhenry-site",
       "github": "https://github.com/mcgmark/simple-css-layout"
     },
@@ -175,7 +175,7 @@
       "tech": [
         "CSS", "html5", "frontend" 
       ],
-      "description": "Responsive website layout. This is a Georgian College class assignment.",
+      "description": "Responsive website layout incorporating creative use of typography. This was built for a Georgian College course.",
       "link": "/assets/sites/poppins-site",
       "github": "https://github.com/mcgmark/simple-css-layout-2"
     },
@@ -189,7 +189,7 @@
       "tech": [
         "javascript", "html5", "css", "frontend" 
       ],
-      "description": "Website design used to demonstate the intersection observer being used to animate a table of contents menu for a website. This is a Georgian College class assignment.",
+      "description": "Website to demonstate the Javascript Intersection Observer being used to animate a menu component. This was built for a Georgian College course.",
       "link": "/assets/sites/observermenu-component",
       "github": "https://github.com/mcgmark/intersection-observer-menu"
     },
@@ -202,7 +202,7 @@
       "tech": [
         "css", "html5", "frontend"
       ],
-      "description": "Website design created using CSS to replicate a magazine cover to display popular CSS techniques. This is a Georgian College class assignment.",
+      "description": "Website design that replicates the look of a magazine cover. Created using fundamental CSS and HTML layout techniques. This was built for a Georgian College course.",
       "link": "/assets/sites/magcover-site",
       "github": "https://github.com/mcgmark/magazine-css-layout"
     },
@@ -217,7 +217,7 @@
       "tech": [
         "CSS", "html5", "jquery", "frontend" 
       ],
-      "description": "Website tabs layout to demonstrate popular jquery animation functions.",
+      "description": "Website tabbed layout to demonstrate common JQuery animation functions. This was built for a Georgian College course.",
       "link": "/assets/sites/tabs-component",
       "github": "https://github.com/mcgmark/jquery-animated-tabs"
     },
@@ -231,7 +231,7 @@
       "tech": [
         "css", "html5", "frontend"
       ],
-      "description": "Big dropdown menu to demonstrate popular CSS layout techniques. This is a Georgian College class assignment.",
+      "description": "Big dropdown menu to demonstrate popular CSS and HTML layout techniques. This was built for a Georgian College course.",
       "link": "/assets/sites/bigmenu-component",
       "github": "https://github.com/mcgmark/bigmenu-component"
     },
@@ -246,7 +246,7 @@
       "tech": [
         "jquery", "CSS", "HTML5", "frontend"
       ],
-      "description": "Animated toggle button to demonstrate popular functions of JQuery using css classes. This is a Georgian College class assignment.",
+      "description": "Animated toggle button to demonstrate popular functions of JQuery using css classes. This was built for a Georgian College course.",
       "link": "/assets/sites/anibutton-component",
       "github": "https://github.com/mcgmark/jquery-animated-button"
     }

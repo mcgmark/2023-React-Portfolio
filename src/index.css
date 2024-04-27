@@ -96,7 +96,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 @keyframes slideTexter {
     0% {
-        transform: translateY(-20px);
+        transform: translateY(-10px);
     }
     100% {
         transform: translateY(0px);
@@ -138,6 +138,11 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.fade-in-words span.last-element {
-  color:#88FF00;
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

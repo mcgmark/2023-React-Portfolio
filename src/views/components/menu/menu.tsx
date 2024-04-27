@@ -5,11 +5,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCode, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-import markImage from '../../assets/images/mark.png'
+import markImage from '../../assets/images/mark.png';
+
+import markLogoImg from '../../assets/images/mark-logo.svg';
 
 
 type MobileMenuProps = {
-    $showmenu: boolean;
+    $showMenu: boolean;
     menuButtonClick: () => void;
 }
 
@@ -39,7 +41,8 @@ const MenuContainer = styled.nav<MenuContainerProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => (props.$isScrolled ? 'rgba(62, 4, 119, 0.95)' : 'none')};
+    background-color: ${(props) => (props.$isScrolled ? '#440097bc' : 'none')};
+    backdrop-filter: ${(props) => (props.$isScrolled ? 'blur(10px)' : 'none')};
     z-index: 12001;
     border-bottom: ${(props) => (props.$isScrolled ? '4px solid rgba(255, 255, 255, 0.025)' : '4px solid rgba(255, 255, 255, 0.0)')};
     transition: all 0.2s ease;
@@ -56,7 +59,7 @@ const MenuContainerInner = styled.div`
 const NameLogo = styled.span<MenuContainerProps>`
     justify-self: start;
     font-family: Rubik;
-    z-index: 12000;
+    z-index: 12005;
     font-size: ${(props) => (props.$isScrolled ? '1rem' : '1rem')};
     text-transform: uppercase;
     cursor: pointer;
@@ -69,28 +72,24 @@ const NameLogo = styled.span<MenuContainerProps>`
 
 const MobileMenuContainer = styled.div<MobileMenuProps>`
     box-sizing: border-box;
+    visibility: ${(props) => (props.$showMenu ? 'visible' : 'hidden')};
+    /* padding-top: ${(props) => (props.$showMenu ? '0px' : '40px')}; */
     display: flex;
     flex-direction: column;
     position: fixed;
+    align-items: center;
     top: 0px;
-    background: rgba(41, 37, 45, 0.7);
+    background: radial-gradient(circle at 30% -30%, #440097 2%, rgba(48,10,92,1) 31%, rgba(48,10,92,0.2) 95%);
     background-repeat: no-repeat;
-    background-position: left top;
-    backdrop-filter: blur(25px);
+    background-position: 100% 100%;
+    backdrop-filter: blur(15px);
     z-index: 12001;
-    right: ${(props) => (props.$showmenu ? "0%" : "-100%")};
-    transition: all 500ms linear;
     width: 100%;
-    padding: 0px 20px;
-    max-width: 600px;
     height: 100vh;
     overflow-y: auto;
-
-    @media (min-width: 800px){
-        border-left: 5px solid rgba(163, 101, 255, 0.066);
-        border-right: 5px solid rgba(163, 101, 255, 0.066);      
-        padding: 0px 20px;
-    }
+    opacity: ${(props) => (props.$showMenu ? 1 : 0)};
+    top: ${(props) => (props.$showMenu ? '0px' : '-100%')};
+    transition: all 300ms ease-in-out;
 
     &::-webkit-scrollbar {
         width: .15rem;  /* Adjust as needed */
@@ -105,67 +104,126 @@ const MobileMenuContainer = styled.div<MobileMenuProps>`
         background-color: #59ff00;  /* Color on hover */
     }
 
+    &.fader-enter {
+    opacity: 0;
+    }
+
+    &.fader-enter-active {
+        opacity: 1;
+        transition: all 300ms;
+    }
+
+    &.fader-exit {
+        opacity: 1;
+    }
+
+    &.fader-exit-active {
+        opacity: 0;
+        transition: all 300ms;
+    }
+
 `;
 
 const MobileMenuContent = styled.div`
+    position: relative;
+    top: 100px;    
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 20px;
-    position: relative;
-    top: 50px;       
+    width: 90%;
+    max-width: 2000px;
+    padding-bottom: 100px;
+    opacity: 1;
+    user-select: none;
+
+    &.faderr-enter {
+    transform: translateY(100px);
+
+    }
+
+    &.faderr-enter-active {
+        transform: translateY(0px);
+        transition: all 300ms;
+
+    }
+
+    &.faderr-exit {
+        transform: translateY(0px);
+    }
+
+    &.faderr-exit-active {
+        transform: translateY(100px);
+        transition: all 300ms;
+    }
+`;
+
+const MarkLogo = styled.img`
+    display: block;
+    height: 180px;
+    width: auto;
+    align-self: flex-start;
+    margin-bottom: 20px;
+`;
+
+const MobileMenuOption = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &:nth-of-type(3) {
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 20px;
+        width: fit-content;
+
+        @media (min-width: 600px) {
+            flex-direction: row;
+            gap: 40px;
+        }
+
+    }
 `;
 
 const MobileMenuButton = styled.h2<MobileMenuButtonProps>`
     font-family: 'Oswald';
-    font-size: 3rem;
+    font-size: 2.75rem;
     cursor: pointer;
     transform: rotate(-2deg);
+    transform-origin: left;
+    width: fit-content;
 
     &.current {
-        position: relative;
-        color: #6200ff;
+        color: #7300ff;
+    }
+    &.current:hover {
+        color: #7300ff;
     }
 
     &.current::after {
-    content: "+"; 
+    content: "+HERE"; 
     position: absolute;
-    top: 75%; 
-    right: -5px; 
-    transform: rotate(90deg) translateX(-60%);
+    top: 45px; 
+    right: -35px; 
     color: #9dffdb; 
     font-size: 1rem; 
   }
 
   &:hover {
-        color: #771be0;
+        color: #00ffa6;
   }
-`;
-
-const MobileMenuHeading = styled.h2`
-    font-family: 'Oswald';
-    font-size: 2rem;
-
 `;
 
 const MobileMenuParagraph = styled.p`
     font-family: 'Rubik';
     font-weight: 400;
     width: 100%;
-    max-width: 500px;
     line-height: 160%;
     font-size: 1rem;
     overflow: hidden;
     transition: height .5s ease-in-out;
     color: #bebebe;
-    border-bottom: 5px solid rgba(93, 93, 93, 0.3);
     padding-bottom: 30px;
-
-    &:last-child {
-        border-bottom: 0px;
-        margin-bottom: 100px;
-    }
+    max-width: 700px;
 `;
 
 const LargeAwesomeIcon = styled(FontAwesomeIcon)<MenuIconStyleProps>`
@@ -175,6 +233,7 @@ const LargeAwesomeIcon = styled(FontAwesomeIcon)<MenuIconStyleProps>`
     background-color: ${(props) => (props.$showMenu ? '#ffffff14' : 'rgb(255,255,255,0)')}; ;
     border-radius: 100px;
     padding: .75rem .92rem;
+
     cursor: pointer;
     z-index: 12002;
 
@@ -193,53 +252,55 @@ const MenuIcon = React.forwardRef<SVGSVGElement, MenuIconProps>(({ $showMenu, on
 });
 
 
-const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showmenu, menuButtonClick }, ref) => {
+const MobileMenu = React.forwardRef<HTMLDivElement, MobileMenuProps>(({ $showMenu, menuButtonClick }, ref) => {
 
     const location = useLocation();
 
     const navigate = useNavigate();
 
+    const mobileMenuRef = useRef(null);
+
     const loadPortfolio = (route: string) => {
-        navigate(route);
+        if (location.pathname !== route) {navigate(route)};
     };
 
     return (
-        <MobileMenuContainer $showmenu={$showmenu} ref={ref} menuButtonClick={menuButtonClick}>
-            <MobileMenuContent>    
-            <MobileMenuButton
-                className={location.pathname === '/design' ? 'current' : ''}
-                onClick={() => {loadPortfolio('/design'); menuButtonClick();}}
-            >
-                    <FontAwesomeIcon icon={faPaperPlane} />
-                    DESIGN
-                </MobileMenuButton>
-                <MobileMenuParagraph>
-                    Print and Web design I have experience designing everything from flyers to websites.
-                </MobileMenuParagraph>
-                
-                <MobileMenuButton
-                    className={location.pathname === '/dev' ? 'current' : ''}
-                    onClick={() => {loadPortfolio('/dev'); menuButtonClick();}}
-                >
-                    <FontAwesomeIcon icon={faCode} />
-                    DEVELOPMENT
-                </MobileMenuButton>
-                <MobileMenuParagraph>
-                    Frontend and backend web development I have experience building web applications from start to finish. 
-                </MobileMenuParagraph>
-                <MobileMenuHeading
-                    onClick={() => {return false}}
-                >
-                    ABOUT MARK
-                </MobileMenuHeading>
-                <MobileMenuParagraph>
-                40, living in Barrie, Ontario, I have years of experience related to computers, marketing, graphic design, and web development. Recently I graduated from Georgian College, on the Dean's List, and have spent the last 3 years learning the fundamentals of web development. 
-                <br /><br />
-                The majority of my experience comes from designing everything related to marketing a business; Mailout flyers, websites, print ads, web ads, printed tshirts, posters, cnc cutting/engraving, and more.
-                <br /><br />
-                I am currently seeking a full-time opportunity related to graphic design for marketing and/or web development.
-                </MobileMenuParagraph>
-            </MobileMenuContent>
+        <MobileMenuContainer $showMenu={$showMenu} ref={ref} menuButtonClick={menuButtonClick}>
+                <MobileMenuContent>  
+                    <MobileMenuOption>
+                    <MobileMenuButton
+                        className={location.pathname === '/design' ? 'current' : ''}
+                        onClick={() => {loadPortfolio('/design'); menuButtonClick();}}
+                    >
+                        <FontAwesomeIcon icon={faPaperPlane} />
+                        DESIGN
+                    </MobileMenuButton>
+                    <MobileMenuParagraph>
+                        With my years of graphic design experience I've got you covered for all your business marketing needs.
+                    </MobileMenuParagraph>
+                    </MobileMenuOption>  
+                    <MobileMenuOption>  
+                    <MobileMenuButton
+                        className={location.pathname === '/dev' ? 'current' : ''}
+                        onClick={() => {loadPortfolio('/dev'); menuButtonClick();}}
+                    >
+                        <FontAwesomeIcon icon={faCode} />
+                        DEVELOPMENT
+                    </MobileMenuButton>
+                    <MobileMenuParagraph>
+                        I've got a solid background in the fundamentals of frontend web development, with hands-on experience in building web applications from start to finish.</MobileMenuParagraph>
+                    </MobileMenuOption>  
+                    <MobileMenuOption>  
+                    <MarkLogo src={markLogoImg}/>                   
+                    <MobileMenuParagraph style={{paddingTop: 8, fontSize: 15}}>
+                    40, living in Barrie, Ontario, I have many years of experience related to computers, marketing, graphic design, and web development. Recently I graduated from Georgian College, on the Dean's List, and have spent the last 3 years learning the fundamentals of web development. 
+                    <br /><br />
+                    The majority of my experience comes from designing everything related to marketing a business such as mailout flyers, websites, print ads, logos, merchandise, and more.
+                    <br /><br />
+                    Hire Me! I am currently seeking a full-time opportunity related to graphic design for marketing and/or web development.
+                    </MobileMenuParagraph>
+                    </MobileMenuOption>  
+                </MobileMenuContent>
         </MobileMenuContainer>
     );
 });
@@ -305,7 +366,7 @@ const Menu = () => {
                     <NameLogo onClick={() => goHome('/')} $isScrolled={isScrolled} >Mark McGuigan<wbr/> {location.pathname === '/dev' ? ': DEV' : location.pathname === '/design' ? ': DESIGN' : ''}</NameLogo>
                     <MenuIcon $showMenu={showMenu} onClick={menuButtonClick} ref={menuButtonRef}/>
                 </MenuContainerInner>
-                <MobileMenu $showmenu={showMenu} menuButtonClick={menuButtonClick} ref={menuRef} />
+                    <MobileMenu $showMenu={showMenu} menuButtonClick={menuButtonClick} ref={menuRef} />
             </MenuContainer>
         </>
     );

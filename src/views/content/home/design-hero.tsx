@@ -45,6 +45,7 @@ const RocketManIMG = styled.img<ImageProps>`
     top: ${props => props.top};  
     left: ${props => props.left}; 
     animation: ${rotate} 27s infinite alternate-reverse ease-in-out; 
+    scale: 0.9;
 
     @media (min-width: 1000px){
         display: block;

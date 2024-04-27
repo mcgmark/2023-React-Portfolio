@@ -21,28 +21,29 @@ type PortfolioFilterButtonProps = {
 
 
 const PortfolioContainer = styled.section`
-    width: 100%;
+    width: 90%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #380669b9;
-    border-radius: 20vw 0px 0px 0px;
+    background-color: rgba(107, 2, 236, 0.274);
+    border-radius: 15vw 15vw 20px 20px;
     padding: 50px;
+    transition: all 500ms ease;
 `;
 
 const PortfolioInner = styled.section`
     display: flex;
     flex-direction: column;
-    width: 95%;
-
+    width: 97%;
+    margin-bottom: 50px;
 `;
 
 const PortfolioHeadingContainer = styled.section`
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 30px;
+    gap: 40px;
     margin-top: 30px;
     margin-bottom: 40px;
 `;
@@ -80,17 +81,18 @@ const FilterButtonsContainer = styled.section`
     align-self: center;
 
     @media (min-width: 815px) {
-        background-color: rgba(36, 36, 36, 0.2);
+        background-color: rgba(36, 36, 36, 0.1);
         flex-direction: row;
         max-width: 1000px;
         border-radius: 80px;
+        border: 1px solid #ffffff16;
     }
 `;
 
 const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         border-radius: 45px;
         background-color: rgb(41, 36, 36);
-        border: ${({ $selected }) => $selected ? '3px solid rgb(102, 6, 180)' : '3px solid rgb(51, 51, 53)'};
+        border: ${({ $selected }) => $selected ? '3px solid rgb(255, 217, 0)' : '3px solid rgb(51, 51, 53)'};
         width: 100%;
         height: 55px;
         font-family: 'Roboto-Regular';
@@ -102,7 +104,7 @@ const PortfolioFilterButton = styled.button<PortfolioFilterButtonProps>`
         cursor: pointer;
         transition: all .3s ease;
         animation: ${({ $selected }) => $selected ? 'pulse 0.3s 1' : 'none'}; 
-        box-shadow: ${({ $selected }) => $selected ? '0px 0px 10px rgba(119, 0, 255, 0.5)' : ''};
+        box-shadow: ${({ $selected }) => $selected ? '0px 0px 10px rgb(255, 217, 0)' : ''};
         
         @media (min-width: 1000px) {
             flex-direction: row;
@@ -137,7 +139,7 @@ const PortfolioItemsContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-auto-flow: row; 
-    grid-gap: 0px; 
+    grid-gap: 15px; 
   }
 
   @media (min-width: 1800px){
@@ -156,11 +158,11 @@ const PortfolioItem = styled.div`
     background-size: 160%;
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px solid #424242;
+    border: 2px solid #424242;
     transition: all 300ms ease-in-out;
-    /* border-radius: 25px; */
     cursor: pointer;
     animation: PortfolioItemScale 0.1s 1 forwards ease-in-out;
+    box-shadow: 10px 10px 50px #15012553;
 
     @media (min-width: 580px) {
         background-size: 113%;
@@ -205,17 +207,18 @@ const PortfolioItemText = styled.div`
         bottom: 0px;
         height: 100%;
         backdrop-filter: blur(10px);
-        background: rgba(35, 35, 35, 0.8);
+        background: rgba(255, 255, 255, 0.7);
     }  
 `;
 
 const PortfolioItemDescription = styled.p`
-    font-family: 'Acumin-thin';
-    font-size: 1.3rem;
+    font-family: 'Roboto-Regular';
+    font-size: 1.05rem;
     text-align: center;
     margin: 0rem 2px;
     text-transform: capitalize;
     opacity: 0;
+    color: #000;
 
     ${PortfolioItem}:hover & {
         opacity: 1
@@ -294,8 +297,33 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     const [hasMore, setHasMore] = useState<boolean>(true);
     const [nextPage, setNextPage] = useState<number>(0);
     const [pageSize, setPageSize] = useState<number>(8);
+    const [portfolioScroll, setPortfolioScroll] = useState<boolean>(false);
 
     const loadingRef = useRef<SVGSVGElement | null>(null);
+
+    const portfolioRef = useRef(null);
+
+    useEffect(() => {
+        const observerB = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Element is now visible in the viewport
+                setPortfolioScroll(true);
+                console.log(portfolioScroll);
+                // You can setScroll or trigger any action here
+              } else {
+                setPortfolioScroll(false);
+              }
+            });
+          },
+          { threshold: 0.25 } // Intersection threshold (0.5 means 50% of the element is visible)
+        );
+    
+        if (portfolioRef.current) {
+          observerB.observe(portfolioRef.current);
+        };
+      }, [portfolioScroll]);
 
     const totalItems = data.length;
     const totalDigitalItems = data.filter(item => item.category === "digital").length;
@@ -441,11 +469,11 @@ const DesignPortfolio: React.FC<Props> = ({ data }) => {
     };
 
     return(
-        <PortfolioContainer>
+        <PortfolioContainer ref={portfolioRef} style={portfolioScroll ? { borderRadius: 0 } : {}}>
             <PortfolioInner>
                 <PortfolioHeadingContainer>
                     <PortfolioHeading>Digital <span style={{position: 'relative', color:'rgb(255, 217, 0)', fontSize: '90%', bottom: '8px'}}>+</span> Print</PortfolioHeading>
-                    <PortfolioIntro>I have experience designing for web and print, take a look at these previous designs.</PortfolioIntro>
+                    <PortfolioIntro>I have experience designing for web and print, below is some of my work.</PortfolioIntro>
                     <FilterButtonsContainer>
                             <PortfolioFilterButton 
                                 $selected={selectedCategory === 'digital'}

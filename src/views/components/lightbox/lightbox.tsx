@@ -36,7 +36,7 @@ const LightboxModal = styled.div`
     transform: scale(150%);
     opacity: 0;
     min-height: 100vh;
-    background: rgba(8, 8, 8, 0.8);
+    background: #14002baa;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +45,7 @@ const LightboxModal = styled.div`
     cursor: pointer;
     transition: all .2s;
     animation: LightboxPop .25s 1 forwards;
-    backdrop-filter: blur(50px) contrast(50%) grayscale(100%);
+    backdrop-filter: blur(20px);
 
     @keyframes LightboxPop {
         100% {
@@ -64,8 +64,6 @@ const LightboxHeaderContent = styled.div<LightboxHeaderProps>`
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 0px 0px 0px 5px;
-
 
     @media (min-width: 600px) {
         padding: 0px 0px 0px 20px;
@@ -77,6 +75,7 @@ const LightboxHeaderTitle = styled.p`
     font-size: 12px;
     text-transform: uppercase;
     color: #ffffff;
+
 `;
 
 const LightboxHeader: React.FC<LightboxHeaderProps> = ({ $imageTitle, onClick, children }) => {
@@ -94,7 +93,7 @@ const LightboxImageContainer = styled.div<LightboxImageContainerProps>`
     box-sizing: border-box;
     overflow-y: auto;
     max-width: 100%;
-    margin-top: 45px;
+    margin-top: 10px;
     margin-bottom: 10px;
     border: 0px solid #333;
     
@@ -106,7 +105,7 @@ const LightboxImageContainer = styled.div<LightboxImageContainerProps>`
         background-color: #242424;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: rgb(157, 0, 255);
+        background-color: #440097;
         border-radius: 6px;
         height: 10px;
     }
@@ -121,8 +120,7 @@ const LightboxImage = styled.img<LightboxImageProps>`
 `;
 
 const ButtonsContainer = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     gap: 5px;
 `;
 
@@ -140,7 +138,7 @@ const LightboxButton = styled.div`
     &:nth-of-type(3)  {
         padding-left: 15px;
         padding-right: 15px;
-        background-color: var(--purple-bright);
+        background-color: #440097;
         color: #fff;     
     }
 `;

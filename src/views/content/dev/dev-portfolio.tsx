@@ -37,31 +37,30 @@ const PortfolioContainer = styled.section`
 const PortfolioInner = styled.section`
     max-width: 2000px;
     overflow: hidden;
+    width: 91%;
 `;
 
 const PortfolioItem = styled.div`
-box-sizing: border-box;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-items: center;
     opacity: 0;
     position: relative;
     box-sizing: border-box;
-    transition: all 0.15s ease-in-out;
-    border: 2px solid #33333375;
+    border: 0px solid #33333375;
     padding: 5px;
-    animation: slideTexter 2500ms forwards cubic-bezier(0.68, -0.55, 0.265, 2); 
     border-radius: 25px;
-    background: linear-gradient(129deg, #300a5cc1 0%, #300a5cd0 54%, #18033088 99%);
-    transition: all 500ms;
+    background: linear-gradient(200deg, #2e0b565e 0%, #300a5c 24%, #18033073 99%);
+    transition: all 0.15s ease-in-out;
+    animation: slideTexter 1000ms forwards linear; 
 
     @media (min-width: 1000px){
         padding: 15px 15px;
     }
 
     /* &:hover {
-        scale: 103%;
-        z-index: 500;
+        background: linear-gradient(200deg, #2e0b56 0%, #300a5c 24%, #180330 99%);   
     } */
 `;
 
@@ -73,22 +72,25 @@ const PortfolioItemText = styled.div`
 `;
 
 const ExpandButton = styled.p`
-    font-family: 'Rubik-Bold';
+    font-family: 'Roboto-Black';
     width: fit-content;
     color: #ffffff;
     margin-bottom: 15px;
+    margin-left: 15px;
     cursor: pointer;
-    font-size: 1%.5; /* or 1.25em */
-    color: #d2e103;
+    font-size: .9rem; /* or 1.25em */
+    color: #ffffff;
     text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #d2e103;
 
     &:hover {
-        color: #b36bff; 
+        color: #d2e103; 
     }
 `;
 
 const PortfolioItemTitle = styled.h3`
-    font-family: 'Roboto';
+    font-family: 'Oswald';
     font-size: 2rem;
     text-transform: capitalize;
     color: #ffffff;
@@ -96,25 +98,28 @@ const PortfolioItemTitle = styled.h3`
 `;
 
 const PortfolioItemType = styled.p`
-    font-family: 'Roboto';
-    font-size: .75rem;
+    font-family: 'Roboto-Regular';
+    font-size: 1rem;
     text-transform: capitalize;
     color: rgb(124, 124, 124);
     text-transform: uppercase;
-    border-bottom: 3px solid #6a0c98;
+    border-bottom: 6px solid #440097;
     padding-bottom: 10px;
 `;
 
 const PortfolioItemDescription = styled.p`
     font-family: 'Rubik';
-    font-size: 1.1rem;
-    line-height: 160%;
+    font-size: 1rem;
+    line-height: 180%;
     color: #ffffff;
-    margin: 20px 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     flex-grow: 1;
     height: 100%;
-    text-align: justify;
     hyphens: auto;
+    background-color: #15002784;
+    padding: 25px;
+    border-radius: 40px 0px 40px 0px;
 `;
 
 const FeaturesList = styled.ul`
@@ -123,25 +128,23 @@ const FeaturesList = styled.ul`
     justify-content: space-between;
     gap: 10px;
     list-style: none;
-    font-family: 'Arial-MT-Bold';
-    font-size: .7rem;
+    font-family: 'Rubik';
+    font-size: .75rem;
     text-transform: uppercase;
     color: #ffffff;
     letter-spacing: 0.06rem;
     padding: 20px;
     margin: 0px;
-    margin-bottom: 30px;
-    background-color: rgba(27, 6, 48, 0.636);
+    margin-bottom: 10px;
     border-radius: 15px;
-    border: 1px solid var(--purple-bright);
-    box-shadow: 8px 8px 0px var(--purple-bright);
+ 
 `;
 
 const FeaturesItem = styled.li`
     flex-grow: 1;
     padding: 10px 0px 0px 10px;
-    border-top: 1px dashed var(--purple-bright);
-    line-height: 160%;
+    border-top: 1px dashed #704e8854;
+    line-height: 120%;
 
     &:first-child {
         border: 0;
@@ -156,21 +159,20 @@ const PortfolioTechList = styled.ul`
     gap: 10px;
     list-style: none;
     font-family: 'Arial-MT-Bold';
-    font-size: .9rem;
+    font-size: .7rem;
     text-transform: uppercase;
     color: #ffffff;
-    letter-spacing: 0.06rem;
+    letter-spacing: 0.1rem;
     padding: 0px 0px;
     margin-top: 10px;
 `;
 
 const ListItem = styled.li`
     flex-grow: 1;
-    background-color: var(--purple-bright);
+    background-color: #440097;
     padding: 6px 15px;
     border-radius: 25px;
     text-align: center;
-    border: 3px solid var(--purple-bright);
 `;
 
 const StyledItemButton = styled.button`
@@ -180,7 +182,7 @@ const StyledItemButton = styled.button`
   color: #ffffff;
   padding: 15px 0px;
   border: none;
-  background: var(--purple-bright);
+  background: #440097;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -199,7 +201,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
     margin-left: 3px;
     color: #d2e103;
     text-shadow: #000;
-    transform: scale(80%);
+
 `;
 
 
@@ -274,7 +276,7 @@ const DevPortfolioItem: React.FC<PortfolioItemProps> = ({ index, item, isExpande
                 <PortfolioItemTitle>{item.title}</PortfolioItemTitle> 
                 <PortfolioItemType>{item.type}</PortfolioItemType>
                 <PortfolioItemDescription>{item.description}</PortfolioItemDescription>
-                {isExpanded ? (``):( <ExpandButton onClick={() => {handleExpand()}}>Expand <FontAwesomeIcon icon={faAngleDown} /></ExpandButton> )}   
+                {isExpanded ? (``):( <ExpandButton onClick={() => {handleExpand()}}><FontAwesomeIcon icon={faAngleDown} /> more</ExpandButton> )}   
                 {isExpanded && (
                     <FeaturesList>
                         {item.features.map((feature, innerIndex) => (
@@ -285,14 +287,12 @@ const DevPortfolioItem: React.FC<PortfolioItemProps> = ({ index, item, isExpande
                 <div style={{display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'stretch'}}>
                         <DevItemButton $externalUrl={item.link}>Launch</DevItemButton>
                     <DevItemButton $externalUrl={item.github}>Github</DevItemButton>
-                </div>
-                {isExpanded && (
-                    <PortfolioTechList>
-                        {item.tech.map((tech, index) => (
-                            <ListItem key={index}>{tech}</ListItem>
-                        ))}
-                    </PortfolioTechList>
-                )}
+                </div>               
+                <PortfolioTechList>
+                    {item.tech.map((tech, index) => (
+                        <ListItem key={index}>{tech}</ListItem>
+                    ))}
+                </PortfolioTechList>               
             </PortfolioItemText>
         </PortfolioItem>
     );

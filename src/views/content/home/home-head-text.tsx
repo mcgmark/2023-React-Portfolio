@@ -43,9 +43,8 @@ const HomeContentDiv = styled.div`
 
 const HomeHeading = styled.h1`
     font-family: 'Arial-MT-Bold';
-    font-size: 17vw;
+    font-size: 18vw;
     z-index:800;
-    text-transform: capitalize;
     margin-left: -10px;
     line-height: 110%;
 
@@ -54,7 +53,7 @@ const HomeHeading = styled.h1`
     }
 
     @media (min-width: 1500px) {
-        font-size: 8rem;
+        font-size: 9.5rem;
     }
 
     @media (min-width: 1930px) {
@@ -63,14 +62,14 @@ const HomeHeading = styled.h1`
 `;
 
 const HomeParagraph = styled.p`
-    float: right;
     font-family: 'Roboto-thin';
     font-size: 1.45rem;
     line-height: 150%;
     letter-spacing: 0.05rem;
-    max-width: 90%;
-    border-left: 3px solid #5500a4;
+    border-left: 3px solid #6200ff;
     padding: 20px 20px;
+    border-radius: 0px 0px 0px 0px;
+    max-width: 80%;
 
     @media (min-width: 1500px) {
         font-size: 1.2rem;
@@ -78,7 +77,7 @@ const HomeParagraph = styled.p`
 
     @media (min-width: 1930px) {
         font-size: 1.4rem;
-        max-width: 75%;
+        
     }
 `;
 
@@ -104,7 +103,7 @@ const HomeText: React.FC<HomeTextProps> = ( { onFontsLoaded }) => {
                 <HomeHeading>frontend<br /> designer<br />developer<br /></HomeHeading>
                 <ScrollDown>
                     <CircleArrowContainer src={AnglesDown} alt="Scroll Down" />
-                    <HomeParagraph>Graphic design or Web development I have experience doing a wide range of projects. Take a moment to browse my portfolio.</HomeParagraph>
+                    <HomeParagraph>Graphic design and web development I have experience doing a wide range of projects. Take a moment to browse my portfolio.</HomeParagraph>
             </ScrollDown>
         </HomeContentDiv>
     ): null;

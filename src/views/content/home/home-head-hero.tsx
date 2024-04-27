@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { useSpring, animated, easings } from '@react-spring/web';
 
 import rocket from '../../assets/images/rocket.png';
@@ -15,19 +15,11 @@ interface ImageProps {
     left: string;
 }
 
-const hover = keyframes`
-0%, 100% {
-    transform: translateY(0);
-}
-50% {
-    transform: translateY(-30px) perspective(1000px) rotateX(-6deg) rotateY(8deg) rotateZ(3deg);
-}
-`;
-
 // Rocket
 const RocketIMG = styled(animated.img)<ImageProps>`
     display: none;
     position: absolute;
+    scale: 1;
 
     @media (min-width: 1000px){
         top: -10px;
@@ -49,10 +41,10 @@ const SpacemanColorIMG = styled(animated.img)<ImageProps>`
     position: absolute;
     top: ${props => props.top};  
     left: ${props => props.left}; 
-    animation: ${hover} 12s infinite cubic-bezier(0.25, 0.46, 0.45, 1.94); 
 
     @media (min-width: 1500px) {
         display: block;
+        scale: 0.8;
     }
 `;
 
@@ -63,10 +55,10 @@ const SpacemanPlainIMG = styled(animated.img)<ImageProps>`
     z-index: 100;
     top: ${props => props.top};  
     left: ${props => props.left}; 
-    animation: ${hover} 9s 250ms infinite cubic-bezier(0.25, 0.46, 0.45, 1.94); 
 
     @media (min-width: 1800px) {
         display: block;
+        scale: 0.8;
     }
 `;
 
@@ -115,21 +107,72 @@ const HomeHeroCircle = styled(animated.div)<ImageProps>`
   position: absolute;
   top: ${props => props.top};  
   left: ${props => props.left};
-  border-width: 12.12px;
+  border-width: 10px;
   border-color: rgb(219, 219, 219);
   border-style: solid;
-  border-radius: 50%;
-  background-image: linear-gradient( 25deg, rgb(246,67,5) 3%, rgb(123,70,130) 30%, rgb(0,72,255) 50%, rgb(39,146,128) 63%, rgb(77,219,0) 88%);
-  width: 648.76px;
-  height: 648.76px;
+  border-radius: 50% 00% 50% 0%;
+  background-image: linear-gradient(
+    45deg,
+    rgb(246, 67, 5),
+    rgb(123, 70, 130), 
+    rgb(0, 72, 255), 
+    rgb(3, 109, 178),
+    rgb(39, 146, 128), 
+    rgb(255, 255, 0), 
+    rgb(246, 67, 5), 
+    rgb(123, 70, 130), 
+    rgb(0, 72, 255), 
+    rgb(3, 109, 178),
+    rgb(39, 146, 128),
+    rgb(255, 255, 0)
+  );
+  background-size:  1000% 1000%;  
+  animation: gradientAnimation 15s linear alternate infinite; 
+  width: 550px;
+  height: 550px;
   z-index: -1;
   justify-self: center;
-  box-shadow: 0px 0px 1000px rgb(157, 0, 255), 0px 0px 100px rgb(4, 255, 50);
 
   @media (min-width: 1500px) {
         display: block;
     }
 `;
+
+const AfterGlow = styled(animated.div)<ImageProps>`
+  display: none; 
+  position: absolute;
+  top: ${props => props.top};  
+  left: ${props => props.left};
+  border-radius: 50% 00% 50% 0%;
+  background-image: linear-gradient(
+    45deg,
+    rgb(246, 67, 5),
+    rgb(123, 70, 130), 
+    rgb(0, 72, 255), 
+    rgb(3, 109, 178),
+    rgb(39, 146, 128), 
+    rgb(255, 255, 0), 
+    rgb(246, 67, 5), 
+    rgb(123, 70, 130), 
+    rgb(0, 72, 255), 
+    rgb(3, 109, 178),
+    rgb(39, 146, 128),
+    rgb(255, 255, 0)
+  );
+  background-size:  1000% 1000%;  
+  animation: gradientAnimation 15s linear alternate infinite; 
+  width: 620px;
+  height: 620px;
+  z-index: -1;
+  justify-self: center;
+  /* box-shadow: 50px 50px 10px rgb(0, 0, 0), 0px 0px 50px rgb(255, 255, 255); */
+  filter: blur(60px);
+  opacity: 0.75;
+
+  @media (min-width: 1500px) {
+        display: block;
+    }
+  `;
 
 const HomeHeroContainer = styled(animated.div)`
     position: relative;
@@ -148,11 +191,42 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     const [isImage4Loaded, setIsImage4Loaded] = useState(false);
     const [heroLoaded, setHeroLoaded] = useState(false);
 
-
-    const animatedProps = useSpring({
-        from: {opacity: 0, transform: 'translateY(100px)'},
+    const animatedPropsTwo = useSpring({
+        from: {opacity: 1, transform: 'translateY(-40px)'},
         to: {opacity: 1, transform: 'translateY(0px)'},
-        config: { duration: 2000, easing: easings.easeOutBack },
+        config: { duration: 500, easing: easings.easeOutBack },
+        delay: 750
+    });
+
+    const animatedPropsThree = useSpring({
+        from: {transform: 'scale(0)'},
+        to: [
+            { transform: 'scale(1)'},
+        ],
+        config: { duration: 500, easing: easings.easeOutBack },
+        delay: 750
+    });
+
+    const spaceguyHover = useSpring({
+        from: { transform: 'translateY(100px) perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)' },
+        to: [
+          {transform: 'translateY(-20px) perspective(1000px) rotateX(-20deg) rotateY(18deg) rotateZ(5deg)'},
+          {transform: 'translateY(100px) perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)'},
+        ],
+        config: { duration: 24000, easing: easings.easeInOutBack },
+        loop: true, // Loop the animation indefinitely
+        
+    });
+
+    const spaceguyHoverT = useSpring({
+        from: { transform: 'translateY(0px) perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)' },
+        to: [
+          {transform: 'translateY(-80px) perspective(1000px) rotateX(-16deg) rotateY(18deg) rotateZ(3deg)'},
+          {transform: 'translateY(0px) perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)'},
+        ],
+        config: { duration: 16500, delay: 500, easing: easings.easeInOutBack },
+        loop: true, // Loop the animation indefinitely
+        
     });
 
     const preloadImage = (src: string, setIsLoaded: React.Dispatch<React.SetStateAction<boolean>>) => {
@@ -176,17 +250,18 @@ const HomeHero: React.FC<HomeHeroProps> = ( { onImagesLoaded }) => {
     }, [isImage1Loaded, isImage2Loaded, isImage3Loaded, isImage4Loaded, onImagesLoaded]);
 
     return heroLoaded ? (     
-        <HomeHeroContainer style={animatedProps}> 
+        <HomeHeroContainer> 
             <section>
-                <SpacemanColorIMG top="-50px" left="-30px" src={spacemanColorImage} alt="Logo" ></SpacemanColorIMG>
-                <SpacemanPlainIMG top="150px" left="630px" src={spacemanPlainImage} alt="Logo"></SpacemanPlainIMG>
-                <StarLargeIMG top="-90px" left="500px" src={starLarge} alt="star" ></StarLargeIMG>
-                <StarMediumIMG top="420px" left="-50px" src={starMedium} alt="star"></StarMediumIMG>
-                <StarMediumIMG top="500px" left="775px" src={starMedium} alt="star"></StarMediumIMG>
+                <SpacemanColorIMG style={spaceguyHover} top="-50px" left="-30px" src={spacemanColorImage} alt="Logo" ></SpacemanColorIMG>
+                <SpacemanPlainIMG style={spaceguyHoverT} top="150px" left="630px" src={spacemanPlainImage} alt="Logo"></SpacemanPlainIMG>
+                <StarLargeIMG  top="-100px" left="500px" src={starLarge} alt="star" ></StarLargeIMG>
+                <StarMediumIMG top="350px" left="0px" src={starMedium} alt="star"></StarMediumIMG>
+                <StarMediumIMG  top="450px" left="775px" src={starMedium} alt="star"></StarMediumIMG>
                 <StarSmallIMG top="-150px" left="200px" src={starSmall} alt="star"></StarSmallIMG>
-                <StarSmallIMG top="-200px" left="500px" src={starSmall} alt="star"></StarSmallIMG>
-                <RocketIMG top="-100px" left="-80px" src={rocket} alt="Logo"></RocketIMG>
-                <HomeHeroCircle top="-40px" left="90px"></HomeHeroCircle>
+                <StarSmallIMG   top="-200px" left="500px" src={starSmall} alt="star"></StarSmallIMG>
+                <RocketIMG  top="-100px" left="-50px" src={rocket} alt="Logo"></RocketIMG>
+                <HomeHeroCircle  top="-0px" left="160px"></HomeHeroCircle>
+                <AfterGlow  top="-20px" left="130px"></AfterGlow>
             </section> 
         </HomeHeroContainer>      
     ) : null;

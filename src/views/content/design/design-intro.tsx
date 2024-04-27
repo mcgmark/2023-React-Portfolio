@@ -11,7 +11,7 @@ const Section = styled.section`
 
 const IntroText = styled.h1`
     position: relative;
-    font-family: 'Acumin-thin';
+    font-family: 'Roboto-thin';
     text-transform: uppercase;
     font-size: 3rem;
     letter-spacing: -.3rem;
@@ -28,7 +28,7 @@ const IntroText = styled.h1`
         left: 0;
         width: 100%;
         height: 20px;
-        background-color: var(--purple-bright);
+        background-color: #440097;
         z-index: -1;
     }
 
@@ -71,7 +71,7 @@ const Intro = () => {
                 <IntroText>simple, but not</IntroText>
                 <IntroText>too simple.</IntroText>
             </div>
-            <Text>I enjoy combining typography and graphics to create engaging and informative marketing materials. Web or print I have experience designing everything your business needs. </Text>
+            <Text>Creating engaging and informative marketing materials that blend typography and graphics is my specialty. Whether it's for web or print, I bring years of experience to design everything your business needs. </Text>
         </Section>
     );
 }
